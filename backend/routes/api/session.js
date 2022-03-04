@@ -28,6 +28,7 @@ const validateLogin = [
 
 
 // Log in
+// /api/session
 router.post(
     '/',
     validateLogin,
@@ -51,7 +52,9 @@ router.post(
         });
     })
 );
+
 // Log out
+// /api/session
 router.delete(
     '/',
     (_req, res) => {
