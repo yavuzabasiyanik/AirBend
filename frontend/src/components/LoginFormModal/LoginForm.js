@@ -2,12 +2,16 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
+import { Modal } from "../../context/Modal";
+import Signup from '../SignupFormPage/SignUpForm'
 
 function LoginForm() {
   const dispatch = useDispatch();
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,6 +23,13 @@ function LoginForm() {
       }
     );
   };
+
+  const handleSubmit2 = (e) => {
+    e.preventDefault();
+
+    setShowModal(true)
+  }
+
 
   return (
     <div>
@@ -55,8 +66,21 @@ function LoginForm() {
             />
           </label>
           <button className="login" type="submit">Log In</button>
+
         </div>
       </form>
+      <div id="altbar">
+        <span className="dontHaveAnAccYet">
+          Don't have an account yet? Sign Up <span id="submitButtonInsideOfLogin" onClick={(e) => handleSubmit2(e)}>
+            here.
+          </span>
+        </span>
+        {showModal && (
+          <Modal onClose={() => setShowModal(false)}>
+            <Signup />
+          </Modal>
+        )}
+      </div>
     </div>
   );
 }

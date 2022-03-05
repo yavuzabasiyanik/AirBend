@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
+import { Modal } from "../../context/Modal";
+import LoginForm from "../LoginFormModal/LoginForm";
 import './Signup.css';
 
 function Signup() {
@@ -13,6 +15,7 @@ function Signup() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
   if (sessionUser) return <Redirect to="/" />;
 
@@ -28,6 +31,15 @@ function Signup() {
     }
     return setErrors(['Confirm Password field must be the same as the Password field']);
   };
+
+
+  const handleSubmit2 = (e) => {
+    e.preventDefault();
+
+    setShowModal(true)
+  }
+
+
 
   return (
     <div>
@@ -85,6 +97,18 @@ function Signup() {
           <button className="signup" type="submit">Sign Up</button>
         </div>
       </form>
+      <div id="altbarSignup">
+        <span className="dontHaveAnAccYet">
+          Have an account already? Log In <span id="logingbuttoninsideofsignup" onClick={(e) => handleSubmit2(e)}>
+            here.
+          </span>
+        </span>
+        {showModal && (
+          <Modal onClose={() => setShowModal(false)}>
+            <LoginForm />
+          </Modal>
+        )}
+      </div>
     </div>
   );
 }

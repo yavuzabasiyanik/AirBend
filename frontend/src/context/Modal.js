@@ -15,7 +15,7 @@ export function ModalProvider({ children }) {
 
   return (
     <>
-      <ModalContext.Provider value={value}>
+      <ModalContext.Provider value={{value,setValue}}>
         {children}
       </ModalContext.Provider>
       <div ref={modalRef} />
@@ -24,8 +24,10 @@ export function ModalProvider({ children }) {
 }
 
 export function Modal({ onClose, children }) {
-  const modalNode = useContext(ModalContext);
-  if (!modalNode) return null;
+  const {value} = useContext(ModalContext);
+  if (!value) return null;
+
+console.log(value);
 
   return ReactDOM.createPortal(
     <div id="modal">
@@ -34,6 +36,6 @@ export function Modal({ onClose, children }) {
         {children}
       </div>
     </div>,
-    modalNode
+    value
   );
 }

@@ -1,12 +1,12 @@
 header.login{
     display:flex;
-    align-items: center !important;
-    justify-content: center !important;
-    border-bottom: 1px solid #EBEBEB !important;
-    color: #222 !important;
-    font-size: 17px !important;
-    line-height: 20px !important;
-    font-weight: 650 !important;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #EBEBEB;
+    color: #222;
+    font-size: 17px;
+    line-height: 20px;
+    font-weight: 650;
     padding-bottom: 24px;
 }
 
@@ -33,12 +33,37 @@ button.login{
     height:40px;
     color:white;
     border: 0px;
-    display: block !important;
-    width: 100% !important;
-    min-width: 200px !important;
-    background-size: 200% 200% !important;
-    opacity: 1 !important;
+    display: block;
+    width: 100%;
+    min-width: 200px;
+    background-size: 200% 200%;
+    opacity: 1;
     font-size: 16px;
-    transition: opacity 1.25s ease 0s !important;
-    background-image: radial-gradient(circle at center center, #ff385c 0%, #e61e4d 27.5%, #e31c5f 40%, #d70466 57.5%, #bd1e59 75%, #bd1e59 100%) !important;
+    transition: opacity 1.25s ease 0s;
+    background-image: radial-gradient(circle at center center, #ff385c 0%, #e61e4d 27.5%, #e31c5f 40%, #d70466 57.5%, #bd1e59 75%, #bd1e59 100%);
+}
+
+#altbar{
+    margin-top: 8px;
+}
+.dontHaveAnAccYet{
+    color: #222;
+    font-size: 13px;
+    line-height: 16px;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+    font-weight: 400;
+}
+
+#submitButtonInsideOfLogin{
+    font-size: inherit;
+    font-family: inherit;
+    font-style: inherit;
+    font-variant: inherit;
+    line-height: inherit;
+    color: #222;
+    text-decoration: underline;
+    border-radius: 4px;
+    font-weight: 600;
+    text-align: inherit;
+    outline: none;
 }

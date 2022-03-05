@@ -42,3 +42,31 @@ button.signup{
     transition: opacity 1.25s ease 0s !important;
     background-image: radial-gradient(circle at center center, #ff385c 0%, #e61e4d 27.5%, #e31c5f 40%, #d70466 57.5%, #bd1e59 75%, #bd1e59 100%) !important;
 }
+
+
+
+#altbarSignup{
+    margin-top: 8px;
+}
+.dontHaveAnAccYet{
+    color: #222;
+    font-size: 13px;
+    line-height: 16px;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+    font-weight: 400;
+}
+
+
+#logingbuttoninsideofsignup{
+    font-size: inherit;
+    font-family: inherit;
+    font-style: inherit;
+    font-variant: inherit;
+    line-height: inherit;
+    color: #222;
+    text-decoration: underline;
+    border-radius: 4px;
+    font-weight: 600;
+    text-align: inherit;
+    outline: none;
+}
