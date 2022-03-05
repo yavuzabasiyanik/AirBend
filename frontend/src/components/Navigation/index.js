@@ -7,7 +7,7 @@ import LoginFormModal from '../LoginFormModal';
 import SignupFormPage from '../SignupFormPage';
 import './Navigation.css';
 
-function Navigation({ isLoaded }){
+function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
 
   let sessionLinks;
@@ -18,18 +18,18 @@ function Navigation({ isLoaded }){
   } else {
     sessionLinks = (
       <>
-        <LoginFormModal />
-        <SignupFormPage />
+        <NavLink exact to="/login">Log In</NavLink>
+        <NavLink exact to="/signup">Sign Up</NavLink>
       </>
     );
   }
 
-// There will alwasy be a hom link
+  // There will alwasy be a hom link
 
 
-// If user is loged in then dont show sign up and logged in shot the profile button
+  // If user is loged in then dont show sign up and logged in shot the profile button
 
-// If they are not logged in then take them to loginformodal
+  // If they are not logged in then take them to loginformodal
   return (
     <ul>
       <li>
