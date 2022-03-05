@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
+import SignupFormPage from '../SignupFormPage';
 import './Navigation.css';
 
 function Navigation({ isLoaded }){
@@ -18,11 +19,17 @@ function Navigation({ isLoaded }){
     sessionLinks = (
       <>
         <LoginFormModal />
-        <NavLink to="/signup">Sign Up</NavLink>
+        <SignupFormPage />
       </>
     );
   }
 
+// There will alwasy be a hom link
+
+
+// If user is loged in then dont show sign up and logged in shot the profile button
+
+// If they are not logged in then take them to loginformodal
   return (
     <ul>
       <li>
