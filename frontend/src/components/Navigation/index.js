@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
+import LoginSignUpButton from './LoginSignUpButton';
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
@@ -16,25 +17,21 @@ function Navigation({ isLoaded }) {
   } else {
     sessionLinks = (
       <>
-        <NavLink exact to="/login">Log In</NavLink>
-        <NavLink exact to="/signup">Sign Up</NavLink>
+      <LoginSignUpButton />
       </>
     );
   }
 
-  // There will alwasy be a hom link
-
-
+  // There will alwasy be a home link
   // If user is loged in then dont show sign up and logged in shot the profile button
 
   // If they are not logged in then take them to loginformodal
+
   return (
-    <ul>
-      <li>
+    <div id='header'>
         <NavLink exact to="/">Home</NavLink>
         {isLoaded && sessionLinks}
-      </li>
-    </ul>
+    </div>
   );
 }
 
