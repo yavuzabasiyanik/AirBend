@@ -44,7 +44,8 @@ button.login{
 }
 
 #altbar{
-    margin-top: 8px;
+    margin-top: 18px;
+    margin-bottom: 6px;
 }
 .dontHaveAnAccYet{
     color: #222;
@@ -66,4 +67,10 @@ button.login{
     font-weight: 600;
     text-align: inherit;
     outline: none;
+}
+
+#cookieMonster{
+    border:none;
+    background-color: white;
+    font-size: 20px;
 }

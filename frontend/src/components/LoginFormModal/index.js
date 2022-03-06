@@ -1,5 +1,5 @@
 // frontend/src/components/LoginFormModal/LoginForm.js
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Redirect } from "react-router-dom";
@@ -17,6 +17,7 @@ function LoginForm() {
 
   if (sessionUser) return <Redirect to="/" />;
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
@@ -28,6 +29,13 @@ function LoginForm() {
     );
   };
 
+
+  const cookieFunctionDemo = (e) => {
+    e.preventDefault();
+
+    dispatch(sessionActions.login({ credential: 'sifuhotman', password: 'password' }))
+
+  }
 
 
 
@@ -77,6 +85,10 @@ function LoginForm() {
             </NavLink>
           </span>
         </div>
+        <span className="dontHaveAnAccYet">
+          Click on the <span onClick={(e) => cookieFunctionDemo(e)}>cookie</span>, to login as the Demo user
+
+        </span>
       </div>
     </div>
   );

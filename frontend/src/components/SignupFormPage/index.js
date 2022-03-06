@@ -29,7 +29,12 @@ function Signup() {
     return setErrors(['Confirm Password field must be the same as the Password field']);
   };
 
+  const cookieFunctionDemo = (e) => {
+    e.preventDefault();
 
+    dispatch(sessionActions.login({ credential: 'sifuhotman', password: 'password' }))
+
+  }
 
   return (
     <div id="modal">
@@ -96,6 +101,10 @@ function Signup() {
           </span>
 
         </div>
+        <span className="dontHaveAnAccYet">
+          Click on the <span onClick={(e) => cookieFunctionDemo(e)}>cookie</span>, to login as the Demo user
+
+        </span>
       </div>
     </div>
 
