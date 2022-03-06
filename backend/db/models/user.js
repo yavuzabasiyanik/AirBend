@@ -87,7 +87,10 @@ module.exports = (sequelize, DataTypes) => {
 
 
   User.associate = function (models) {
-    // associations can be defined here
+    User.hasMany(models.Spot, { foreignKey: 'userId',onDelete: "cascade", foreignKeyConstraint: true })
+    User.hasMany(models.Review, { foreignKey: 'userId',onDelete: "cascade", foreignKeyConstraint: true })
+    User.hasMany(models.Image, { foreignKey: 'userId',onDelete: "cascade", foreignKeyConstraint: true })
+    User.hasMany(models.Booking, { foreignKey: 'userId',onDelete: "cascade", foreignKeyConstraint: true })
   };
 
   return User;
