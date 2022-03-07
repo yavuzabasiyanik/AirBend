@@ -49,7 +49,7 @@ function Signup() {
   }
 
   return (
-    <div id="modal">
+    <div id="modalSignUp">
       <div id="modal-content">
         <header className="signup">Sign Up</header>
         <form onSubmit={handleSubmit}>

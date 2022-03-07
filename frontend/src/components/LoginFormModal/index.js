@@ -18,6 +18,7 @@ function LoginForm() {
   if (sessionUser) return <Redirect to="/" />;
 
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
@@ -40,7 +41,7 @@ function LoginForm() {
 
 
   return (
-    <div id="modal">
+    <div id="modalLogIn">
       <div id="modal-content">
         <header className="login">Log in</header>
 
