@@ -46,6 +46,16 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {model: 'Users'}
       },
+      img1: {
+        allowNull: false,
+        type: Sequelize.TEXT
+      },
+      img2: {
+        type: Sequelize.TEXT
+      },
+      img3: {
+        type: Sequelize.TEXT
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
