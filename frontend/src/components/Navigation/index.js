@@ -1,12 +1,15 @@
 // frontend/src/components/Navigation/index.js
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { NavLink, Redirect, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import LoginSignUpButton from './LoginSignUpButton';
 
 function Navigation({ isLoaded }) {
+  const { search, setSearch } = useState('');
+  const [scroll, setScroll] = useState()
+  const history = useHistory();
   const sessionUser = useSelector(state => state.session.user);
 
   let sessionLinks;
@@ -17,20 +20,49 @@ function Navigation({ isLoaded }) {
   } else {
     sessionLinks = (
       <>
-      <LoginSignUpButton />
+        <LoginSignUpButton />
       </>
     );
   }
 
-  // There will alwasy be a home link
-  // If user is loged in then dont show sign up and logged in shot the profile button
+  useEffect(() => {
+    document.addEventListener("scroll", () => {
+      const scrollCheck = window.scrollY > 1
+      if (scrollCheck !== scroll) {
+        setScroll(scrollCheck)
+      }
+    })
+  })
 
-  // If they are not logged in then take them to loginformodal
+  const handleClicking = (e) => {
+    e.preventDefault();
+
+    history.push('/')
+
+  }
+
 
   return (
-    <div id='header'>
-        <NavLink exact to="/">Home</NavLink>
-        {isLoaded && sessionLinks}
+    <div className={scroll ? 'headerWhite' : 'header'}>
+      {scroll && (<div className='logoiconRed' onClick={(e) => handleClicking(e)} >
+        <p>AirBenD</p>
+      </div>)
+      }
+      {!scroll && (<div onClick={(e) => handleClicking(e)} className='logoiconWhite'>
+        <p>AirBenD</p>
+      </div>)
+      }
+      <div className='search-div'>
+
+        <input className="search"
+          type="text"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Start your search"
+        />
+        <img className='search-img' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaO-KtMrTzRRPDbYRZu8dIs5Gl6cfYCEZ4kA&usqp=CAU"></img>
+      </div>
+      {isLoaded && sessionLinks}
     </div>
   );
 }
