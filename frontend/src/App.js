@@ -1,7 +1,7 @@
 // frontend/src/App.js
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Route, Switch } from "react-router-dom";
+import { NavLink, Route, Switch } from "react-router-dom";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import LoginForm from "./components/LoginFormModal";
@@ -22,7 +22,11 @@ function App() {
       <Route path='/signup'>
         <Signup />
       </Route>
-    
+      <Route path='/spots'>
+        
+      </Route>
+
+
     </>
   );
 }
