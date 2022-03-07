@@ -1,14 +1,36 @@
 /* frontend/src/context/Modal.css */
-#modal {
-    position: fixed;
-    top: 0;
+#modalSignUp {
+    position: absolute;
+    top: 94px ;
     right: 0;
     left: 0;
     bottom: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: -1;
+    z-index: 500;
+  }
+  #modalLogIn {
+    position: absolute;
+    top: 0px ;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 500;
+  }
+  #modalBecomeAHost {
+    position: absolute;
+    top: 500px ;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 500;
   }
 
   #modal-background {
