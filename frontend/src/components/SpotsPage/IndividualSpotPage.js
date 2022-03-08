@@ -89,6 +89,7 @@ const IndividualSpotPage = () => {
                     <li key={idx}>{error}</li>
                 ))}
             </ul>
+            
 
         </div>
     )
