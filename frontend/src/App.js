@@ -8,6 +8,7 @@ import LoginForm from "./components/LoginFormModal";
 import Signup from "./components/SignupFormPage";
 import Spots from "./components/SpotsPage";
 import CreateSpotPage from "./components/SpotsPage/CreateSpotPage";
+import Home from "./components/Home";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -18,18 +19,23 @@ function App() {
   return (
     <>
       <Navigation isLoaded={isLoaded} />
-      <Route path='/login'>
-        <LoginForm />
-      </Route>
-      <Route path='/signup'>
-        <Signup />
-      </Route>
-      <Route exact path='/spots'>
-        <Spots />
-      </Route>
-      <Route path={'/spots/create'}>
-        <CreateSpotPage />
-      </Route>
+      <Switch>
+        <Route path='/login'>
+          <LoginForm />
+        </Route>
+        <Route path='/signup'>
+          <Signup />
+        </Route>
+        <Route exact path='/spots'>
+          <Spots />
+        </Route>
+        <Route path={'/spots/create'}>
+          <CreateSpotPage />
+        </Route>
+        <Route exact path={'/'}>
+          <Home />
+        </Route>
+      </Switch>
 
 
     </>

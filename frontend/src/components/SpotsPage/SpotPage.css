@@ -35,3 +35,17 @@
     display: flex;
     justify-content: space-between;
 }
+
+.plink{
+    color:black;
+    font-weight: bold;
+
+}
+
+.plink2{
+    color:black;
+}
+
+.lightSpotListPs{
+    color: rgba(0, 0, 0, 0.6)
+}
