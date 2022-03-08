@@ -44,8 +44,6 @@ function App() {
           <EditSpot />
         </Route>
       </Switch>
-
-
     </>
   );
 }

@@ -14,6 +14,7 @@ const IndividualSpotPage = () => {
     const history = useHistory();
     // const [reviewNum, setReviewNum] = useState(0);
     const dispatch = useDispatch();
+    const [errors, setErrors] = useState([]);
 
     useEffect(() => {
         dispatch(spotActions.getSpots())
@@ -36,10 +37,26 @@ const IndividualSpotPage = () => {
     }
 
 
-const handleDelete = (e) =>{
-    e.preventDefault();
+    const handleDelete = (e) => {
+        e.preventDefault();
 
-}
+        const payload = {
+            ...spots
+        }
+        setErrors([]);
+
+        dispatch(spotActions.deleteSpotThunk(payload)).catch(
+            async (res) => {
+                const data = await res.json();
+                if (data && data.errors) {
+                    setErrors(data.errors)
+                    return
+                };
+            }
+        );
+
+        history.push(`/spots`);
+    }
 
     return (
         <div className="individualBigDiv">
@@ -54,7 +71,7 @@ const handleDelete = (e) =>{
                         <pre> &middot; </pre>
                         <NavLink exact to='/spots/reviews'><p className="ozelP">{spots?.Reviews.length} reviews</p></NavLink>
                         <pre> &middot; </pre>
-                        <a target="_blank" href="https://www.airbnb.com/help/article/828/about-superhosts"> <p style={{fontWeight:"normal",textDecoration:"underline",color:"rgba(0,0,0,0.7)",fontSize:"14px"}}>Superhost</p></a>
+                        <a target="_blank" href="https://www.airbnb.com/help/article/828/about-superhosts"> <p style={{ fontWeight: "normal", textDecoration: "underline", color: "rgba(0,0,0,0.7)", fontSize: "14px" }}>Superhost</p></a>
                         <pre> &middot; </pre>
                         <p className="greyclasscountrystatecity">{spots?.city},{spots?.state},{spots?.country}</p>
                     </div>
@@ -66,7 +83,12 @@ const handleDelete = (e) =>{
                 <img className="smallImgs3" src={spots?.img3}></img>
             </div>
             <NavLink exact to={`/spots/${spots?.id}/edit`}><button>Edit</button></NavLink>
-            <button onClick={(e)=> handleDelete(e)}>Delete</button>
+            <button onClick={(e) => handleDelete(e)}>Delete</button>
+            <ul>
+                {errors.map((error, idx) => (
+                    <li key={idx}>{error}</li>
+                ))}
+            </ul>
 
         </div>
     )

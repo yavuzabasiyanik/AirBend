@@ -59,9 +59,33 @@ router.post('/', validateSpots, asyncHandler(async (req, res) => {
     res.json(spot);
 }))
 
+router.put('/:id', validateSpots, asyncHandler(async (req, res) => {
+    const id = req.params.id;
+
+    const spot = await Spot.findByPk(id);
+
+    await spot.update(req.body);
+    await spot.save();
+
+    res.json({spot});
+}));
 
 
+router.delete('/:id', asyncHandler(async (req, res) => {
+    const id = req.params.id;
 
+
+    // const spot = await Spot.findByPk(id,{
+    //     include: [Booking, Review]
+    // });
+
+    // await spot.Bookings[0].destroy();
+    // await spot.Reviews.destroy()
+
+    // await spot.destroy();
+
+    // res.json({id});
+}));
 
 
 

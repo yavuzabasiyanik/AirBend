@@ -1,5 +1,5 @@
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink, Route } from 'react-router-dom';
 import * as spotActions from "../../store/spots";
@@ -23,19 +23,22 @@ const months = [
     'Nov',
     'Dec',
 ]
+
 function Spots() {
 
     const dispatch = useDispatch();
-
-    const sessionUser = useSelector((state) => state.session.user);
-    const spotsObj = useSelector((state) => state.spotReducer.spots);
-    const spots = Object.values(spotsObj);
+    const [spot,setSpot] = useState();
 
     useEffect(() => {
         dispatch(spotActions.getSpots())
     }, [dispatch])
 
 
+    const sessionUser = useSelector((state) => state.session.user);
+    const spotsObj = useSelector((state) => state.spotReducer.spots);
+    const spots = Object.values(spotsObj);
+
+    
     return (
         <div className='spots-container'>
 

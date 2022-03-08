@@ -1,28 +1,53 @@
 import React, { useEffect, useState } from "react";
 import * as spotActions from "../../store/spots";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, Redirect, useHistory } from "react-router-dom";
+import { NavLink, Redirect, useHistory, useParams } from "react-router-dom";
 
 
 const EditSpot = () => {
-    const [name, setNameOfTheHouse] = useState("");
-    const [bedNum, setBedNum] = useState("");
-    const [city, setCity] = useState("");
-    const [state, setState] = useState("");
-    const [country, setCountry] = useState("");
-    const [address, setAddress] = useState("");
-    const [description, setDescription] = useState("");
-    const [img1, setImg1] = useState("");
-    const [price, setPrice] = useState("");
+
+
+
+    const { spotId } = useParams();
+
+    const spotsObj = useSelector((state) => state.spotReducer.spots);
+
+
+    const spots = spotsObj[spotId]
+
+    const [name, setNameOfTheHouse] = useState(spots?.name);
+    const [bedNum, setBedNum] = useState(spots?.bedNum);
+    const [city, setCity] = useState(spots?.city);
+    const [state, setState] = useState(spots?.state);
+    const [country, setCountry] = useState(spots?.country);
+    const [address, setAddress] = useState(spots?.address);
+    const [description, setDescription] = useState(spots?.description);
+    const [img1, setImg1] = useState(spots?.img1);
+    const [price, setPrice] = useState(spots?.price);
     const [errors, setErrors] = useState([]);
 
     const sessionUser = useSelector((state) => state.session.user);
     const history = useHistory();
     const dispatch = useDispatch();
 
+
     useEffect(() => {
         dispatch(spotActions.getSpots())
     }, [dispatch])
+
+    // useEffect(() => {
+
+
+    //         setNameOfTheHouse(spots?.name);
+    //         setBedNum(spots?.bedNum);
+    //         setCity(spots?.city);
+    //         setState(spots?.state);
+    //         setCountry(spots?.country);
+    //         setAddress(spots?.address);
+    //         setDescription(spots?.description);
+    //         setImg1(spots?.img1);
+    //         setPrice(spots?.price);
+    // }, [dispatch]);
 
 
     const handleSubmit = (e) => {
@@ -31,6 +56,7 @@ const EditSpot = () => {
 
 
         const payload = {
+            ...spots,
             address,
             city,
             state,
@@ -40,11 +66,11 @@ const EditSpot = () => {
             bedNum,
             price,
             img1,
-            userId: sessionUser.id,
         };
 
         setErrors([]);
-        dispatch(spotActions.createSpot(payload)).catch(
+
+        dispatch(spotActions.editSpotThunk(payload)).catch(
             async (res) => {
                 const data = await res.json();
                 if (data && data.errors) {
@@ -54,7 +80,7 @@ const EditSpot = () => {
             }
         );
 
-        history.push('/spots');
+        history.push(`/spots/${spotId}`);
     };
 
 
@@ -62,7 +88,7 @@ const EditSpot = () => {
     return (
         <div id="modalBecomeAHost">
             <div id="modal-content">
-                <header className="login">Become A Host</header>
+                <header className="login">Do you want to change something in house "{spots?.name}" ?</header>
 
                 <form onSubmit={handleSubmit}>
                     <div className="h3-form">
@@ -181,8 +207,8 @@ const EditSpot = () => {
                             Learn more.
                         </a>
                     </span>
-                    <span style={{display:"block"}} className="dontHaveAnAccYet">
-                       To go back to listings, click <NavLink  id="submitButtonInsideOfLogin" exact to='/spots' >
+                    <span style={{ display: "block" }} className="dontHaveAnAccYet">
+                        To go back to listings, click <NavLink id="submitButtonInsideOfLogin" exact to={`/spots/${spotId}`} >
                             Listings.
                         </NavLink>
                     </span>
