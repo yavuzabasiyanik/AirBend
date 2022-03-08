@@ -14,10 +14,10 @@ module.exports = (sequelize, DataTypes) => {
     img2: DataTypes.TEXT,
     img3: DataTypes.TEXT
   }, {});
-  Spot.associate = function(models) {
-    Spot.belongsTo(models.User, { foreignKey: 'userId' , onDelete: "cascade", foreignKeyConstraint: true })
-    Spot.hasMany(models.Booking, { foreignKey: 'spotId',onDelete: "cascade", foreignKeyConstraint: true})
-    Spot.hasMany(models.Review, { foreignKey: 'spotId',onDelete: "cascade", foreignKeyConstraint: true})
+  Spot.associate = function (models) {
+    Spot.belongsTo(models.User, { foreignKey: 'userId', onDelete: "cascade", hooks: true, foreignKeyConstraint: true })
+    Spot.hasMany(models.Booking, { foreignKey: 'spotId', onDelete: "cascade", hooks: true, foreignKeyConstraint: true })
+    Spot.hasMany(models.Review, { foreignKey: 'spotId', onDelete: "cascade", hooks: true, foreignKeyConstraint: true })
   };
   return Spot;
 };

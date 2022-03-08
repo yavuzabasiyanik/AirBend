@@ -15,15 +15,15 @@ const EditSpot = () => {
 
     const spots = spotsObj[spotId]
 
-    const [name, setNameOfTheHouse] = useState(spots?.name);
-    const [bedNum, setBedNum] = useState(spots?.bedNum);
-    const [city, setCity] = useState(spots?.city);
-    const [state, setState] = useState(spots?.state);
-    const [country, setCountry] = useState(spots?.country);
-    const [address, setAddress] = useState(spots?.address);
-    const [description, setDescription] = useState(spots?.description);
-    const [img1, setImg1] = useState(spots?.img1);
-    const [price, setPrice] = useState(spots?.price);
+    const [name, setNameOfTheHouse] = useState('');
+    const [bedNum, setBedNum] = useState(0);
+    const [city, setCity] = useState('');
+    const [state, setState] = useState('');
+    const [country, setCountry] = useState('');
+    const [address, setAddress] = useState('');
+    const [description, setDescription] = useState('');
+    const [img1, setImg1] = useState('');
+    const [price, setPrice] = useState(0);
     const [errors, setErrors] = useState([]);
 
     const sessionUser = useSelector((state) => state.session.user);
@@ -35,19 +35,20 @@ const EditSpot = () => {
         dispatch(spotActions.getSpots())
     }, [dispatch])
 
-    // useEffect(() => {
+    useEffect(() => {
 
-
-    //         setNameOfTheHouse(spots?.name);
-    //         setBedNum(spots?.bedNum);
-    //         setCity(spots?.city);
-    //         setState(spots?.state);
-    //         setCountry(spots?.country);
-    //         setAddress(spots?.address);
-    //         setDescription(spots?.description);
-    //         setImg1(spots?.img1);
-    //         setPrice(spots?.price);
-    // }, [dispatch]);
+        if (spots) {
+            setNameOfTheHouse(spots?.name);
+            setBedNum(spots?.bedNum);
+            setCity(spots?.city);
+            setState(spots?.state);
+            setCountry(spots?.country);
+            setAddress(spots?.address);
+            setDescription(spots?.description);
+            setImg1(spots?.img1);
+            setPrice(spots?.price);
+        }
+    }, [spots]);
 
 
     const handleSubmit = (e) => {
@@ -197,7 +198,7 @@ const EditSpot = () => {
                                 placeholder="Enter your image url here."
                             />
                         </label>
-                        <button className="login" type="submit">Become a Host</button>
+                        <button className="login" type="submit">Update Your Listing</button>
 
                     </div>
                 </form>

@@ -75,16 +75,16 @@ router.delete('/:id', asyncHandler(async (req, res) => {
     const id = req.params.id;
 
 
-    // const spot = await Spot.findByPk(id,{
-    //     include: [Booking, Review]
-    // });
+    const spot = await Spot.findByPk(id);
+
+    if (!spot) throw new Error('Cannot find spot');
 
     // await spot.Bookings[0].destroy();
     // await spot.Reviews.destroy()
 
-    // await spot.destroy();
+    await spot.destroy();
 
-    // res.json({id});
+    res.json({id});
 }));
 
 
