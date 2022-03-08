@@ -53,8 +53,7 @@ function Navigation({ isLoaded }) {
       </div>)
       }
       <div className='search-div'>
-        
-      <NavLink to='/spots'>Get all the Listings</NavLink>
+
 
         <input className="search"
           type="text"

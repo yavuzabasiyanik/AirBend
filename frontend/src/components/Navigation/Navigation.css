@@ -40,6 +40,10 @@
     display:flex;
     align-items: center;
     justify-content: space-around;
+    border: 1px solid rgba(0,0,0,.1);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
+
+
 }
 
 .dropdown > .link.focus,
@@ -50,6 +54,7 @@
 .dropdown{
     position: relative;
     display: inline;
+
 }
 
 .dropdown-menu{
@@ -158,6 +163,8 @@ p{
     border-radius: 20px;
     border: none;
     padding: 10px;
+    border: 1px solid rgba(0,0,0,.1);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
 }
 
 .search-img{

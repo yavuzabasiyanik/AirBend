@@ -43,7 +43,7 @@ function ProfileButton({ user }) {
       {showMenu && (<div className="dropdown-menu dropdown-inside" >
         <div>
           <div className="dropdown-links">
-            <NavLink exact to="/profile"><p className="hlsLinks">{user.username}</p></NavLink>
+            <NavLink exact to="/profile"><p className="hlsLinks">{user?.username}</p></NavLink>
             <p className="hlsLinks" onClick={logout}>Log Out</p>
           </div>
         </div>
