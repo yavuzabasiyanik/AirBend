@@ -26,8 +26,8 @@ const IndividualSpotPage = () => {
     // useEffect(()=>{
 
     // },[reviewNum])
-    let reviewNum = 0;
 
+    let reviewNum = 0;
     if (spots) {
         spots.Reviews.forEach(e => {
             reviewNum += e.rating
@@ -36,7 +36,10 @@ const IndividualSpotPage = () => {
     }
 
 
+const handleDelete = (e) =>{
+    e.preventDefault();
 
+}
 
     return (
         <div className="individualBigDiv">
@@ -49,14 +52,22 @@ const IndividualSpotPage = () => {
                         <img className="star-img" src='https://pngimg.com/uploads/red_star/red_star_PNG35.png'></img>
                         <p>{reviewNum ? Math.round(reviewNum * 100) / 100 : ''}</p>
                         <pre> &middot; </pre>
-                        <NavLink to='/spots/reviews'><p className="ozelP">{spots?.Reviews.length} reviews</p></NavLink>
+                        <NavLink exact to='/spots/reviews'><p className="ozelP">{spots?.Reviews.length} reviews</p></NavLink>
                         <pre> &middot; </pre>
-                        <a target="_blank" href="https://www.airbnb.com/help/article/828/about-superhosts"> <o>Superhost</o></a>
+                        <a target="_blank" href="https://www.airbnb.com/help/article/828/about-superhosts"> <p style={{fontWeight:"normal",textDecoration:"underline",color:"rgba(0,0,0,0.7)",fontSize:"14px"}}>Superhost</p></a>
                         <pre> &middot; </pre>
                         <p className="greyclasscountrystatecity">{spots?.city},{spots?.state},{spots?.country}</p>
                     </div>
                 </div>
             </div>
+            <div className="individual-images">
+                <img className="bigImg" src={spots?.img1}></img>
+                <img className="smallImgs2" src={spots?.img2}></img>
+                <img className="smallImgs3" src={spots?.img3}></img>
+            </div>
+            <NavLink exact to={`/spots/${spots?.id}/edit`}><button>Edit</button></NavLink>
+            <button onClick={(e)=> handleDelete(e)}>Delete</button>
+
         </div>
     )
 }
