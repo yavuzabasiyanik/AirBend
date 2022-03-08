@@ -7,8 +7,8 @@ module.exports = (sequelize, DataTypes) => {
     rating: DataTypes.INTEGER
   }, {});
   Review.associate = function(models) {
-    Review.belongsTo(models.User, { foreignKey: 'userId' , onDelete: "cascade", foreignKeyConstraint: true })
-    Review.belongsTo(models.Spot, { foreignKey: 'spotId',onDelete: "cascade", foreignKeyConstraint: true})
+    Review.belongsTo(models.User, { foreignKey: 'userId' , foreignKeyConstraint: true })
+    Review.belongsTo(models.Spot, { foreignKey: 'spotId', foreignKeyConstraint: true})
 
   };
   return Review;

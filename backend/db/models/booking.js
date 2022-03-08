@@ -8,8 +8,8 @@ module.exports = (sequelize, DataTypes) => {
     endDate: DataTypes.DATE
   }, {});
   Booking.associate = function(models) {
-    Booking.belongsTo(models.User, { foreignKey: 'userId' , onDelete: "cascade", foreignKeyConstraint: true })
-    Booking.belongsTo(models.Spot, { foreignKey: 'spotId',onDelete: "cascade", foreignKeyConstraint: true})
+    Booking.belongsTo(models.User, { foreignKey: 'userId' ,  foreignKeyConstraint: true })
+    Booking.belongsTo(models.Spot, { foreignKey: 'spotId', foreignKeyConstraint: true})
 
   };
   return Booking;
