@@ -69,9 +69,6 @@ function Spots() {
                 })}
             </div>
 
-            <Route exact path={'/spots/:spotId'}>
-                <IndividualSpotPage spots={spotsObj} />
-            </Route>
         </div>
 
     )

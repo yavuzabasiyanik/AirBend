@@ -1,4 +1,54 @@
+*{
+    margin:0;
+}
 .individualBigDiv{
     position: absolute;
     top: 94px;
+    width: 100%;
+    height: 100%;
+}
+
+.individual-page-header{
+    width: 1120px;
+    height: 86px;
+    margin: 24px auto 0 auto ;
+}
+
+.spots-name{
+    width: 100%;
+    height:30px;
+    margin: 0 0 14px;
+    color: #222222;
+    font-size: 13px;
+}
+
+.star-img{
+    width: 23px;
+    height: 23px;
+    image-rendering: auto;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: -webkit-optimize-contrast;
+}
+.ozelP{
+    text-decoration: underline;
+}
+.reviews-kindastuff{
+    display: flex;
+    align-items: center;
+}
+
+.greyclasscountrystatecity{
+    text-decoration: underline;
+    font-size: 14px;
+    color: rgba(0,0,0, 0.3);
+}
+
+.reviews-kindastuff pre{
+    display: block;
+}
+.reviews-kindastuff p{
+    margin-top: 3px;
+    color: #222222;
+    font-weight: bold;
 }
