@@ -35,7 +35,7 @@ function Home() {
                         </div>
                         <div className="second-red">
                             <h1>
-                                Lake Geneva
+Lake Geneva
                             </h1>
                         </div>
                     </div>
@@ -45,7 +45,7 @@ function Home() {
                         </div>
                         <div className="second-orange">
                             <h1>
-                                New Buffalo
+New Buffalo
                             </h1>
                         </div>
                     </div>
@@ -55,7 +55,7 @@ function Home() {
                         </div>
                         <div className="second-kirmizi">
                             <h1>
-                                Chicago
+Chicago
                             </h1>
                         </div>
                     </div>
@@ -65,7 +65,7 @@ function Home() {
                         </div>
                         <div className="second-mor">
                             <h1>
-                                Wisconsin Dells
+                            Wisconsin Dells
                             </h1>
                         </div>
                     </div>
