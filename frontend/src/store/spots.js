@@ -36,7 +36,7 @@ const addBooking = (booking) => ({
 
 })
 
-const deleteBookingAction = ({spotId,id}) => ({
+const deleteBookingAction = ({ spotId, id }) => ({
     type: DELETE_BOOKING,
     id,
     spotId
@@ -60,9 +60,12 @@ export const createSpot = (payload) => async (dispatch) => {
         body: JSON.stringify(payload)
     })
 
-    const data = await response.json();
+    if (response.ok) {
 
-    dispatch(addSpot(data.spot));
+        const data = await response.json();
+
+        dispatch(addSpot(data.spot));
+    }
     return response;
 };
 

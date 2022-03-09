@@ -35,12 +35,12 @@ const BookingForm = () => {
 
 
     const spotsObj = useSelector((state) => state?.spotReducer?.spots);
-    const bookingObj = useSelector((state)=> state?.bookingReducer?.bookings);
+    const bookingObj = useSelector((state) => state?.bookingReducer?.bookings);
 
 
-    useEffect(()=>{
+    useEffect(() => {
 
-    },[bookingObj])
+    }, [bookingObj])
 
 
 
@@ -87,7 +87,7 @@ const BookingForm = () => {
 
         if (id) {
 
-            dispatch(bookingActions.deleteBooking({spotId,id}));
+            dispatch(bookingActions.deleteBooking({ spotId, id }));
         }
     }
 
@@ -135,7 +135,10 @@ const BookingForm = () => {
             <div>
                 <ul>
                     {bookings?.map(e => {
-                        return <button type="submit" key={e.id} onClick={(e3) => handleBookingDelete(e3)}><li id={e.id} key={e.id}>{e.startDate}</li> </button>;
+                        if (+e.spotId=== +spotId) {
+
+                            return <button type="submit" key={e.id} onClick={(e3) => handleBookingDelete(e3)}><li id={e.id} key={e.id}>{e.startDate}</li> </button>;
+                        }
                     })}
                 </ul>
             </div>

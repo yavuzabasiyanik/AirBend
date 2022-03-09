@@ -46,8 +46,8 @@ const CreateSpotPage = () => {
 
         setErrors([]);
         dispatch(spotActions.createSpot(payload)).catch(
-            async (res) => {
-                const data = await res.json();
+             (res) => {
+                const data =  res.json();
                 if (data && data.errors) {
                     setErrors(data.errors)
                     return

@@ -103,15 +103,14 @@ router.post('/booking', asyncHandler(async (req, res) => {
 }))
 
 
-router.delete('/:spotId/bookings/:id', asyncHandler(async (req, res) => {
+router.delete('/bookings/:id', asyncHandler(async (req, res) => {
     const id = req.params.id;
-    const spotId = req.params.spotId;
 
     const booking = await Booking.findByPk(id);
 
     await booking.destroy();
 
-    res.json({ id,spotId });
+    res.json({ id });
 }))
 
 
