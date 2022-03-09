@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 import * as spotActions from "../../store/spots";
 import BookingForm from "./BookingForm";
-
 import './individual.css';
 
 const IndividualSpotPage = () => {
