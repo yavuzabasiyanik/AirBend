@@ -88,6 +88,12 @@ router.delete('/:id', asyncHandler(async (req, res) => {
 }));
 
 
+router.post('/booking', asyncHandler(async(req,res)=>{
+
+    const booking = await Booking.create(req.body);
+
+    res.json(booking);
+}))
 
 
 

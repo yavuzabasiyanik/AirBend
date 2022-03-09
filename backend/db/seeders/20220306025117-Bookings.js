@@ -13,8 +13,8 @@ module.exports = {
         spotId: 1,
         userId: 1,
         guestNum: 1,
-        startDate: new Date(Date.UTC(2022, 0, 1)),
-        endDate: new Date(Date.UTC(2023, 0, 1)),
+        startDate: new Date(2022,5,26),
+        endDate: new Date(2022,5,28),
         createdAt: new Date(),
         updatedAt: new Date(),
 
