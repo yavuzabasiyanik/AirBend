@@ -38,6 +38,12 @@ const validateSpots = [
     check('img1')
         .exists({ checkFalsy: true })
         .withMessage('Please provide a valid image.'),
+    check('img2')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a valid image.'),
+    check('img3')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a valid image.'),
     handleValidationErrors
 ];
 
@@ -58,6 +64,7 @@ router.post('/', validateSpots, asyncHandler(async (req, res) => {
 
     res.json(spot);
 }))
+
 
 router.put('/:id', validateSpots, asyncHandler(async (req, res) => {
     const id = req.params.id;

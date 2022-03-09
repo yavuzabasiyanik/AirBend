@@ -10,28 +10,28 @@ module.exports = {
       },
       address: {
         allowNull: false,
-        type: Sequelize.STRING(100)
+        type: Sequelize.STRING(255)
       },
       city: {
         allowNull: false,
-        type: Sequelize.STRING(55)
+        type: Sequelize.STRING(60)
       },
       state: {
         allowNull: false,
-        type: Sequelize.STRING(55)
+        type: Sequelize.STRING(100)
       },
       country: {
         allowNull: false,
-        type: Sequelize.STRING(55)
+        type: Sequelize.STRING(100)
       },
       name: {
         allowNull: false,
-        type: Sequelize.STRING(55),
+        type: Sequelize.STRING(255),
         unique:true
       },
       description: {
         allowNull: false,
-        type: Sequelize.STRING(255)
+        type: Sequelize.STRING(600)
       },
       bedNum: {
         allowNull: false,
@@ -51,9 +51,11 @@ module.exports = {
         type: Sequelize.TEXT
       },
       img2: {
+        allowNull: false,
         type: Sequelize.TEXT
       },
       img3: {
+        allowNull: false,
         type: Sequelize.TEXT
       },
       createdAt: {
