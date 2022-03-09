@@ -85,6 +85,7 @@ function Signup() {
               <input
                 className="signup"
                 type="text"
+                accept="image/png, image/jpeg"
                 value={profileImg}
                 onChange={(e) => setProfileImg(e.target.value)}
                 placeholder="Profile Url"

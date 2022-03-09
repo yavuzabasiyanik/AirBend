@@ -34,14 +34,14 @@ function App() {
         <Route exact path='/spots/create'>
           <CreateSpotPage />
         </Route>
-        <Route exact path={'/'}>
-          <Home />
-        </Route>
         <Route exact path='/spots/:spotId'>
           <IndividualSpotPage />
         </Route>
         <Route exact path='/spots/:spotId/edit'>
           <EditSpot />
+        </Route>
+        <Route exact path='/'>
+          <Home />
         </Route>
       </Switch>
     </>
