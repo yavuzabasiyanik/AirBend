@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory, useParams } from "react-router-dom";
+import * as bookingActions from "../../store/bookings";
 import * as spotActions from "../../store/spots";
+
 import './BookingForm.css';
 
 const BookingForm = () => {
@@ -15,10 +17,8 @@ const BookingForm = () => {
 
     const sessionUser = useSelector((state) => state.session.user);
 
-    const spotsObj = useSelector((state) => state.spotReducer.spots);
     const history = useHistory();
 
-    // const [reviewNum, setReviewNum] = useState(0);
     const dispatch = useDispatch();
     const [errors, setErrors] = useState([]);
 
@@ -28,12 +28,24 @@ const BookingForm = () => {
 
     }, [dispatch]);
 
+    useEffect(() => {
+        dispatch(bookingActions.getBookings())
+
+    }, [dispatch]);
+
+
+    const spotsObj = useSelector((state) => state?.spotReducer?.spots);
+    const bookingObj = useSelector((state)=> state?.bookingReducer?.bookings);
+
+
+    useEffect(()=>{
+
+    },[bookingObj])
+
+
+
+    const bookings = Object.values(bookingObj)
     const spot = spotsObj[spotId];
-
-    // console.log(new Date(dateStart) - new Date(2023,6,27));
-
-    // console.log(new Date(2022,3,9) - new Date());
-
 
     const handleSubmit = (e) => {
 
@@ -64,7 +76,7 @@ const BookingForm = () => {
         }
 
 
-        dispatch(spotActions.createBooking(payload));
+        dispatch(bookingActions.createBooking(payload));
     }
 
     const handleBookingDelete = (elemetn) => {
@@ -75,7 +87,7 @@ const BookingForm = () => {
 
         if (id) {
 
-            dispatch(spotActions.deleteBooking({spotId,id}));
+            dispatch(bookingActions.deleteBooking({spotId,id}));
         }
     }
 
@@ -122,8 +134,8 @@ const BookingForm = () => {
 
             <div>
                 <ul>
-                    {spot?.Bookings.map(e => {
-                        return <button key={e.id} onClick={(e3) => handleBookingDelete(e3)}><li id={e.id} key={e.id}>{e.startDate}</li> </button>;
+                    {bookings?.map(e => {
+                        return <button type="submit" key={e.id} onClick={(e3) => handleBookingDelete(e3)}><li id={e.id} key={e.id}>{e.startDate}</li> </button>;
                     })}
                 </ul>
             </div>

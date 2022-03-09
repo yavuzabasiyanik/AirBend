@@ -87,10 +87,17 @@ router.delete('/:id', asyncHandler(async (req, res) => {
     res.json({ id });
 }));
 
+router.get('/bookings', asyncHandler(async (req, res) => {
+
+    const bookings = await Booking.findAll();
+
+    res.json({ bookings });
+}))
 
 router.post('/booking', asyncHandler(async (req, res) => {
 
     const booking = await Booking.create(req.body);
+
 
     res.json(booking);
 }))

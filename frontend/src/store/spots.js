@@ -101,40 +101,40 @@ export const deleteSpotThunk = (payload) => async (dispatch) => {
 
 };
 
-export const createBooking = (payload) => async (dispatch) => {
-    const response = await csrfFetch(`/api/spots/booking`, {
-        method: 'POST',
-        body: JSON.stringify(payload)
-    })
+// export const createBooking = (payload) => async (dispatch) => {
+//     const response = await csrfFetch(`/api/spots/booking`, {
+//         method: 'POST',
+//         body: JSON.stringify(payload)
+//     })
 
-    if (response.ok) {
+//     if (response.ok) {
 
-        const data = await response.json();
+//         const data = await response.json();
 
-        dispatch(addBooking(data));
-    }
+//         dispatch(addBooking(data));
+//     }
 
-    return response;
-    // we dont need to return response
+//     return response;
+//     // we dont need to return response
 
-}
+// }
 
 
-export const deleteBooking = ({id,spotId}) => async (dispatch) => {
-    const response = await csrfFetch(`/api/spots/${spotId}/bookings/${id}`, {
-        method: 'DELETE'
-    });
+// export const deleteBooking = ({id,spotId}) => async (dispatch) => {
+//     const response = await csrfFetch(`/api/spots/${spotId}/bookings/${id}`, {
+//         method: 'DELETE'
+//     });
 
-    // console.log(id,spotId);
-    if (response.ok) {
+//     // console.log(id,spotId);
+//     if (response.ok) {
 
-        const {id,spotId} = await response.json();
+//         const {id,spotId} = await response.json();
 
-        dispatch(deleteBookingAction({id,spotId}));
+//         dispatch(deleteBookingAction({id,spotId}));
 
-    }
+//     }
 
-}
+// }
 
 const initialState = { spots: {} };
 
@@ -165,28 +165,27 @@ const spotReducer = (state = initialState, action) => {
             newState = { ...state };
             delete newState.spots[action.id];
             return newState;
-        case ADD_BOOKING:
-            newState = { ...state };
-            newBooking = newState.spots[action.booking.spotId].Bookings;
-            newBooking.push(action.booking);
-            newState.spots[action.booking.spotId] = { ...newState.spots[action.booking.spotId], newBooking };
-            return newState;
-        case DELETE_BOOKING:
-            newState = { ...state };
-            newBooking = newState.spots[action.spotId].Bookings;
-            // console.log(newBooking);
-
-            newBooking.forEach((e)=>{
+        // case ADD_BOOKING:
+        //     newState = { ...state };
+        //     newBooking = newState.spots[action.booking.spotId].Bookings;
+        //     newBooking.push(action.booking);
+        //     newState.spots[action.booking.spotId] = { ...newState.spots[action.booking.spotId], newBooking };
+        //     return newState;
+        // case DELETE_BOOKING:
+        //     newState = { ...state };
+        //     newBooking = newState.spots[action.spotId].Bookings;
 
 
-                if(e.id=== +action.id){
-                    console.log('yessssss');
-                    newBooking.splice(newBooking.indexOf(e),1);
-                }
-            })
-            newState.spots[action.spotId] = { ...newState.spots[action.spotId], newBooking };
+        //     newBooking.forEach((e)=>{
 
-            return newState;
+        //         if(e.id=== +action.id){
+        //             newBooking.splice(newBooking.indexOf(e),1);
+        //         }
+        //     })
+
+        //     newState.spots[action.spotId] = { ...newState.spots[action.spotId], newBooking };
+
+        //     return newState;
         default:
             return state;
     }
