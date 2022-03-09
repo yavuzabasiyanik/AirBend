@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 import * as spotActions from "../../store/spots";
+import BookingForm from "./BookingForm";
 
 import './individual.css';
 
@@ -18,15 +19,14 @@ const IndividualSpotPage = () => {
 
     useEffect(() => {
         dispatch(spotActions.getSpots())
+
     }, [dispatch]);
 
     const spots = spotsObj[spotId]
 
 
 
-    // useEffect(()=>{
 
-    // },[reviewNum])
 
     let reviewNum = 0;
     if (spots) {
@@ -89,7 +89,9 @@ const IndividualSpotPage = () => {
                     <li key={idx}>{error}</li>
                 ))}
             </ul>
-            
+
+            <BookingForm  />
+
 
         </div>
     )

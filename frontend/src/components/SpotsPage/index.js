@@ -38,7 +38,11 @@ function Spots() {
     const spotsObj = useSelector((state) => state.spotReducer.spots);
     const spots = Object.values(spotsObj);
 
-    
+
+    console.log(spots[0]?.Bookings[0]?.startDate < spots[0]?.Bookings[0]?.endDate);
+
+
+
     return (
         <div className='spots-container'>
 

@@ -4,6 +4,7 @@ const GET_SPOTS = 'spots/get';
 const ADD_SPOT = 'spots/create-one';
 const EDIT_SPOT = 'spots/edit-the-thing';
 const DELETE_SPOT = 'spots/delete';
+const ADD_BOOKING = 'spots/booking/add';
 
 
 const getSpot = (spots) => ({
@@ -26,6 +27,14 @@ const deleteSpot = (id) => ({
     type: DELETE_SPOT,
     id
 })
+
+const addBooking = (booking) => ({
+
+    type: ADD_BOOKING,
+    booking
+
+})
+
 
 export const getSpots = () => async (dispatch) => {
 
@@ -85,7 +94,23 @@ export const deleteSpotThunk = (payload) => async (dispatch) => {
 
 };
 
+export const createBooking = (payload) => async (dispatch) => {
+    const response = await csrfFetch(`/api/spots/booking`, {
+        method: 'POST',
+        body: JSON.stringify(payload)
+    })
 
+    if (response.ok) {
+
+        const data = await response.json();
+
+        dispatch(addBooking(data));
+    }
+
+    return response;
+    // we dont need to return response
+
+}
 
 
 
@@ -96,6 +121,7 @@ const initialState = { spots: {} };
 const spotReducer = (state = initialState, action) => {
     let newState;
     let newSpots;
+    let newBooking;
     switch (action.type) {
         case GET_SPOTS:
             newState = { ...state }
@@ -107,15 +133,19 @@ const spotReducer = (state = initialState, action) => {
             return newState;
         case ADD_SPOT:
             newState = { ...state };
-            newState[action.spot.id] = action.spot;
+            newState[action.spot.id] = {...action.spot};
             return newState;
         case EDIT_SPOT:
             newState = { ...state };
             newState[action.spot.id] = { ...newState[action.spot.id], ...action.spot };
             return newState;
         case DELETE_SPOT:
-            newState = {...state};
+            newState = { ...state };
             delete newState[action.id];
+            return newState;
+        case ADD_BOOKING:
+            newState= {...state};
+
             return newState;
         default:
             return state;
