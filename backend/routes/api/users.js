@@ -17,7 +17,7 @@ const validateSignup = [
     .isLength({ max: 255 })
     .withMessage('Email Address can not be more than 255 characters long')
     .isEmail()
-    .withMessage('Email Address is not a valid email')
+    .withMessage('Enter a valid Email')
     .custom((value) => {
       return User.findOne({ where: { email: value } })
         .then((user) => {
