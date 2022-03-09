@@ -97,3 +97,15 @@
     image-rendering: -webkit-optimize-contrast;
 }
 
+
+.error-container{
+
+    color: red;
+    padding:10px  15px;
+}
+
+.error-container li{
+    padding-bottom:5px;
+
+
+}

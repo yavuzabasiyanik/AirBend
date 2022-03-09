@@ -47,7 +47,7 @@ function LoginForm() {
 
         <form onSubmit={handleSubmit}>
           <div className="h3-form">
-            <ul>
+            <ul className="error-container">
               {errors.map((error, idx) => (
                 <li key={idx}>{error}</li>
               ))}

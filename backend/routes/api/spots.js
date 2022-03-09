@@ -11,6 +11,31 @@ const router = express.Router();
 
 
 const validateSpots = [
+    check('img1')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a valid image.')
+        .isURL()
+        .withMessage('Enter a valid Main Image, sir.'),
+    check('img2')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a valid image.')
+        .isURL()
+        .withMessage('Enter a valid Side Image, sir.'),
+    check('img3')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a valid image.')
+        .isURL()
+        .withMessage('Enter a valid Side Image, sir.'),
+    check('bedNum')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a valid bedNum.')
+        .isFloat({ min: 1, max: 10 })
+        .withMessage('Bednum has to be between 1-10.'),
+    check('price')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a valid price.')
+        .isFloat({ min: 100, max: 1000 })
+        .withMessage('Price has to be between $100-$1000.'),
     check('address')
         .exists({ checkFalsy: true })
         .withMessage('Please provide a valid addresss.')
@@ -50,32 +75,7 @@ const validateSpots = [
         .isLength({ max: 600 })
         .withMessage('Description can not be more than 600 characters long')
         .isLength({ min: 100 })
-        .withMessage('Is that all you got to say about your place? Cmon...'),
-    check('bedNum')
-        .exists({ checkFalsy: true })
-        .withMessage('Please provide a valid bedNum.')
-        .isFloat({ min: 1, max: 10 })
-        .withMessage('Bednum has to be between 1-10.'),
-    check('price')
-        .exists({ checkFalsy: true })
-        .withMessage('Please provide a valid price.')
-        .isFloat({ min: 100, max: 1000 })
-        .withMessage('Price has to be between $100-$1000.'),
-    check('img1')
-        .exists({ checkFalsy: true })
-        .withMessage('Please provide a valid image.')
-        .isURL()
-        .withMessage('Enter a valid Image sir.'),
-    check('img2')
-        .exists({ checkFalsy: true })
-        .withMessage('Please provide a valid image.')
-        .isURL()
-        .withMessage('Enter a valid Image sir.'),
-    check('img3')
-        .exists({ checkFalsy: true })
-        .withMessage('Please provide a valid image.')
-        .isURL()
-        .withMessage('Enter a valid Image sir.'),
+        .withMessage('Is that all you got to say about your place? Cmon... (should be more than 100 characters long, yw)'),
     handleValidationErrors
 ];
 

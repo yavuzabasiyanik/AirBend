@@ -196,7 +196,8 @@ const CreateSpotPage = () => {
                                 placeholder="Enter your image url here."
                             />
                         </label>
-                        <ul>
+
+                        <ul className="error-container">
                             {errors.map((error, idx) => (
                                 <li key={idx}>{error}</li>
                             ))}
