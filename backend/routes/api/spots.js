@@ -2,7 +2,7 @@ const express = require('express');
 const asyncHandler = require('express-async-handler');
 
 const { setTokenCookie, restoreUser } = require('../../utils/auth');
-const { User, Spot, Booking,Review } = require('../../db/models');
+const { User, Spot, Booking, Review } = require('../../db/models');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
@@ -45,7 +45,7 @@ const validateSpots = [
 router.get('/', asyncHandler(async (req, res) => {
 
     const spots = await Spot.findAll({
-        include: [User,Booking,Review]
+        include: [User, Booking, Review]
     });
 
     res.json({ spots });
@@ -67,7 +67,7 @@ router.put('/:id', validateSpots, asyncHandler(async (req, res) => {
     await spot.update(req.body);
     await spot.save();
 
-    res.json({spot});
+    res.json({ spot });
 }));
 
 
@@ -84,15 +84,27 @@ router.delete('/:id', asyncHandler(async (req, res) => {
 
     await spot.destroy();
 
-    res.json({id});
+    res.json({ id });
 }));
 
 
-router.post('/booking', asyncHandler(async(req,res)=>{
+router.post('/booking', asyncHandler(async (req, res) => {
 
     const booking = await Booking.create(req.body);
 
     res.json(booking);
+}))
+
+
+router.delete('/:spotId/bookings/:id', asyncHandler(async (req, res) => {
+    const id = req.params.id;
+    const spotId = req.params.spotId;
+
+    const booking = await Booking.findByPk(id);
+
+    await booking.destroy();
+
+    res.json({ id,spotId });
 }))
 
 

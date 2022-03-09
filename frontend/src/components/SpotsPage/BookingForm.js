@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { NavLink, useHistory, useParams } from "react-router-dom";
 import * as spotActions from "../../store/spots";
 import './BookingForm.css';
 
@@ -43,7 +43,7 @@ const BookingForm = () => {
 
         spot?.Bookings.forEach((e2) => {
 
-            if(new Date(dateStart)>new Date(dateEnd)){
+            if (new Date(dateStart) > new Date(dateEnd)) {
 
                 setErrors(['Unvalid days']);
             }
@@ -56,17 +56,28 @@ const BookingForm = () => {
         }
 
         const payload = {
-            userId:sessionUser.id,
+            userId: sessionUser.id,
             spotId,
-            guestNum:numGuest,
-            startDate:new Date(dateStart),
-            endDate:new Date(dateEnd)
+            guestNum: numGuest,
+            startDate: new Date(dateStart),
+            endDate: new Date(dateEnd)
         }
 
 
         dispatch(spotActions.createBooking(payload));
     }
 
+    const handleBookingDelete = (elemetn) => {
+        elemetn.preventDefault();
+
+        const id = elemetn.target.id;
+
+
+        if (id) {
+
+            dispatch(spotActions.deleteBooking({spotId,id}));
+        }
+    }
 
     return (
         <div className="bigBookingFormDiv">
@@ -110,7 +121,11 @@ const BookingForm = () => {
             </form>
 
             <div>
-                <p></p>
+                <ul>
+                    {spot?.Bookings.map(e => {
+                        return <button key={e.id} onClick={(e3) => handleBookingDelete(e3)}><li id={e.id} key={e.id}>{e.startDate}</li> </button>;
+                    })}
+                </ul>
             </div>
 
         </div>
