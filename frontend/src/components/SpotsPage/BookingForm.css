@@ -1,0 +1,40 @@
+.bigBookingFormDiv{
+    height:652px;
+    width: 100%;
+    background-color: white;
+}
+
+.medium-div-form-div{
+    height:652px;
+    width: 70%;
+    margin: 0 auto;
+
+}
+
+.dady-info-about-the-house{
+    width: 823px;
+    margin: 0 auto;
+    height:100%;
+    padding: 28px 0 24px;
+}
+.info-about-the-house{
+    width: 552px;
+    height:100px;
+    display: inline-grid;
+    grid-template-columns: 9fr 1fr;
+}
+
+.child-info-about-the-house h2{
+    color: #222222;
+    margin-bottom: 2px;
+}
+
+.child-info-about-the-house p{
+    color: rgba(0,0,0,.9);
+}
+
+.info-about-the-house img{
+    width: 56px;
+    height:56px;
+    border-radius: 30px;
+}
