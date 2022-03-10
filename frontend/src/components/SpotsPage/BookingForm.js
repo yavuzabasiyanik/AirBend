@@ -38,9 +38,7 @@ const BookingForm = () => {
     const bookingObj = useSelector((state) => state?.bookingReducer?.bookings);
 
 
-    useEffect(() => {
 
-    }, [bookingObj])
 
 
 
@@ -107,6 +105,8 @@ const BookingForm = () => {
 
 
         dispatch(bookingActions.createBooking(payload));
+
+        history.push(`/bookings/${sessionUser.id}/spots/${spotId}`)
     }
 
     const handleBookingDelete = (elemetn) => {
@@ -201,7 +201,7 @@ const BookingForm = () => {
                     <div>
                         <ul>
                             {bookings?.map(e => {
-                                if (+e.spotId === +spotId) {
+                                if (+e.spotId === +spotId && e?.userId === sessionUser?.id) {
 
                                     return <button type="submit" key={e.id} onClick={(e3) => handleBookingDelete(e3)}><li id={e.id} key={e.id}>{e.startDate}</li> </button>;
                                 }

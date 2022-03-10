@@ -1,0 +1,52 @@
+.bookings-inv-main-div{
+    position: absolute;
+    width: 100%;
+    top:94px;
+    height: 100%;
+    background-color: white;
+}
+
+.to{
+    color: rgba(0,0,0,.7);
+    font-size: 13px;
+}
+
+.name-username{
+    color: #222;
+    font-size: 16px;
+    text-align: center;
+}
+
+.username{
+    font-weight: bold;
+}
+.positionrelative{
+    position: relative;
+}
+
+.booking-button-delete{
+    position: absolute;
+    top:23px;
+    right:0px;
+    width:40px;
+    height:40px;
+    font-size:10px;
+    padding:0;
+    border: none;
+    background: none;
+text-decoration: underline;
+color: rgba(0,0,0,.7);
+font-weight: bold;
+cursor: pointer;
+border-radius: 6px;
+
+border-top-right-radius: 50%;
+border: 1px solid rgba(0,0,0,.1);
+box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
+}
+
+.booking-page-white-div{
+    width: 100%;
+    height:125px;
+    background-color: white;
+}

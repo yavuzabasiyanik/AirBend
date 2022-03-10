@@ -174,25 +174,6 @@ router.put('/:id', validateSpotsEdit, asyncHandler(async (req, res, next) => {
 
     const spot = await Spot.findByPk(id);
 
-    // const spot2 = Spot.findAll();
-
-
-
-
-    // const filter = spot2.filter(e => {
-    //     return e.name === req.body.name
-    // })
-
-    // filter.forEach(element => {
-
-    //     if (element.id !== spot.id) {
-    //         const err = new Error('Name must be unique.');
-    //         err.status = 403;
-    //         err.title = 'Name unvalid';
-    //         err.errors = ['The provided Name already in use by another account'];
-    //         return next(err);
-    //     }
-    // });
 
     await spot.update(req.body);
     await spot.save();
@@ -219,7 +200,12 @@ router.delete('/:id', asyncHandler(async (req, res) => {
 
 router.get('/bookings', asyncHandler(async (req, res) => {
 
-    const bookings = await Booking.findAll();
+    const bookings = await Booking.findAll({
+        include: [User,{
+            model: Spot,
+            include:[User]
+        }]
+    });
 
     res.json({ bookings });
 }))

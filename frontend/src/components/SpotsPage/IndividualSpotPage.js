@@ -94,11 +94,6 @@ const IndividualSpotPage = () => {
                     <img className="smallImgs2" src={spots?.img2}></img>
                     <img className="smallImgs3" src={spots?.img3}></img>
                 </div>
-                <ul>
-                    {errors.map((error, idx) => (
-                        <li key={idx}>{error}</li>
-                    ))}
-                </ul>
                 <BookingForm />
             </div>
         </>
