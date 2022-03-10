@@ -58,48 +58,50 @@ const IndividualSpotPage = () => {
     }
 
     return (
-        <div className="individualBigDiv">
-            <div className="individual-page-header">
-                <div className="spots-name">
-                    <h1>{spots?.name}</h1>
-                </div>
-                <div className="reviews-and-all-kindsofstuff">
-                    <div className="reviews-kindastuff">
-                        <div className="reviews-2" >
-                            <img className="star-img" src='https://pngimg.com/uploads/red_star/red_star_PNG35.png'></img>
-                            <p>{reviewNum ? Math.round(reviewNum * 100) / 100 : ''}</p>
-                            <pre> &middot; </pre>
-                            <NavLink exact to='/spots/reviews'><p className="ozelP">{spots?.Reviews.length} reviews</p></NavLink>
-                            <pre> &middot; </pre>
-                            <a target="_blank" href="https://www.airbnb.com/help/article/828/about-superhosts"> <p style={{ fontWeight: "normal", textDecoration: "underline", color: "rgba(0,0,0,0.7)", fontSize: "14px" }}>Superhost</p></a>
-                            <pre> &middot; </pre>
-                            <p className="greyclasscountrystatecity">{spots?.city},{spots?.state},{spots?.country}</p>
-                        </div>
-                        {spots?.userId === sessionUser?.id && (
+        <>
+            <div className="just-black">
 
-                            <div className="edit-delete-spot-buttons">
-                                <NavLink exact to={`/spots/${spots?.id}/edit`}><button className="spot-button-edit">Edit</button></NavLink>
-                                <button className="spot-button-delete" onClick={(e) => handleDelete(e)}>Delete</button>
+            </div>
+            <div className="individualBigDiv">
+                <div className="individual-page-header">
+                    <div className="spots-name">
+                        <h1>{spots?.name}</h1>
+                    </div>
+                    <div className="reviews-and-all-kindsofstuff">
+                        <div className="reviews-kindastuff">
+                            <div className="reviews-2" >
+                                <img className="star-img" src='https://pngimg.com/uploads/red_star/red_star_PNG35.png'></img>
+                                <p>{reviewNum ? Math.round(reviewNum * 100) / 100 : ''}</p>
+                                <pre> &middot; </pre>
+                                <NavLink exact to='/spots/reviews'><p className="ozelP">{spots?.Reviews.length} reviews</p></NavLink>
+                                <pre> &middot; </pre>
+                                <a target="_blank" href="https://www.airbnb.com/help/article/828/about-superhosts"> <p style={{ fontWeight: "normal", textDecoration: "underline", color: "rgba(0,0,0,0.7)", fontSize: "14px" }}>Superhost</p></a>
+                                <pre> &middot; </pre>
+                                <p className="greyclasscountrystatecity">{spots?.city},{spots?.state},{spots?.country}</p>
                             </div>
-                        )}
+                            {spots?.userId === sessionUser?.id && (
+
+                                <div className="edit-delete-spot-buttons">
+                                    <NavLink exact to={`/spots/${spots?.id}/edit`}><button className="spot-button-edit">Edit</button></NavLink>
+                                    <button className="spot-button-delete" onClick={(e) => handleDelete(e)}>Delete</button>
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
+                <div className="individual-images">
+                    <img className="bigImg" src={spots?.img1}></img>
+                    <img className="smallImgs2" src={spots?.img2}></img>
+                    <img className="smallImgs3" src={spots?.img3}></img>
+                </div>
+                <ul>
+                    {errors.map((error, idx) => (
+                        <li key={idx}>{error}</li>
+                    ))}
+                </ul>
+                <BookingForm />
             </div>
-            <div className="individual-images">
-                <img className="bigImg" src={spots?.img1}></img>
-                <img className="smallImgs2" src={spots?.img2}></img>
-                <img className="smallImgs3" src={spots?.img3}></img>
-            </div>
-            <ul>
-                {errors.map((error, idx) => (
-                    <li key={idx}>{error}</li>
-                ))}
-            </ul>
-
-            <BookingForm />
-
-
-        </div>
+        </>
     )
 }
 

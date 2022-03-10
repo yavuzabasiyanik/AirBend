@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/yavuzabasiyanik/airBnB-solo-project/issues"
   },
-  "homepage": "https://github.com/yavuzabasiyanik/airBnB-solo-project#readme"
+  "homepage": "https://github.com/yavuzabasiyanik/airBnB-solo-project#readme",
+  "dependencies": {
+    "redux-logger": "^3.0.6"
+  }
 }

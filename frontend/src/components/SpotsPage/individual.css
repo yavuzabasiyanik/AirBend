@@ -3,11 +3,17 @@
 }
 .individualBigDiv{
     position: absolute;
-    top: 94px;
     width: 100%;
-    height: 100%;
+    height: 663px;
+    background-color: white;
 }
 
+.just-black{
+    top: 94px;
+    width:100%;
+    height:180px;
+    background-color: black;
+}
 .individual-page-header{
     width:832px;
     height: 86px;
@@ -52,10 +58,11 @@
 
 .spot-button-edit{
         border: none;
+        background: none;
+        text-decoration: underline;
         width:50px;
         height: 30px;
-        color: white;
-        background-color: #4CAF50;
+        color: black;
         font-weight: bold;
         cursor: pointer;
         border-radius: 6px;
@@ -63,10 +70,12 @@
         box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
 }
 
+
 .spot-button-delete{
-    background: rgb(245, 35, 35);
     border: none;
-    color: whitesmoke;
+    background: none;
+    text-decoration: underline;
+    color: black;
     font-weight: bold;
     cursor: pointer;
     border-radius: 6px;
@@ -120,6 +129,11 @@
     image-rendering: crisp-edges;
     image-rendering: pixelated;
     image-rendering: -webkit-optimize-contrast;
+    border-top-left-radius: 13px ;
+    border-bottom-left-radius: 13px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
+
+
 
 }
 .smallImgs2{
@@ -131,6 +145,9 @@
     image-rendering: crisp-edges;
     image-rendering: pixelated;
     image-rendering: -webkit-optimize-contrast;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
+    border-top-right-radius: 13px ;
+
 }
 
 .smallImgs3{
@@ -142,6 +159,10 @@
     image-rendering: crisp-edges;
     image-rendering: pixelated;
     image-rendering: -webkit-optimize-contrast;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
+    border-bottom-right-radius: 13px ;
+
+
 }
 
 

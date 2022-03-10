@@ -15,7 +15,6 @@ const BookingForm = () => {
 
     const { spotId } = useParams();
 
-    const sessionUser = useSelector((state) => state.session.user);
 
     const history = useHistory();
 
@@ -34,6 +33,7 @@ const BookingForm = () => {
     }, [dispatch]);
 
 
+    const sessionUser = useSelector((state) => state.session.user);
     const spotsObj = useSelector((state) => state?.spotReducer?.spots);
     const bookingObj = useSelector((state) => state?.bookingReducer?.bookings);
 
@@ -90,57 +90,91 @@ const BookingForm = () => {
             dispatch(bookingActions.deleteBooking({ spotId, id }));
         }
     }
+    // console.log(spot.User);
 
     return (
         <div className="bigBookingFormDiv">
+            <div className="medium-div-form-div">
+                <div className="dady-info-about-the-house">
+                    <div className="info-about-the-house">
 
-            <h1>something</h1>
-            <form onSubmit={handleSubmit}>
-                <div className="h3-form">
-                    <ul>
-                        {errors.map((error, idx) => (
-                            <li key={idx}>{error}</li>
-                        ))}
-                    </ul>
+                        <div className="child-info-about-the-house">
+                            <h2>{`Hosted by ${spot?.User?.username}`}</h2>
+                            <p>{spot?.bedNum} guests.</p>
+                            <p>{spot?.description}</p>
+                        </div>
+                        <img src={`${spot?.User?.profileUrl}`}></img>
 
-                    <label>
-                        Check-in
-                        <input type='date' className="login"
-                            onChange={(e) => setDateStart(e.target.value)}
-                            value={dateStart}
-                            required
-                        />
-                    </label>
-                    <label>
-                        Check-out
-                        <input type='date' className="login"
-                            value={dateEnd}
-                            onChange={(e) => setDateEnd(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <label>
-                        Guest Number
-                        <input type='number' className="login"
-                            value={numGuest}
-                            onChange={(e) => setNumGuest(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <button className="login" type="submit">Booking</button>
+                    </div>
+                    <div className="form-individual-page">
 
+
+                        <form onSubmit={handleSubmit}>
+                            <div className="inside-of-the-form">
+                                <div className="errors-cotainer">
+                                    <p className='plink2'>
+                                        ${spot?.price} / night
+                                    </p>
+                                    <ul>
+                                        {errors.map((error, idx) => (
+                                            <li key={idx}>{error}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+                                <div className="something-i-guess-i-forogt-lol">
+                                    <div className="checkincheckout">
+
+                                        <label>
+                                            Check-in
+                                            <input type='date' className=""
+                                                onChange={(e) => setDateStart(e.target.value)}
+                                                value={dateStart}
+                                                required
+                                            />
+                                        </label>
+                                        <label>
+                                            Check-out
+                                            <input type='date' className=""
+                                                value={dateEnd}
+                                                onChange={(e) => setDateEnd(e.target.value)}
+                                                required
+                                            />
+                                        </label>
+                                    </div>
+                                    <div className="guest-number-div">
+
+                                        <label>
+                                            Guest Number
+                                            <input type='number' className=""
+                                                value={numGuest}
+                                                onChange={(e) => setNumGuest(e.target.value)}
+                                                placeholder="asdas"
+                                                required
+                                            />
+                                        </label>
+                                    </div>
+                                </div>
+                                <div className="form-button">
+
+                                    <button className="" type="submit">Check availability</button>
+                                </div>
+
+                            </div>
+                        </form>
+
+                    </div>
+
+                    <div>
+                        <ul>
+                            {bookings?.map(e => {
+                                if (+e.spotId === +spotId) {
+
+                                    return <button type="submit" key={e.id} onClick={(e3) => handleBookingDelete(e3)}><li id={e.id} key={e.id}>{e.startDate}</li> </button>;
+                                }
+                            })}
+                        </ul>
+                    </div>
                 </div>
-            </form>
-
-            <div>
-                <ul>
-                    {bookings?.map(e => {
-                        if (+e.spotId=== +spotId) {
-
-                            return <button type="submit" key={e.id} onClick={(e3) => handleBookingDelete(e3)}><li id={e.id} key={e.id}>{e.startDate}</li> </button>;
-                        }
-                    })}
-                </ul>
             </div>
 
         </div>

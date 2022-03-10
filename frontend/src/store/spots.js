@@ -39,18 +39,67 @@ export const getSpots = () => async (dispatch) => {
 
 export const createSpot = (payload) => async (dispatch) => {
 
+
     const response = await csrfFetch('/api/spots', {
         method: "POST",
         body: JSON.stringify(payload)
-    })
+    });
 
     if (response.ok) {
-
         const data = await response.json();
-
-        dispatch(addSpot(data.spot));
+        console.log(data);
+        dispatch(addSpot(data));
     }
     return response;
+
+
+    // try {
+    //     const response = await csrfFetch('/api/spots', {
+    //         method: "POST",
+    //         body: JSON.stringify(payload)
+    //     });
+
+    //     if (response.ok) {
+
+    //         const data = await response.json();
+
+    //         console.log(data.spot);
+
+    //         if(data){
+    //             dispatch(addSpot(data));
+    //         }
+
+
+    //     }
+
+    // } catch (error) {
+
+    //     try {
+
+    //         const res = await error.json();
+
+    //         return res;
+
+    //     } catch (er) {
+    //         return er;
+    //     }
+
+    // console.log(res.errors);
+    // console.log(error);
+    // console.log(error.ok);
+    // }
+
+
+
+    // if (data?.errors) {
+    //     return data;
+    // }
+
+
+
+    // return response;
+
+
 };
 
 export const editSpotThunk = (payload) => async (dispatch) => {
@@ -96,7 +145,6 @@ const initialState = { spots: {} };
 const spotReducer = (state = initialState, action) => {
     let newState;
     let newSpots;
-    let newBooking;
     switch (action.type) {
         case GET_SPOTS:
             newState = { ...state }
