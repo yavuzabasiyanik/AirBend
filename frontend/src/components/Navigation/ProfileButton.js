@@ -44,6 +44,7 @@ function ProfileButton({ user }) {
         <div>
           <div className="dropdown-links">
             <NavLink exact to="/profile"><p className="hlsLinks">{user?.username}</p></NavLink>
+            <NavLink exact to={`/bookings/${user?.id}`}><p className="hlsLinks">Bookings</p></NavLink>
             <p className="hlsLinks" onClick={logout}>Log Out</p>
           </div>
         </div>

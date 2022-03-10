@@ -56,7 +56,7 @@ export const createBooking = (payload) => async (dispatch) => {
 }
 
 
-export const deleteBooking = ({ id, spotId }) => async (dispatch) => {
+export const deleteBooking = ({ id }) => async (dispatch) => {
     const response = await csrfFetch(`/api/spots/bookings/${id}`, {
         method: 'DELETE'
     });

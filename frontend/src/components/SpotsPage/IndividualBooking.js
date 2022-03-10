@@ -9,7 +9,6 @@ import './IndividualBookingPage.css';
 const IndividualBookingPage = () => {
     const { userId } = useParams();
 
-    const { spotId } = useParams();
 
 
     const history = useHistory();
@@ -18,30 +17,26 @@ const IndividualBookingPage = () => {
 
 
     useEffect(() => {
-        dispatch(spotActions.getSpots())
+        dispatch(spotActions.getSpots());
 
     }, [dispatch]);
 
     useEffect(() => {
-        dispatch(bookingActions.getBookings())
+        dispatch(bookingActions.getBookings());
 
     }, [dispatch]);
 
 
     const sessionUser = useSelector((state) => state.session.user);
-    const spotsObj = useSelector((state) => state?.spotReducer?.spots);
     const bookingObj = useSelector((state) => state?.bookingReducer?.bookings);
 
 
 
     const bookings = Object.values(bookingObj)
-    const spots = Object.values(spotsObj)
-    const spot = spotsObj[spotId];
 
 
-    bookings?.forEach(e => {
-        console.log(e);
-    })
+    // bookings?.forEach(e => {
+    // })
 
     const handleBookingDelete = (elemetn) => {
         elemetn.preventDefault();
@@ -49,11 +44,13 @@ const IndividualBookingPage = () => {
         const id = elemetn?.target?.id;
 
 
+        console.log(id);
+
 
 
         if (id) {
 
-            dispatch(bookingActions.deleteBooking({ spotId, id }));
+            dispatch(bookingActions.deleteBooking({ id }));
         }
     }
 
@@ -76,21 +73,21 @@ const IndividualBookingPage = () => {
                         if (e.userId === +userId) {
 
                             return (
-                                <div className="positionrelative">
-                                    <Link key={e.id} to={`/spots/${e.spotId}`}>
-                                        <p className="name-username">{e.Spot?.name} hosted by - <span className="username">{e.Spot?.User?.username}</span></p>
+                                <div key={e.id} className="positionrelative">
+                                    <Link key={e.id} to={`/spots/${e?.spotId}`}>
+                                        <p className="name-username">{e?.Spot?.name} hosted by - <span className="username">{e.Spot?.User?.username}</span></p>
                                         <img className='spotsImage' alt="" src={e.Spot?.img1}></img>
                                         <div className='spotsDiv'>
                                             <p className='plink2'>
-                                                {new Date(e.startDate).toLocaleDateString('en-US')}<span className="to"> to </span>{new Date(e.endDate).toLocaleDateString('en-US')}
+                                                {new Date(e?.startDate).toLocaleDateString('en-US')}<span className="to"> to </span>{new Date(e.endDate).toLocaleDateString('en-US')}
                                             </p>
                                             -
                                             <p className='plink2'>
-                                                ${e.Spot.price} / night
+                                                ${e?.Spot?.price} / night
                                             </p>
                                         </div>
                                     </Link>
-                                    <button onClick={(e3) => handleBookingDelete(e3)} className="booking-button-delete" >Delete</button>
+                                    <button id={e.id}  onClick={(e3) => handleBookingDelete(e3)} className="booking-button-delete" >Delete</button>
 
                                 </div>
 

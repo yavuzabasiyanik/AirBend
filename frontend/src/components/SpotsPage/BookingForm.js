@@ -43,7 +43,7 @@ const BookingForm = () => {
 
 
     const bookings = Object.values(bookingObj)
-    const spot = spotsObj[spotId];
+    const spot = spotsObj[+spotId];
 
     const handleSubmit = (e) => {
 
@@ -54,17 +54,23 @@ const BookingForm = () => {
 
         const filter = bookings?.filter((e2) => {
 
-            if (e2?.userId === sessionUser?.id) {
-                return e2;
-            }
+            if (e2?.spotId === +spotId) {
 
+                if (e2?.userId === sessionUser?.id) {
+                    return e2;
+                }
+
+            }
 
         });
 
         const filter2 = bookings?.filter((e2) => {
 
-            if ((new Date(e2.startDate) <= new Date(dateStart) && new Date(e2.endDate) >= new Date(dateStart)) || (new Date(e2.startDate) <= new Date(dateEnd) && new Date(e2.endDate) >= new Date(dateEnd)) || (new Date(e2.startDate) >= new Date(dateStart) && new Date(e2.endDate) <= new Date(dateEnd))) {
-                return e2;
+            if (e2?.spotId === +spotId) {
+
+                if ((new Date(e2.startDate) <= new Date(dateStart) && new Date(e2.endDate) >= new Date(dateStart)) || (new Date(e2.startDate) <= new Date(dateEnd) && new Date(e2.endDate) >= new Date(dateEnd)) || (new Date(e2.startDate) >= new Date(dateStart) && new Date(e2.endDate) <= new Date(dateEnd))) {
+                    return e2;
+                }
             }
         });
 
@@ -106,7 +112,7 @@ const BookingForm = () => {
 
         dispatch(bookingActions.createBooking(payload));
 
-        history.push(`/bookings/${sessionUser.id}/spots/${spotId}`)
+        history.push(`/bookings/${sessionUser.id}`)
     }
 
     const handleBookingDelete = (elemetn) => {
@@ -119,7 +125,7 @@ const BookingForm = () => {
 
         if (id) {
 
-            dispatch(bookingActions.deleteBooking({ spotId, id }));
+            dispatch(bookingActions.deleteBooking({ id }));
         }
     }
 
