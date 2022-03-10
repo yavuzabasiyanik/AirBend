@@ -59,6 +59,9 @@ const IndividualSpotPage = () => {
 
     return (
         <>
+            <div className="just-black">
+
+            </div>
             <div className="individualBigDiv">
                 <div className="individual-page-header">
                     <div className="spots-name">
