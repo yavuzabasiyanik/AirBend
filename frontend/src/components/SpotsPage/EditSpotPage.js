@@ -22,7 +22,9 @@ const EditSpot = () => {
     const [country, setCountry] = useState('');
     const [address, setAddress] = useState('');
     const [description, setDescription] = useState('');
-    const [img1, setImg1] = useState('');
+    const [img1, setImg1] = useState("");
+    const [img2, setImg2] = useState("");
+    const [img3, setImg3] = useState("");
     const [price, setPrice] = useState(0);
     const [errors, setErrors] = useState([]);
 
@@ -46,6 +48,8 @@ const EditSpot = () => {
             setAddress(spots?.address);
             setDescription(spots?.description);
             setImg1(spots?.img1);
+            setImg2(spots?.img2);
+            setImg3(spots?.img3);
             setPrice(spots?.price);
         }
     }, [spots]);
@@ -67,21 +71,37 @@ const EditSpot = () => {
             bedNum,
             price,
             img1,
+            img2,
+            img3
         };
 
         setErrors([]);
 
-        dispatch(spotActions.editSpotThunk(payload)).catch(
-            async (res) => {
-                const data = await res.json();
-                if (data && data.errors) {
-                    setErrors(data.errors)
-                    return
-                };
-            }
-        );
 
-        history.push(`/spots/${spotId}`);
+
+        let res2 = dispatch(spotActions.editSpotThunk(payload))
+
+
+        res2.then((e) => {
+            if (e.errors) {
+                setErrors(e.errors);
+            } else {
+                history.push(`/spots/${spotId}`);
+
+            }
+        })
+
+        // dispatch(spotActions.editSpotThunk(payload)).catch(
+        //     async (res) => {
+        //         const data = await res.json();
+        //         if (data && data.errors) {
+        //             setErrors(data.errors)
+        //             return
+        //         };
+        //     }
+        // );
+
+        // history.push(`/spots/${spotId}`);
     };
 
 
@@ -93,11 +113,11 @@ const EditSpot = () => {
 
                 <form onSubmit={handleSubmit}>
                     <div className="h3-form">
-                        <ul>
+                        {/* <ul>
                             {errors.map((error, idx) => (
                                 <li key={idx}>{error}</li>
                             ))}
-                        </ul>
+                        </ul> */}
 
                         <label>
                             House Name
@@ -188,7 +208,7 @@ const EditSpot = () => {
                             />
                         </label>
                         <label>
-                            Image
+                            Main Image
                             <input
                                 className="login"
                                 type="text"
@@ -198,6 +218,40 @@ const EditSpot = () => {
                                 placeholder="Enter your image url here."
                             />
                         </label>
+                        <label>
+                            Side Image
+                            <input
+                                className="login"
+                                type="text"
+                                value={img2}
+                                onChange={(e) => setImg2(e.target.value)}
+                                required
+                                placeholder="Enter your image url here."
+                            />
+                        </label>
+                        <label>
+                            Side Image
+                            <input
+                                className="login"
+                                type="text"
+                                value={img3}
+                                onChange={(e) => setImg3(e.target.value)}
+                                required
+                                placeholder="Enter your image url here."
+                            />
+                        </label>
+                        <ul className="error-container">
+                            {errors?.map((error, idx) => {
+
+                                if (typeof error !== 'object') {
+
+                                    return <li key={idx}>{error}</li>
+                                } else {
+                                    return;
+                                }
+                            }
+                            )}
+                        </ul>
                         <button className="login" type="submit">Update Your Listing</button>
 
                     </div>

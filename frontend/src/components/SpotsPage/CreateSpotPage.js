@@ -6,7 +6,7 @@ import { NavLink, Redirect, useHistory } from "react-router-dom";
 
 const CreateSpotPage = () => {
     const [name, setNameOfTheHouse] = useState("");
-    const [bedNum, setBedNum] = useState("");
+    const [bedNum, setBedNum] = useState(0);
     const [city, setCity] = useState("");
     const [state, setState] = useState("");
     const [country, setCountry] = useState("");
@@ -16,7 +16,8 @@ const CreateSpotPage = () => {
     const [img2, setImg2] = useState("");
     const [img3, setImg3] = useState("");
 
-    const [price, setPrice] = useState("");
+    const [price, setPrice] = useState(0);
+
     const [errors, setErrors] = useState([[]]);
 
     const sessionUser = useSelector((state) => state.session.user);
@@ -28,17 +29,16 @@ const CreateSpotPage = () => {
     }, [dispatch])
 
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        console.log(errors);
-        if(errors===[]){
+    //     console.log(errors);
+    //     if(errors===[]){
 
-        }
-        if (errors === []) {
-            history.push('/spots');
+    //     }
+    //     if (errors.length) {
 
-        }
-    }, [errors])
+    //     }
+    // }, [errors])
 
 
     const handleSubmit = async (e) => {
@@ -65,15 +65,17 @@ const CreateSpotPage = () => {
         setErrors([]);
 
 
-        dispatch(spotActions.createSpot(payload)).catch(
-            async (res) => {
-                const data = await res.json();
-                if (data && data.errors) {
-                    setErrors(data.errors)
-                    return
-                };
+        let res2 = dispatch(spotActions.createSpot(payload))
+
+
+        res2.then((e) => {
+            if (e.errors) {
+                setErrors(e.errors);
+            } else {
+                history.push('/spots');
             }
-        );
+        })
+
 
 
 
@@ -99,7 +101,7 @@ const CreateSpotPage = () => {
                                 type="text"
                                 value={name}
                                 onChange={(e) => setNameOfTheHouse(e.target.value)}
-                                // required
+                                required
                                 placeholder="House Name."
 
                             />
@@ -111,7 +113,7 @@ const CreateSpotPage = () => {
                                 type="number"
                                 value={bedNum}
                                 onChange={(e) => setBedNum(e.target.value)}
-                                // required
+                                required
                                 placeholder="Beds."
                             />
                         </label>
@@ -122,7 +124,7 @@ const CreateSpotPage = () => {
                                 type="text"
                                 value={city}
                                 onChange={(e) => setCity(e.target.value)}
-                                // required
+                                required
                                 placeholder="City."
                             />
                         </label>
@@ -133,7 +135,7 @@ const CreateSpotPage = () => {
                                 type="text"
                                 value={state}
                                 onChange={(e) => setState(e.target.value)}
-                                // required
+                                required
                                 placeholder="State."
                             />
                         </label>
@@ -144,7 +146,7 @@ const CreateSpotPage = () => {
                                 type="text"
                                 value={country}
                                 onChange={(e) => setCountry(e.target.value)}
-                                // required
+                                required
                                 placeholder="Country."
                             />
                         </label>
@@ -155,7 +157,7 @@ const CreateSpotPage = () => {
                                 type="text"
                                 value={address}
                                 onChange={(e) => setAddress(e.target.value)}
-                                // required
+                                required
                                 placeholder="Address pls, dw I won't come after u."
                             />
                         </label>
@@ -166,7 +168,7 @@ const CreateSpotPage = () => {
                                 type="text"
                                 value={description}
                                 onChange={(e) => setDescription(e.target.value)}
-                                // required
+                                required
                                 placeholder="Describe your place here."
                             />
                         </label>
@@ -177,7 +179,7 @@ const CreateSpotPage = () => {
                                 type="number"
                                 value={price}
                                 onChange={(e) => setPrice(e.target.value)}
-                                // required
+                                required
                                 placeholder="Price"
                             />
                         </label>
@@ -188,7 +190,7 @@ const CreateSpotPage = () => {
                                 type="text"
                                 value={img1}
                                 onChange={(e) => setImg1(e.target.value)}
-                                // required
+                                required
                                 placeholder="Enter your image url here."
                             />
                         </label>
@@ -199,7 +201,7 @@ const CreateSpotPage = () => {
                                 type="text"
                                 value={img2}
                                 onChange={(e) => setImg2(e.target.value)}
-                                // required
+                                required
                                 placeholder="Enter your image url here."
                             />
                         </label>
@@ -210,7 +212,7 @@ const CreateSpotPage = () => {
                                 type="text"
                                 value={img3}
                                 onChange={(e) => setImg3(e.target.value)}
-                                // required
+                                required
                                 placeholder="Enter your image url here."
                             />
                         </label>

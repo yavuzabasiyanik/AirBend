@@ -80,6 +80,77 @@ const validateSpots = [
 ];
 
 
+const validateSpotsEdit = [
+    check('img1')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a valid image.')
+        .isURL()
+        .withMessage('Enter a valid Main Image, sir.'),
+    check('img2')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a valid image.')
+        .isURL()
+        .withMessage('Enter a valid Side Image, sir.'),
+    check('img3')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a valid image.')
+        .isURL()
+        .withMessage('Enter a valid Side Image, sir.'),
+    check('bedNum')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a valid bedNum.')
+        .isFloat({ min: 1, max: 10 })
+        .withMessage('Bednum has to be between 1-10.'),
+    check('price')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a valid price.')
+        .isFloat({ min: 100, max: 1000 })
+        .withMessage('Price has to be between $100-$1000.'),
+    check('address')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a valid addresss.')
+        .isLength({ max: 255 })
+        .withMessage('Address can not be more than 255 characters long'),
+    check('city')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a valid city.')
+        .isLength({ max: 255 })
+        .withMessage('City can not be more than 255 characters long'),
+    check('state')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a valid state.')
+        .isLength({ max: 255 })
+        .withMessage('State can not be more than 255 characters long'),
+    check('country')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a valid country.')
+        .isLength({ max: 255 })
+        .withMessage('Country can not be more than 255 characters long'),
+    check('name')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a valid name.')
+        .isLength({ max: 355 })
+        .withMessage('Name can not be more than 355 characters long')
+        .custom((value,{req}) => {
+            return Spot.findOne({ where: { name: value } })
+                .then((spot) => {
+                    if (spot&& spot.id!==req.body.id) {
+                        return Promise.reject('The provided Name already in use by another account');
+                    }
+                });
+        }),
+    check('description')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a valid description.')
+        .isLength({ max: 600 })
+        .withMessage('Description can not be more than 600 characters long')
+        .isLength({ min: 100 })
+        .withMessage('Is that all you got to say about your place? Cmon... (should be more than 100 characters long, yw)'),
+    handleValidationErrors
+];
+
+
+
 router.get('/', asyncHandler(async (req, res) => {
 
     const spots = await Spot.findAll({
@@ -98,10 +169,30 @@ router.post('/', validateSpots, asyncHandler(async (req, res) => {
 }))
 
 
-router.put('/:id', validateSpots, asyncHandler(async (req, res) => {
+router.put('/:id', validateSpotsEdit, asyncHandler(async (req, res, next) => {
     const id = req.params.id;
 
     const spot = await Spot.findByPk(id);
+
+    // const spot2 = Spot.findAll();
+
+
+
+
+    // const filter = spot2.filter(e => {
+    //     return e.name === req.body.name
+    // })
+
+    // filter.forEach(element => {
+
+    //     if (element.id !== spot.id) {
+    //         const err = new Error('Name must be unique.');
+    //         err.status = 403;
+    //         err.title = 'Name unvalid';
+    //         err.errors = ['The provided Name already in use by another account'];
+    //         return next(err);
+    //     }
+    // });
 
     await spot.update(req.body);
     await spot.save();

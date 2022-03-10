@@ -11,7 +11,7 @@ const getSpot = (spots) => ({
 })
 
 const addSpot = (spot) => ({
-    tpye: ADD_SPOT,
+    type: ADD_SPOT,
     spot
 })
 
@@ -40,83 +40,90 @@ export const getSpots = () => async (dispatch) => {
 export const createSpot = (payload) => async (dispatch) => {
 
 
-    const response = await csrfFetch('/api/spots', {
-        method: "POST",
-        body: JSON.stringify(payload)
-    });
+    // const response = await csrfFetch('/api/spots', {
+    //     method: "POST",
+    //     body: JSON.stringify(payload)
+    // });
 
-    if (response.ok) {
-        const data = await response.json();
-        console.log(data);
-        dispatch(addSpot(data));
-    }
-    return response;
-
-
-    // try {
-    //     const response = await csrfFetch('/api/spots', {
-    //         method: "POST",
-    //         body: JSON.stringify(payload)
-    //     });
-
-    //     if (response.ok) {
-
-    //         const data = await response.json();
-
-    //         console.log(data.spot);
-
-    //         if(data){
-    //             dispatch(addSpot(data));
-    //         }
-
-
-    //     }
-
-    // } catch (error) {
-
-    //     try {
-
-    //         const res = await error.json();
-
-    //         return res;
-
-    //     } catch (er) {
-    //         return er;
-    //     }
-
-    // console.log(res.errors);
-    // console.log(error);
-    // console.log(error.ok);
+    // if (response.ok) {
+    //     const data = await response.json();
+    //     dispatch(addSpot(data));
     // }
+    // return response;
+
+
+    try {
+        const response = await csrfFetch('/api/spots', {
+            method: "POST",
+            body: JSON.stringify(payload)
+        });
+
+        if (response.ok) {
+
+            const data = await response.json();
+
+
+           return dispatch(addSpot(data));
+
+
+        }
+
+    } catch (error) {
+
+        const res = await error.json();
+
+        return res;
 
 
 
-    // if (data?.errors) {
-    //     return data;
+    };
+}
+
+
+
+export const editSpotThunk = (payload) => async (dispatch) => {
+
+    // const response = await csrfFetch(`/api/spots/${payload.id}`, {
+    //     method: "PUT",
+    //     body: JSON.stringify(payload)
+    // })
+
+    // if (response.ok) {
+
+    //     const data = await response.json();
+
+    //     dispatch(editSpot(data.spot));
     // }
-
-
 
     // return response;
 
 
-};
+    try {
 
-export const editSpotThunk = (payload) => async (dispatch) => {
+        const response = await csrfFetch(`/api/spots/${payload.id}`, {
+            method: "PUT",
+            body: JSON.stringify(payload)
+        })
 
-    const response = await csrfFetch(`/api/spots/${payload.id}`, {
-        method: "PUT",
-        body: JSON.stringify(payload)
-    })
+        if (response.ok) {
 
-    if (response.ok) {
+            const data = await response.json();
 
-        const data = await response.json();
 
-        dispatch(editSpot(data.spot));
-    }
+           return dispatch(editSpot(data));
 
-    return response;
+
+        }
+
+    } catch (error) {
+
+        const res = await error.json();
+
+        return res;
+
+
+
+    };
 
 };
 
