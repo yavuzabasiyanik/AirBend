@@ -50,19 +50,24 @@ const CreateSpotPage = () => {
         };
 
         setErrors([]);
+        let errorYes = false
 
         dispatch(spotActions.createSpot(payload)).catch(
             async (res) => {
                 const data = await res.json();
                 if (data && data.errors) {
+                    errorYes=true
                     setErrors(data.errors)
                     return
                 };
             }
         );
-        if (!errors) {
+
+        if (!errorYes) {
             history.push('/spots');
         }
+
+
     };
 
 

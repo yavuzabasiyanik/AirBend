@@ -27,7 +27,7 @@ const months = [
 function Spots() {
 
     const dispatch = useDispatch();
-    const [spot,setSpot] = useState();
+    const [spot, setSpot] = useState();
 
     useEffect(() => {
         dispatch(spotActions.getSpots())
@@ -39,14 +39,16 @@ function Spots() {
     const spots = Object.values(spotsObj);
 
 
-    console.log(spots[0]?.Bookings[0]?.startDate < spots[0]?.Bookings[0]?.endDate);
 
 
 
     return (
         <div className='spots-container'>
-
-            {sessionUser && (<NavLink to='/spots/create'>Create Listing</NavLink>)}
+            <div className='spots-page-white-div'>
+                <NavLink exact to={'/'}>
+                    <button className="return-to-home">Return to Home page</button>
+                </NavLink>
+            </div>
 
             <div className='spots-alt-container'>
 

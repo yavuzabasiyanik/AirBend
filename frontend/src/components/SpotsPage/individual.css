@@ -36,7 +36,54 @@
 .reviews-kindastuff{
     display: flex;
     align-items: center;
+    justify-content: space-between;
+
 }
+.reviews-2{
+    display: flex;
+    align-items: center;
+}
+
+.edit-delete-spot-buttons{
+    width:115px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.spot-button-edit{
+        border: none;
+        width:50px;
+        height: 30px;
+        color: white;
+        background-color: #4CAF50;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 6px;
+        border: 1px solid rgba(0,0,0,.1);
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
+}
+
+.spot-button-delete{
+    background: rgb(245, 35, 35);
+    border: none;
+    color: whitesmoke;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 6px;
+    border: 1px solid rgba(0,0,0,.1);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
+}
+
+/* .edit-delete-spot-buttons:last-child{
+    background: white;
+    border: none;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 30px;
+    border: 1px solid rgba(0,0,0,.1);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
+} */
 
 .greyclasscountrystatecity{
     text-decoration: underline;

@@ -63,9 +63,9 @@ function Navigation({ isLoaded }) {
         />
         <img className='search-img' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaO-KtMrTzRRPDbYRZu8dIs5Gl6cfYCEZ4kA&usqp=CAU"></img>
       </div>
-      <NavLink exact to={'/spots/create'}>
+      {sessionUser && (<NavLink exact to={'/spots/create'}>
         <button className="link-become-a-host">Become a Host</button>
-      </NavLink>
+      </NavLink>)}
 
       {isLoaded && sessionLinks}
     </div>
