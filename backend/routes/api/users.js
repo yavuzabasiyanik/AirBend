@@ -33,7 +33,10 @@ const validateSignup = [
     .exists({ checkFalsy: true })
     .withMessage('Please enter a Username')
     .isLength({ min: 4 })
-    .withMessage('Please provide a username with at least 4 characters.'),
+    .withMessage('Please provide a username with at least 4 characters.')
+    .isLength({ max: 15 })
+    .withMessage('Please provide a username with max 15 characters.')
+    ,
 
   check('email')
     .isLength({ max: 255 })

@@ -204,7 +204,7 @@ const BookingForm = () => {
                     )}
 
 
-                    <div>
+                    {/* <div>
                         <ul>
                             {bookings?.map(e => {
                                 if (+e.spotId === +spotId && e?.userId === sessionUser?.id) {
@@ -213,7 +213,7 @@ const BookingForm = () => {
                                 }
                             })}
                         </ul>
-                    </div>
+                    </div> */}
                 </div>
             </div>
 

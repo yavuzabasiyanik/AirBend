@@ -59,8 +59,8 @@ const validateSpots = [
     check('name')
         .exists({ checkFalsy: true })
         .withMessage('Please provide a valid name.')
-        .isLength({ max: 355 })
-        .withMessage('Name can not be more than 355 characters long')
+        .isLength({ max: 22 })
+        .withMessage('Name can not be more than 22 characters long')
         .custom((value) => {
             return Spot.findOne({ where: { name: value } })
                 .then((user) => {
