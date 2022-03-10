@@ -53,15 +53,45 @@ const BookingForm = () => {
 
         setErrors([]);
 
-        spot?.Bookings.forEach((e2) => {
 
-            if (new Date(dateStart) > new Date(dateEnd)) {
+        const filter = bookings?.filter((e2) => {
 
-                setErrors(['Unvalid days']);
+            if (e2?.userId === sessionUser?.id) {
+                return e2;
+            }
+
+
+        });
+
+        const filter2 = bookings?.filter((e2) => {
+
+            if ((new Date(e2.startDate) <= new Date(dateStart) && new Date(e2.endDate) >= new Date(dateStart)) || (new Date(e2.startDate) <= new Date(dateEnd) && new Date(e2.endDate) >= new Date(dateEnd)) || (new Date(e2.startDate) >= new Date(dateStart) && new Date(e2.endDate) <= new Date(dateEnd))) {
+                return e2;
             }
         });
 
-        if (spot?.bedNum < numGuest) {
+        if (filter?.length) {
+            setErrors(["You can only book once."]);
+            return
+        }
+
+        if (filter2?.length) {
+            setErrors(['Those days are taken by another user.'])
+            return;
+        }
+
+        if (new Date(dateStart) < new Date()) {
+            setErrors(["That day is not available."]);
+            return
+        }
+
+        if (new Date(dateStart) > new Date(dateEnd)) {
+
+            setErrors(['Unvalid days']);
+            return
+        }
+
+        if (spot?.bedNum < numGuest || numGuest <= 0) {
 
             setErrors(['Please enter a valid guest num']);
             return;
@@ -85,12 +115,13 @@ const BookingForm = () => {
         const id = elemetn.target.id;
 
 
+
+
         if (id) {
 
             dispatch(bookingActions.deleteBooking({ spotId, id }));
         }
     }
-    // console.log(spot.User);
 
     return (
         <div className="bigBookingFormDiv">
@@ -106,63 +137,66 @@ const BookingForm = () => {
                         <img src={`${spot?.User?.profileUrl}`}></img>
 
                     </div>
-                    <div className="form-individual-page">
+                    {sessionUser && (sessionUser?.id !== spot?.User?.id) && (
+                        <div className="form-individual-page">
 
 
-                        <form onSubmit={handleSubmit}>
-                            <div className="inside-of-the-form">
-                                <div className="errors-cotainer">
-                                    <p className='plink2'>
-                                        ${spot?.price} / night
-                                    </p>
-                                    <ul>
-                                        {errors.map((error, idx) => (
-                                            <li key={idx}>{error}</li>
-                                        ))}
-                                    </ul>
-                                </div>
-                                <div className="something-i-guess-i-forogt-lol">
-                                    <div className="checkincheckout">
-
-                                        <label>
-                                            Check-in
-                                            <input type='date' className=""
-                                                onChange={(e) => setDateStart(e.target.value)}
-                                                value={dateStart}
-                                                required
-                                            />
-                                        </label>
-                                        <label>
-                                            Check-out
-                                            <input type='date' className=""
-                                                value={dateEnd}
-                                                onChange={(e) => setDateEnd(e.target.value)}
-                                                required
-                                            />
-                                        </label>
+                            <form onSubmit={handleSubmit}>
+                                <div className="inside-of-the-form">
+                                    <div className="errors-cotainer">
+                                        <p className='plink2'>
+                                            ${spot?.price} / night
+                                        </p>
+                                        <ul>
+                                            {errors.map((error, idx) => (
+                                                <li key={idx}>{error}</li>
+                                            ))}
+                                        </ul>
                                     </div>
-                                    <div className="guest-number-div">
+                                    <div className="something-i-guess-i-forogt-lol">
+                                        <div className="checkincheckout">
 
-                                        <label>
-                                            Guest Number
-                                            <input type='number' className=""
-                                                value={numGuest}
-                                                onChange={(e) => setNumGuest(e.target.value)}
-                                                placeholder="asdas"
-                                                required
-                                            />
-                                        </label>
+                                            <label>
+                                                Check-in
+                                                <input type='date' className=""
+                                                    onChange={(e) => setDateStart(e.target.value)}
+                                                    value={dateStart}
+                                                    required
+                                                />
+                                            </label>
+                                            <label>
+                                                Check-out
+                                                <input type='date' className=""
+                                                    value={dateEnd}
+                                                    onChange={(e) => setDateEnd(e.target.value)}
+                                                    required
+                                                />
+                                            </label>
+                                        </div>
+                                        <div className="guest-number-div">
+
+                                            <label>
+                                                Guest Number
+                                                <input type='number' className=""
+                                                    value={numGuest}
+                                                    onChange={(e) => setNumGuest(e.target.value)}
+                                                    placeholder="Guests"
+                                                    required
+                                                />
+                                            </label>
+                                        </div>
                                     </div>
+                                    <div className="form-button">
+
+                                        <button className="" type="submit">Check availability</button>
+                                    </div>
+
                                 </div>
-                                <div className="form-button">
+                            </form>
 
-                                    <button className="" type="submit">Check availability</button>
-                                </div>
+                        </div>
+                    )}
 
-                            </div>
-                        </form>
-
-                    </div>
 
                     <div>
                         <ul>
