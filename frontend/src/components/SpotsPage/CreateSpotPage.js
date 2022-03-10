@@ -13,6 +13,9 @@ const CreateSpotPage = () => {
     const [address, setAddress] = useState("");
     const [description, setDescription] = useState("");
     const [img1, setImg1] = useState("");
+    const [img2, setImg2] = useState("");
+    const [img3, setImg3] = useState("");
+
     const [price, setPrice] = useState("");
     const [errors, setErrors] = useState([]);
 
@@ -41,21 +44,30 @@ const CreateSpotPage = () => {
             bedNum,
             price,
             img1,
+            img2,
+            img3,
             userId: sessionUser.id,
         };
 
         setErrors([]);
+        let errorYes = false
+
         dispatch(spotActions.createSpot(payload)).catch(
-             (res) => {
-                const data =  res.json();
+            async (res) => {
+                const data = await res.json();
                 if (data && data.errors) {
+                    errorYes=true
                     setErrors(data.errors)
                     return
                 };
             }
         );
 
-        history.push('/spots');
+        if (!errorYes) {
+            history.push('/spots');
+        }
+
+
     };
 
 
@@ -67,11 +79,6 @@ const CreateSpotPage = () => {
 
                 <form onSubmit={handleSubmit}>
                     <div className="h3-form">
-                        <ul>
-                            {errors.map((error, idx) => (
-                                <li key={idx}>{error}</li>
-                            ))}
-                        </ul>
 
                         <label>
                             House Name
@@ -162,7 +169,7 @@ const CreateSpotPage = () => {
                             />
                         </label>
                         <label>
-                            Image
+                            Main Image
                             <input
                                 className="login"
                                 type="text"
@@ -172,9 +179,38 @@ const CreateSpotPage = () => {
                                 placeholder="Enter your image url here."
                             />
                         </label>
+                        <label>
+                            Side Image
+                            <input
+                                className="login"
+                                type="text"
+                                value={img2}
+                                onChange={(e) => setImg2(e.target.value)}
+                                required
+                                placeholder="Enter your image url here."
+                            />
+                        </label>
+                        <label>
+                            Side Image
+                            <input
+                                className="login"
+                                type="text"
+                                value={img3}
+                                onChange={(e) => setImg3(e.target.value)}
+                                required
+                                placeholder="Enter your image url here."
+                            />
+                        </label>
+
+                        <ul className="error-container">
+                            {errors.map((error, idx) => (
+                                <li key={idx}>{error}</li>
+                            ))}
+                        </ul>
                         <button className="login" type="submit">Become a Host</button>
 
                     </div>
+
                 </form>
                 <div id="altbar">
                     <span className="dontHaveAnAccYet">
@@ -182,8 +218,8 @@ const CreateSpotPage = () => {
                             Learn more.
                         </a>
                     </span>
-                    <span style={{display:"block"}} className="dontHaveAnAccYet">
-                       To go back to listings, click <NavLink  id="submitButtonInsideOfLogin" exact to='/spots' >
+                    <span style={{ display: "block" }} className="dontHaveAnAccYet">
+                        To go back to listings, click <NavLink id="submitButtonInsideOfLogin" exact to='/spots' >
                             Listings.
                         </NavLink>
                     </span>

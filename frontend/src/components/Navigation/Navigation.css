@@ -9,6 +9,7 @@
     align-items: center;
     transition: all .5s;
     z-index: 1000;
+
 }
 .headerWhite{
     display: flex;
@@ -21,11 +22,14 @@
     align-items: center;
     transition: all .5s;
     z-index: 1000;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
+
 }
 
 *{
     text-decoration: none;
 }
+
 
 
 .link{
@@ -45,6 +49,40 @@
 
 
 }
+
+.link-become-a-host{
+    background: white;
+    border: none;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    width:100px;
+    height: 42px;
+    right:143px;
+    top:27px;
+    position: absolute;
+    border-radius: 30px;
+    border: 1px solid rgba(0,0,0,.1);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
+}
+
+.spots-page-white-div{
+    padding: 30px 78px;
+    display: flex;
+}
+.return-to-home{
+    background: white;
+    border: none;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    width:100px;
+    height: 42px;
+    border-radius: 30px;
+    border: 1px solid rgba(0,0,0,.1);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
+}
+
 
 .dropdown > .link.focus,
 .link:hover{
@@ -153,7 +191,7 @@ p{
 }
 
 .search-div{
-    width:25%;
+    width:37%;
     position: relative;
 
 }

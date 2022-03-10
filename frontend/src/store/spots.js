@@ -4,9 +4,6 @@ const GET_SPOTS = 'spots/get';
 const ADD_SPOT = 'spots/create-one';
 const EDIT_SPOT = 'spots/edit-the-thing';
 const DELETE_SPOT = 'spots/delete';
-const ADD_BOOKING = 'spots/booking/add';
-const DELETE_BOOKING = 'spots/booking/delete';
-
 
 const getSpot = (spots) => ({
     type: GET_SPOTS,
@@ -29,27 +26,14 @@ const deleteSpot = (id) => ({
     id
 })
 
-const addBooking = (booking) => ({
-
-    type: ADD_BOOKING,
-    booking
-
-})
-
-const deleteBookingAction = ({ spotId, id }) => ({
-    type: DELETE_BOOKING,
-    id,
-    spotId
-})
-
-
 export const getSpots = () => async (dispatch) => {
 
     const response = await csrfFetch('/api/spots')
 
-    const data = await response.json();
-
-    dispatch(getSpot(data.spots));
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(getSpot(data.spots));
+    }
     return response;
 };
 
@@ -124,22 +108,19 @@ const spotReducer = (state = initialState, action) => {
             return newState;
         case ADD_SPOT:
             newState = { ...state };
-            newSpots= {...state.spots};
+            newSpots = { ...state.spots };
             newSpots[action.spot.id] = action.spot;
-            newState.spots = {...newSpots};
+            newState.spots = { ...newSpots };
             return newState;
         case EDIT_SPOT:
             newState = { ...state };
-            newSpots = {...state.spots};
-            newSpots[action.spot.id]  = {...newSpots[action.spot.id], ...action.spot}
-            // newState.spots[action.spot.id] = { ...newState.spots[action.spot.id], ...action.spot };
-
-            newState.spots = {...newSpots};
-            
+            newSpots = { ...state.spots };
+            newSpots[action.spot.id] = { ...newSpots[action.spot.id], ...action.spot }
+            newState.spots = { ...newSpots };
             return newState;
         case DELETE_SPOT:
             newState = { ...state };
-            newSpots = {...state.spots};
+            newSpots = { ...state.spots };
 
             delete newSpots[action.id];
 

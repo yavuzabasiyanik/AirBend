@@ -1,4 +1,235 @@
 .home-container{
     position: absolute;
     top:94px;
+    width:100%;
+}
+
+
+.home-img-container{
+
+    width:100%;
+    height: 679px;
+    background-color: black;
+    background: linear-gradient(to bottom, black 50%, white 50%);
+}
+
+.img-holder-div{
+    height: 100%;
+    width: 89%;
+    margin: 0 auto;
+    position: relative;
+
+    background-image: url('https://a0.muscache.com/im/pictures/acbe3f1c-a972-4c40-86b1-9101ca7b0909.jpg?im_w=1200');
+    background-repeat: no-repeat;
+    background-position:center;
+    border-radius: 20px;
+    background-size: cover;
+
+}
+
+
+/* .img-holder-div img{
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    image-rendering: auto;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: -webkit-optimize-contrast;
+    display: inline;
+
+} */
+
+
+.stuff{
+    text-align: center;
+    display: grid;
+    grid-template-rows: 1fr 90px 62px;
+    position: absolute;
+    width:100%;
+    height: 90%;
+    color:white;
+    font-size: 24px;
+
+
+}
+
+.stuff h1{
+    grid-row: 2/3 ;
+}
+
+.blackhole{
+    width:100%;
+    height:80px;
+
+    background-color: black;
+}
+.stuff div{
+
+    grid-row: 3/4 ;
+}
+
+.imflexible{
+    width: 161.43px;;
+    background-color: whitesmoke;
+    height: 56px;
+    border:none;
+    margin: 0 auto;
+    border-radius: 30px;
+    font-size: 18px;
+
+    color:#6F019C;
+    font-weight: 600;
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+}
+
+.spots-home-page-four{
+    width:100%;
+    height:620px;
+    background-color: whitesmoke;
+    padding: 96px 0 0;
+    position: relative;
+}
+
+.h1inspitationforyournexttrip{
+    padding-bottom:48px;
+    width:89%;
+    margin:0 auto;
+    color:#222;
+    font-size:19px;
+}
+
+.spots-home-page-four{
+    background-color: white;
+}
+
+
+
+.grid-container-spots{
+    width: 89%;
+    height:429px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-column-gap: 24px;
+}
+
+.four-important-cities{
+    width:100%;
+    height: 100%;
+    border-radius: 19px;
+    position: relative;
+
+}
+
+.second-red{
+    width:100%;
+    height: 50%;
+    background-color: #D93B30;
+    border-bottom-left-radius: 19px;
+    border-bottom-right-radius: 19px;
+    color: #FFFFFF;
+    position: absolute;
+}
+.second-red h1{
+    padding:10px 16px 16px;
+
+}
+.second-orange h1{
+    padding:10px 16px 16px;
+
+}
+.second-kirmizi h1{
+    padding:10px 16px 16px;
+
+}
+.second-mor h1{
+    padding:10px 16px 16px;
+
+}
+.second-orange{
+    width:100%;
+    height: 50%;
+    background-color: #CC2D46;
+    border-bottom-left-radius: 19px;
+    border-bottom-right-radius: 19px;
+    /* padding:26px 16px 16px; */
+    color: #FFFFFF;
+    position: absolute;
+}
+
+.second-kirmizi{
+    width:100%;
+    height: 50%;
+    background-color: #DE3151;
+    border-bottom-left-radius: 19px;
+    border-bottom-right-radius: 19px;
+    /* padding:26px 16px 16px; */
+    color: #FFFFFF;
+    position: absolute;
+}
+
+.second-mor{
+    width:100%;
+    height: 50%;
+    background-color: #bc166E;
+    border-bottom-left-radius: 19px;
+    border-bottom-right-radius: 19px;
+    /* padding:26px 16px 16px; */
+    color: #FFFFFF;
+    position: absolute;
+}
+
+.lake-geneva{
+    width:100%;
+    height: 50%;
+    background-color: black;
+    border-top-left-radius: 19px;
+    border-top-right-radius: 19px;
+    background-image: url('https://a0.muscache.com/im/pictures/a433b4d0-8183-4523-b4c5-99b81c5729c1.jpg?im_w=320');
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: cover;
+}
+
+.new-buffalo{
+    width:100%;
+    height: 50%;
+    background-color: black;
+    border-top-left-radius: 19px;
+    border-top-right-radius: 19px;
+    background-image: url('https://a0.muscache.com/im/pictures/a433b4d0-8183-4523-b4c5-99b81c5729c1.jpg?im_w=320');
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: cover;
+}
+.chicago{
+    width:100%;
+    height: 50%;
+    background-color: black;
+    border-top-left-radius: 19px;
+    border-top-right-radius: 19px;
+    background-image: url('https://a0.muscache.com/im/pictures/40a79c7b-464b-4b67-a736-a05e66edaf81.jpg?im_w=320');
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: cover;
+}
+.wisconsin-dells{
+    width:100%;
+    height: 50%;
+    background-color: black;
+    border-top-left-radius: 19px;
+    border-top-right-radius: 19px;
+    background-image: url('https://a0.muscache.com/im/pictures/68ef0c20-321d-42c0-beb4-13bce3e258a2.jpg?im_w=320');
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: cover;
+}
+
+@media screen and (max-width: 874px){
+
+    .stuff h1{
+        font-size: 33.4px;
+
+    }
 }
