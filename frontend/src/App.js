@@ -11,6 +11,7 @@ import CreateSpotPage from "./components/SpotsPage/CreateSpotPage";
 import IndividualSpotPage from "./components/SpotsPage/IndividualSpotPage";
 import EditSpot from "./components/SpotsPage/EditSpotPage";
 import Home from "./components/Home";
+import IndividualBookingPage from "./components/SpotsPage/IndividualBooking";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -39,6 +40,9 @@ function App() {
         </Route>
         <Route exact path='/spots/:spotId/edit'>
           <EditSpot />
+        </Route>
+        <Route exact path='/bookings/:userId/spots/:spotId'>
+          <IndividualBookingPage />
         </Route>
         <Route exact path='/'>
           <Home />

@@ -34,8 +34,8 @@ function Spots() {
     }, [dispatch])
 
 
-    const sessionUser = useSelector((state) => state.session.user);
-    const spotsObj = useSelector((state) => state.spotReducer.spots);
+    const sessionUser = useSelector((state) => state?.session?.user);
+    const spotsObj = useSelector((state) => state?.spotReducer?.spots);
     const spots = Object.values(spotsObj);
 
 
@@ -44,7 +44,7 @@ function Spots() {
 
     return (
         <div className='spots-container'>
-            <div className='spots-page-white-div'>
+            <div className='booking-page-white-div'>
                 <NavLink exact to={'/'}>
                     <button className="return-to-home">Return to Home page</button>
                 </NavLink>
@@ -55,25 +55,18 @@ function Spots() {
                 {spots && spots.map(e => {
                     return (
                         <Link key={e.id} to={`/spots/${e.id}`}>
-                            <img className='spotsImage' src={e.img1}></img>
+                            <p className="name-username">{e?.name} hosted by - <span className="username">{e?.User?.username}</span></p>
+                            <img className='spotsImage' src={e?.img1}></img>
                             <div className='spotsDiv'>
-                                <p className='plink'>
-                                    {e.city}, {e.state}
+                                <p className='plink2'>
+                                    {e?.city}, {e?.state}
                                 </p>
 
                                 <p className='plink2'>
-                                    ${e.price} / night
+                                    ${e?.price} / night
                                 </p>
                             </div>
-                            <div className='spotsDiv'>
-                                <p className='lightSpotListPs'>
-                                    {randomNum(999)} miles away
 
-                                </p>
-                                <p className='lightSpotListPs'>
-                                    {months[randomNum(12)]} {randomNum(31)}-{months[randomNum(12)]} {randomNum(31)}
-                                </p>
-                            </div>
                         </Link>)
                 })}
             </div>
