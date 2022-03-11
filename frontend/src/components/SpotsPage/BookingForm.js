@@ -123,7 +123,7 @@ const BookingForm = () => {
                     <div className="info-about-the-house">
 
                         <div className="child-info-about-the-house">
-                            <h2>{`Hosted by ${spot?.User?.username}`}</h2>
+                            <h2>Hosted by <span className="hosted-by-username">{spot?.User?.username}</span></h2>
                             <p>{spot?.bedNum} guests.</p>
                             <p>{spot?.description}</p>
                         </div>
@@ -191,7 +191,7 @@ const BookingForm = () => {
                     )}
 
 
-                    
+
                 </div>
             </div>
 

@@ -118,6 +118,10 @@ bottom: 41px;
     font-weight: 500;
 }
 
+.hosted-by-username{
+    text-decoration: underline;
+}
+
 .plink2{
     color: #222;
     font-weight: bold;
