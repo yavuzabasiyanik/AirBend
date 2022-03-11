@@ -33,9 +33,9 @@ const BookingForm = () => {
     }, [dispatch]);
 
 
-    const sessionUser = useSelector((state) => state.session.user);
     const spotsObj = useSelector((state) => state?.spotReducer?.spots);
     const bookingObj = useSelector((state) => state?.bookingReducer?.bookings);
+    const sessionUser = useSelector((state) => state.session.user);
 
 
 

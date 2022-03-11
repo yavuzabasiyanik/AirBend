@@ -10,7 +10,7 @@ const DELETE_REVIEW = 'reviews/booking/delete';
 
 
 
-const addReview = (review) => ({
+const addReviewAction = (review) => ({
 
     type: ADD_REVIEW,
     review
@@ -29,7 +29,26 @@ const getReviewsAction = (reviews) => ({
 
 
 
+export const addReviews = (review) => async (dispatch) => {
 
+    try {
+        const response = await csrfFetch('/api/spots/review', {
+            method: 'POST',
+            body: JSON.stringify(review)
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+
+
+            return dispatch(addReviewAction(data));
+        }
+    } catch (error) {
+        const res = await error.json();
+        return res;
+    }
+
+}
 
 
 
@@ -89,6 +108,12 @@ const reviewReducer = (state = initialState, action) => {
             newReviews = { ...state.reviews };
             delete newReviews[action.id];
             newState.reviews = { ...newReviews };
+            return newState;
+        case ADD_REVIEW:
+            newState= {...state};
+            newReviews = {...state.reviews};
+            newReviews[action.review.id] = action.review;
+            newState.reviews = {...newReviews};
             return newState;
         default:
             return state;

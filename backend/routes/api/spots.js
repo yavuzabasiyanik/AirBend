@@ -252,5 +252,12 @@ router.delete('/reviews/:id/delete', asyncHandler(async(req,res)=>{
 
 }))
 
+router.post('/review', asyncHandler(async(req,res)=>{
+
+    const review = await Review.create(req.body);
+
+    res.json(review);
+
+}))
 
 module.exports = router;
