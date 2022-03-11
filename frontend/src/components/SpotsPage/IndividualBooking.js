@@ -35,17 +35,12 @@ const IndividualBookingPage = () => {
     const bookings = Object.values(bookingObj)
 
 
-    // bookings?.forEach(e => {
-    // })
+
 
     const handleBookingDelete = (elemetn) => {
         elemetn.preventDefault();
 
         const id = elemetn?.target?.id;
-
-
-        console.log(id);
-
 
 
         if (id) {
@@ -54,12 +49,20 @@ const IndividualBookingPage = () => {
         }
     }
 
+
+    const handleReviewForm = (element) => {
+        element.preventDefault();
+
+    }
+
+
+
     return (
+
         <div className="bookings-inv-main-div">
 
-
             <div className='spots-container'>
-                
+
                 <div className='booking-page-white-div'>
                     <NavLink exact to={'/'}>
                         <button className="return-to-home">Return to Home page</button>
@@ -73,8 +76,8 @@ const IndividualBookingPage = () => {
 
                             return (
                                 <div key={e.id} className="positionrelative">
-                                    <Link key={e.id} to={`/spots/${e?.spotId}`}>
-                                        <p className="name-username">{e?.Spot?.name} hosted by - <span className="username">{e.Spot?.User?.username}</span></p>
+                                    <Link key={e.id} to={`/spots/${+e?.spotId}`}>
+                                        <p className="name-username">{e?.Spot?.name}</p>
                                         <img className='spotsImage' alt="" src={e.Spot?.img1}></img>
                                         <div className='spotsDiv'>
                                             <p className='plink2'>
@@ -87,7 +90,7 @@ const IndividualBookingPage = () => {
                                         </div>
                                     </Link>
                                     <button id={e.id}  onClick={(e3) => handleBookingDelete(e3)} className="booking-button-delete" >Delete</button>
-
+                                    {/* <button id={e.id}  onClick={(e3) => handleReviewForm(e3)} className="booking-button-rate" >Rate</button> */}
                                 </div>
 
                             )

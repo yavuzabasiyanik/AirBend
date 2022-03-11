@@ -40,16 +40,7 @@ export const getSpots = () => async (dispatch) => {
 export const createSpot = (payload) => async (dispatch) => {
 
 
-    // const response = await csrfFetch('/api/spots', {
-    //     method: "POST",
-    //     body: JSON.stringify(payload)
-    // });
 
-    // if (response.ok) {
-    //     const data = await response.json();
-    //     dispatch(addSpot(data));
-    // }
-    // return response;
 
 
     try {
@@ -83,24 +74,10 @@ export const createSpot = (payload) => async (dispatch) => {
 
 export const editSpotThunk = (payload) => async (dispatch) => {
 
-    // const response = await csrfFetch(`/api/spots/${payload.id}`, {
-    //     method: "PUT",
-    //     body: JSON.stringify(payload)
-    // })
-
-    // if (response.ok) {
-
-    //     const data = await response.json();
-
-    //     dispatch(editSpot(data.spot));
-    // }
-
-    // return response;
-
-
+    
     try {
 
-        const response = await csrfFetch(`/api/spots/${payload.id}`, {
+        const response = await csrfFetch(`/api/spots/${+payload.id}`, {
             method: "PUT",
             body: JSON.stringify(payload)
         })
@@ -129,7 +106,7 @@ export const editSpotThunk = (payload) => async (dispatch) => {
 
 export const deleteSpotThunk = (payload) => async (dispatch) => {
 
-    const response = await csrfFetch(`/api/spots/${payload.id}`, {
+    const response = await csrfFetch(`/api/spots/${+payload.id}`, {
         method: "DELETE",
     })
 

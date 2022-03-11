@@ -61,7 +61,6 @@ export const deleteBooking = ({ id }) => async (dispatch) => {
         method: 'DELETE'
     });
 
-    // console.log(id,spotId);
     if (response.ok) {
 
         const { id } = await response.json();

@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink, Route } from 'react-router-dom';
 import * as spotActions from "../../store/spots";
-import IndividualSpotPage from './IndividualSpotPage';
 import './SpotPage.css';
 
 
@@ -24,6 +23,7 @@ function Spots() {
 
 
 
+
     return (
         <div className='spots-container'>
             <div className='booking-page-white-div'>
@@ -36,8 +36,8 @@ function Spots() {
 
                 {spots && spots.map(e => {
                     return (
-                        <Link key={e.id} to={`/spots/${e.id}`}>
-                            <p className="name-username"><span className="username">{e?.name}</span> hosted by - <span className="username">{e?.User?.username}</span></p>
+                        <Link key={e.id} to={`/spots/${+
+                        e.id}`}>
                             <img className='spotsImage' src={e?.img1}></img>
                             <div className='spotsDiv'>
                                 <p className='plink2'>

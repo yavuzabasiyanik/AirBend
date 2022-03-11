@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 import * as spotActions from "../../store/spots";
 import BookingForm from "./BookingForm";
+import Reviews from "./ReviewsPage";
 import './individual.css';
 
 const IndividualSpotPage = () => {
@@ -12,9 +13,10 @@ const IndividualSpotPage = () => {
     const spotsObj = useSelector((state) => state.spotReducer.spots);
     const sessionUser = useSelector((state) => state.session.user);
     const history = useHistory();
-    // const [reviewNum, setReviewNum] = useState(0);
     const dispatch = useDispatch();
     const [errors, setErrors] = useState([]);
+
+
 
     useEffect(() => {
         dispatch(spotActions.getSpots())
@@ -28,6 +30,7 @@ const IndividualSpotPage = () => {
 
 
     let reviewNum = 0;
+
     if (spots) {
         spots.Reviews.forEach(e => {
             reviewNum += e.rating
@@ -59,8 +62,6 @@ const IndividualSpotPage = () => {
 
     return (
         <>
-
-
             <div className='booking-page-white-div'>
                 <NavLink exact to={'/spots'}>
                     <button className="return-to-home">Return to Listings</button>
@@ -87,7 +88,7 @@ const IndividualSpotPage = () => {
 
                                 <div className="edit-delete-spot-buttons">
                                     <NavLink exact to={`/spots/${spots?.id}/edit`}><button className="spot-button-edit">Edit</button></NavLink>
-                                    <button className="spot-button-delete" onClick={(e) => handleDelete(e)}>Delete</button>
+                                   <button className="spot-button-delete" onClick={(e) => handleDelete(e)}>Delete</button>
                                 </div>
                             )}
                         </div>
@@ -99,6 +100,8 @@ const IndividualSpotPage = () => {
                     <img className="smallImgs3" src={spots?.img3}></img>
                 </div>
                 <BookingForm />
+                <Reviews spotId={+spotId} />
+
             </div>
         </>
     )

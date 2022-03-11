@@ -230,5 +230,26 @@ router.delete('/bookings/:id', asyncHandler(async (req, res) => {
 }))
 
 
+router.get('/reviews', asyncHandler(async(req,res)=>{
+
+    const reviews = await Review.findAll({
+        include: [User]
+    });
+
+    res.json({reviews});
+}))
+
+router.delete('/reviews/:id/delete', asyncHandler(async(req,res)=>{
+    const id  = req.params.id;
+
+    const review = await Review.findByPk(id)
+
+    await review.destroy();
+
+    res.json({id});
+
+
+}))
+
 
 module.exports = router;

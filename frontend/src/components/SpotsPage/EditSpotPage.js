@@ -86,7 +86,7 @@ const EditSpot = () => {
             if (e.errors) {
                 setErrors(e.errors);
             } else {
-                history.push(`/spots/${spotId}`);
+                history.push(`/spots/${+spotId}`);
 
             }
         })
@@ -263,7 +263,7 @@ const EditSpot = () => {
                         </a>
                     </span>
                     <span style={{ display: "block" }} className="dontHaveAnAccYet">
-                        To go back to listings, click <NavLink id="submitButtonInsideOfLogin" exact to={`/spots/${spotId}`} >
+                        To go back to listings, click <NavLink id="submitButtonInsideOfLogin" exact to={`/spots/${+spotId}`} >
                             Listings.
                         </NavLink>
                     </span>
