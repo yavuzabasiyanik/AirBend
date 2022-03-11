@@ -59,8 +59,12 @@ const IndividualSpotPage = () => {
 
     return (
         <>
-            <div className="just-black">
 
+
+            <div className='booking-page-white-div'>
+                <NavLink exact to={'/spots'}>
+                    <button className="return-to-home">Return to Listings</button>
+                </NavLink>
             </div>
             <div className="individualBigDiv">
                 <div className="individual-page-header">

@@ -87,7 +87,7 @@ function LoginForm() {
           </span>
         </div>
         <span className="dontHaveAnAccYet">
-          Click on the <span onClick={(e) => cookieFunctionDemo(e)}>cookie</span>, to login as the Demo user
+          Don't have time to log-in? Here, click <span className="demo-cookie" onClick={(e) => cookieFunctionDemo(e)}>this</span> to login as the Demo user
 
         </span>
       </div>
