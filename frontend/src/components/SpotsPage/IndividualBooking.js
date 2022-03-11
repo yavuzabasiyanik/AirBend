@@ -53,6 +53,7 @@ const IndividualBookingPage = () => {
     const handleReviewForm = (element) => {
         element.preventDefault();
 
+        history.push(`/reviews/create/${element?.target?.id}`);
     }
 
 
@@ -90,7 +91,7 @@ const IndividualBookingPage = () => {
                                         </div>
                                     </Link>
                                     <button id={e.id}  onClick={(e3) => handleBookingDelete(e3)} className="booking-button-delete" >Delete</button>
-                                    {/* <button id={e.id}  onClick={(e3) => handleReviewForm(e3)} className="booking-button-rate" >Rate</button> */}
+                                    <button id={e.spotId}  onClick={(e3) => handleReviewForm(e3)} className="booking-button-rate" >Rate</button>
                                 </div>
 
                             )

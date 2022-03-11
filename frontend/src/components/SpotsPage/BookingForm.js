@@ -127,7 +127,7 @@ const BookingForm = () => {
                             <p>{spot?.bedNum} guests.</p>
                             <p>{spot?.description}</p>
                         </div>
-                        <img src={`${spot?.User?.profileUrl}`}></img>
+                        {spot && <img src={`${spot?.User?.profileUrl}`}></img>}
 
                     </div>
                     {sessionUser && (sessionUser?.id !== spot?.User?.id) && (

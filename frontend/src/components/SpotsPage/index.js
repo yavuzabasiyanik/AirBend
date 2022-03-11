@@ -8,7 +8,6 @@ import './SpotPage.css';
 function Spots() {
 
     const dispatch = useDispatch();
-    const [spot, setSpot] = useState();
 
     useEffect(() => {
         dispatch(spotActions.getSpots())
@@ -35,6 +34,7 @@ function Spots() {
             <div className='spots-alt-container'>
 
                 {spots && spots.map(e => {
+                    
                     return (
                         <Link key={e.id} to={`/spots/${+
                         e.id}`}>

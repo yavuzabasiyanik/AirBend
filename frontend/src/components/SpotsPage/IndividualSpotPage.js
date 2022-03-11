@@ -8,10 +8,9 @@ import './individual.css';
 
 const IndividualSpotPage = () => {
 
+
     const { spotId } = useParams();
 
-    const spotsObj = useSelector((state) => state.spotReducer.spots);
-    const sessionUser = useSelector((state) => state.session.user);
     const history = useHistory();
     const dispatch = useDispatch();
     const [errors, setErrors] = useState([]);
@@ -19,11 +18,17 @@ const IndividualSpotPage = () => {
 
 
     useEffect(() => {
+
         dispatch(spotActions.getSpots())
 
     }, [dispatch]);
 
-    const spots = spotsObj[spotId]
+
+
+    const spotsObj = useSelector((state) => state.spotReducer.spots);
+    const sessionUser = useSelector((state) => state.session.user);
+
+    const spots = spotsObj[+spotId]
 
 
 
@@ -88,16 +93,19 @@ const IndividualSpotPage = () => {
 
                                 <div className="edit-delete-spot-buttons">
                                     <NavLink exact to={`/spots/${spots?.id}/edit`}><button className="spot-button-edit">Edit</button></NavLink>
-                                   <button className="spot-button-delete" onClick={(e) => handleDelete(e)}>Delete</button>
+                                    <button className="spot-button-delete" onClick={(e) => handleDelete(e)}>Delete</button>
                                 </div>
                             )}
                         </div>
                     </div>
                 </div>
                 <div className="individual-images">
-                    <img className="bigImg" src={spots?.img1}></img>
+                    {spots && <img className="bigImg" src={spots?.img1}></img>}
+                    {spots && <img className="smallImgs2" src={spots?.img2}></img>}
+                    {spots && <img className="smallImgs3" src={spots?.img3}></img>}
+                    {/* <img className="bigImg" src={spots?.img1}></img>
                     <img className="smallImgs2" src={spots?.img2}></img>
-                    <img className="smallImgs3" src={spots?.img3}></img>
+                    <img className="smallImgs3" src={spots?.img3}></img> */}
                 </div>
                 <BookingForm />
                 <Reviews spotId={+spotId} />

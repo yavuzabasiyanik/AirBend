@@ -12,6 +12,7 @@ import IndividualSpotPage from "./components/SpotsPage/IndividualSpotPage";
 import EditSpot from "./components/SpotsPage/EditSpotPage";
 import Home from "./components/Home";
 import IndividualBookingPage from "./components/SpotsPage/IndividualBooking";
+import ReviewForm from "./components/SpotsPage/ReviewForm";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -43,6 +44,9 @@ function App() {
         </Route>
         <Route exact path='/bookings/:userId'>
           <IndividualBookingPage />
+        </Route>
+        <Route exact path='/reviews/create/:spotId'>
+          <ReviewForm />
         </Route>
         <Route exact path='/'>
           <Home />

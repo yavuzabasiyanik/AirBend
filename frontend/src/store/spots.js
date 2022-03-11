@@ -74,7 +74,6 @@ export const createSpot = (payload) => async (dispatch) => {
 
 export const editSpotThunk = (payload) => async (dispatch) => {
 
-    
     try {
 
         const response = await csrfFetch(`/api/spots/${+payload.id}`, {
