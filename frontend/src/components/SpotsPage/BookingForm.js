@@ -115,19 +115,6 @@ const BookingForm = () => {
         history.push(`/bookings/${sessionUser.id}`)
     }
 
-    const handleBookingDelete = (elemetn) => {
-        elemetn.preventDefault();
-
-        const id = elemetn.target.id;
-
-
-
-
-        if (id) {
-
-            dispatch(bookingActions.deleteBooking({ id }));
-        }
-    }
 
     return (
         <div className="bigBookingFormDiv">
@@ -136,7 +123,7 @@ const BookingForm = () => {
                     <div className="info-about-the-house">
 
                         <div className="child-info-about-the-house">
-                            <h2>{`Hosted by ${spot?.User?.username}`}</h2>
+                            <h2>Hosted by <span className="hosted-by-username">{spot?.User?.username}</span></h2>
                             <p>{spot?.bedNum} guests.</p>
                             <p>{spot?.description}</p>
                         </div>
@@ -204,16 +191,7 @@ const BookingForm = () => {
                     )}
 
 
-                    {/* <div>
-                        <ul>
-                            {bookings?.map(e => {
-                                if (+e.spotId === +spotId && e?.userId === sessionUser?.id) {
 
-                                    return <button type="submit" key={e.id} onClick={(e3) => handleBookingDelete(e3)}><li id={e.id} key={e.id}>{e.startDate}</li> </button>;
-                                }
-                            })}
-                        </ul>
-                    </div> */}
                 </div>
             </div>
 

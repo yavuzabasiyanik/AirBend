@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink, Route } from 'react-router-dom';
@@ -6,23 +5,6 @@ import * as spotActions from "../../store/spots";
 import IndividualSpotPage from './IndividualSpotPage';
 import './SpotPage.css';
 
-const randomNum = num => Math.floor(Math.random() * Math.floor(num) + 1);
-
-const months = [
-    '',
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
-]
 
 function Spots() {
 
@@ -55,7 +37,7 @@ function Spots() {
                 {spots && spots.map(e => {
                     return (
                         <Link key={e.id} to={`/spots/${e.id}`}>
-                            <p className="name-username">{e?.name} hosted by - <span className="username">{e?.User?.username}</span></p>
+                            <p className="name-username"><span className="username">{e?.name}</span> hosted by - <span className="username">{e?.User?.username}</span></p>
                             <img className='spotsImage' src={e?.img1}></img>
                             <div className='spotsDiv'>
                                 <p className='plink2'>

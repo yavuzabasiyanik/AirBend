@@ -56,11 +56,10 @@ const IndividualBookingPage = () => {
 
     return (
         <div className="bookings-inv-main-div">
-            {/* <div className="just-black">
 
-            </div> */}
 
             <div className='spots-container'>
+                
                 <div className='booking-page-white-div'>
                     <NavLink exact to={'/'}>
                         <button className="return-to-home">Return to Home page</button>

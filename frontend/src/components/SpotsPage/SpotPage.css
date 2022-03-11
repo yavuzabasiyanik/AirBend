@@ -3,7 +3,6 @@
     position: absolute;
     top:94px;
     width: 100%;
-    height:auto;
 
 }
 
@@ -11,11 +10,12 @@
 .spots-alt-container{
     display: grid;
     padding: 0 78px;
-    row-gap: 32px;
+    row-gap: 30px;
     column-gap: 32px;
-    grid-auto-rows: 373px;
+    grid-auto-rows: 420px;
     grid-template-columns: repeat(4, 321px);
     background-color: white;
+    align-items: center;
 }
 
 .spotsImage{
@@ -37,13 +37,14 @@
 }
 
 .plink{
-    color:black;
+    color: #222;
+
     font-weight: bold;
 
 }
 
 .plink2{
-    color:black;
+    color: #222;
 }
 
 .lightSpotListPs{

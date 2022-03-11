@@ -29,16 +29,7 @@ const CreateSpotPage = () => {
     }, [dispatch])
 
 
-    // useEffect(() => {
 
-    //     console.log(errors);
-    //     if(errors===[]){
-
-    //     }
-    //     if (errors.length) {
-
-    //     }
-    // }, [errors])
 
 
     const handleSubmit = async (e) => {
@@ -76,19 +67,17 @@ const CreateSpotPage = () => {
             }
         })
 
-
-
-
-
-
-
-
     };
 
 
 
     return (
         <div id="modalBecomeAHost">
+            <div className='booking-page-white-div-create'>
+                <NavLink exact to={'/spots'}>
+                    <button className="return-to-home">Return to Listings</button>
+                </NavLink>
+            </div>
             <div id="modal-content">
                 <header className="login">Become A Host</header>
 

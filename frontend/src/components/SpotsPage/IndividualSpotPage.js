@@ -59,8 +59,12 @@ const IndividualSpotPage = () => {
 
     return (
         <>
-            <div className="just-black">
 
+
+            <div className='booking-page-white-div'>
+                <NavLink exact to={'/spots'}>
+                    <button className="return-to-home">Return to Listings</button>
+                </NavLink>
             </div>
             <div className="individualBigDiv">
                 <div className="individual-page-header">
@@ -71,7 +75,7 @@ const IndividualSpotPage = () => {
                         <div className="reviews-kindastuff">
                             <div className="reviews-2" >
                                 <img className="star-img" src='https://pngimg.com/uploads/red_star/red_star_PNG35.png'></img>
-                                <p>{reviewNum ? Math.round(reviewNum * 100) / 100 : ''}</p>
+                                <p>{reviewNum ? Math.round(reviewNum * 100) / 100 : '0.00'}</p>
                                 <pre> &middot; </pre>
                                 <NavLink exact to='/spots/reviews'><p className="ozelP">{spots?.Reviews.length} reviews</p></NavLink>
                                 <pre> &middot; </pre>
