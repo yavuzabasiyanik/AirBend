@@ -13,6 +13,7 @@ function Reviews({ spotId }) {
 
     const dispatch = useDispatch();
 
+    const history = useHistory();
 
     useEffect(() => {
         dispatch(spotActions.getSpots())
@@ -26,6 +27,7 @@ function Reviews({ spotId }) {
     useEffect(() => {
         dispatch(reviewActions.getReviews())
     }, [dispatch])
+
 
     const sessionUser = useSelector((state) => state.session.user);
 
@@ -43,13 +45,34 @@ function Reviews({ spotId }) {
         dispatch(reviewActions.deleteReview(+e.target.id));
     }
 
+
+    const handleReviewCreate = (e) => {
+        e.preventDefault();
+
+        const bookingYes  = bookings.filter((e)=>{
+            if(e.userId == sessionUser.id && e.spotId == spotId){
+                return e;
+            }
+        })
+
+        if(bookingYes.length){
+            history.push(`/reviews/create/${spotId}`);
+
+        }else{
+
+            alert('Haha nice try, you need to create a booking first to add a comment. Please fill out the form above.');
+        }
+
+    }
     return (
 
         <div className="reviews-daddy-div">
             <div className='reviews-medium-div'>
                 <div className='reviews-small-div'>
 
+                    {sessionUser?.id&& (<button onClick={(e)=> handleReviewCreate(e)} className="review-button-comment">Add a Comment</button>)}
                     <div className='grid-div-reviews'>
+
                         {reviews?.map((ele) => {
                             if (ele?.spotId === spotId) {
                                 return (

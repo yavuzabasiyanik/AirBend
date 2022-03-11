@@ -110,16 +110,17 @@ const EditSpot = () => {
 
     return (
         <div id="modalBecomeAHost">
+                <div className='booking-page-white-div'>
+                    <NavLink exact to={`/spots/${+spotId}`}>
+                        <button className="return-to-home">Return to your listing</button>
+                    </NavLink>
+                </div>
             <div id="modal-content">
                 <header className="login">Do you want to change something in house "{spots?.name}" ?</header>
 
                 <form onSubmit={handleSubmit}>
                     <div className="h3-form">
-                        {/* <ul>
-                            {errors.map((error, idx) => (
-                                <li key={idx}>{error}</li>
-                            ))}
-                        </ul> */}
+
 
                         <label>
                             House Name
@@ -264,11 +265,7 @@ const EditSpot = () => {
                             Learn more.
                         </a>
                     </span>
-                    <span style={{ display: "block" }} className="dontHaveAnAccYet">
-                        To go back to listings, click <NavLink id="submitButtonInsideOfLogin" exact to={`/spots/${+spotId}`} >
-                            Listings.
-                        </NavLink>
-                    </span>
+                    
                 </div>
             </div>
         </div>
