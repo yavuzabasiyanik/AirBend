@@ -1,6 +1,6 @@
 // frontend/src/components/Navigation/ProfileButton.js
 import React, { useState, useEffect } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory } from "react-router-dom";
 import * as sessionActions from '../../store/session';
 
@@ -12,6 +12,8 @@ function ProfileButton({ user }) {
     if (showMenu) return;
     setShowMenu(true);
   };
+
+  const sessionUser = useSelector((state) => state.session.user);
 
   useEffect(() => {
     if (!showMenu) return;
@@ -43,7 +45,7 @@ function ProfileButton({ user }) {
       {showMenu && (<div className="dropdown-menu dropdown-inside" >
         <div>
           <div className="dropdown-links">
-            <NavLink exact to="/profile"><p className="hlsLinks">{user?.username}</p></NavLink>
+            <NavLink exact to={`/profile/${sessionUser.id}`}><p className="hlsLinks">{user?.username}</p></NavLink>
             <NavLink exact to={`/bookings/${user?.id}`}><p className="hlsLinks">Bookings</p></NavLink>
             <p className="hlsLinks" onClick={logout}>Log Out</p>
           </div>

@@ -85,7 +85,7 @@ function Reviews({ spotId }) {
                                                     :
                                                     (<img className="image-reviews-profile" src={'https://upload.wikimedia.org/wikipedia/en/3/3e/Prince_Zuko.jpg'} alt=''></img>)
                                                 }
-                                                <p className="ele-username">{ele?.User?.username}</p>
+                                                <NavLink  exact to={`/profile/${ele?.userId}`}><p className="ele-username">{ele?.User?.username}</p></NavLink>
                                             </div>
 
                                             {sessionUser?.id===ele?.userId && (<button className="review-button-delete" id={ele.id} onClick={(e)=> handleReviewDelete(e)} >Delete</button>)}

@@ -14,12 +14,18 @@ import Home from "./components/Home";
 import IndividualBookingPage from "./components/SpotsPage/IndividualBooking";
 import ReviewForm from "./components/SpotsPage/ReviewForm";
 import Profile from "./components/ProfilePage";
+import * as userAction from './store/user';
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(userAction.getUsers());
+
   }, [dispatch]);
 
   return (

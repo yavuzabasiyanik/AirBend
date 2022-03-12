@@ -33,7 +33,7 @@ position: relative;
     grid-auto-rows: 250px;
     grid-row-gap: 20px;
     grid-column-gap: 30px;
-    
+
     padding-top: 60px;
 }
 
@@ -64,8 +64,6 @@ position: relative;
 .ele-username{
     display: inline-block;
     margin:0 0 0 12px;
-
-
 
     margin-top:6px;
     color:#222222;

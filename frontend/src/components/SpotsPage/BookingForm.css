@@ -31,6 +31,7 @@
 .child-info-about-the-house h2{
     color: #222222;
     margin-bottom: 2px;
+    font-weight: 500;
 }
 
 .child-info-about-the-house p{
@@ -102,6 +103,12 @@ position: absolute;
 bottom: 41px;
 
 }
+
+.profile-navlink{
+    color: #222;
+    font-weight: bold;
+}
+
 .guest-number-div input{
     width:100%;
     height:38px;

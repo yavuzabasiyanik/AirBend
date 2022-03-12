@@ -260,4 +260,21 @@ router.post('/review', asyncHandler(async(req,res)=>{
 
 }))
 
+
+router.get('/profile/users', asyncHandler(async(req,res)=>{
+
+
+    const users = await User.findAll({
+        include: [Spot, Booking, Review]
+    });
+
+
+
+    res.json(users);
+
+}))
+
+
+
+
 module.exports = router;
