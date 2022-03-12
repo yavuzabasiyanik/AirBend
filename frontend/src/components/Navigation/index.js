@@ -82,14 +82,22 @@ function Navigation({ isLoaded }) {
 
 
     setSearch(search)
+
     if(search ===''){
       setFilter([]);
     }else{
       setFilter(newFilter);
     }
 
-
   }
+
+  const handleClickSearch = (e)=>{
+
+    setSearch(e);
+
+    setFilter([]);
+  }
+
 
   return (
     <div className={scroll ? 'headerWhite' : 'header'}>
@@ -113,7 +121,7 @@ function Navigation({ isLoaded }) {
         <img className='search-img' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaO-KtMrTzRRPDbYRZu8dIs5Gl6cfYCEZ4kA&usqp=CAU"></img>
           <div className={filterData?.length ==0?'search-name-container':'search-name-container-clickled'}>
             {filterData?.slice(0,10).map((value, key) => {
-              return <NavLink key={key} exact to={`/spots/${value.id}`}><div className='dataItem' onClick={(e)=> setSearch(value.name)} key={key}>{value.name}</div></NavLink>
+              return <NavLink key={key} exact to={`/spots/${value.id}`}><div className='dataItem' onClick={(e)=> handleClickSearch(value.name)} key={key}>{value.name}</div></NavLink>
             })}
           </div>
       </div>

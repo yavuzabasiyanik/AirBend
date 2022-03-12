@@ -110,9 +110,6 @@ const IndividualSpotPage = () => {
                     {spots && <img className="bigImg" src={spots?.img1}></img>}
                     {spots && <img className="smallImgs2" src={spots?.img2}></img>}
                     {spots && <img className="smallImgs3" src={spots?.img3}></img>}
-                    {/* <img className="bigImg" src={spots?.img1}></img>
-                    <img className="smallImgs2" src={spots?.img2}></img>
-                    <img className="smallImgs3" src={spots?.img3}></img> */}
                 </div>
                 <BookingForm />
                 <Reviews spotId={+spotId} />
