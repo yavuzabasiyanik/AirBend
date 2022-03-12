@@ -1,0 +1,72 @@
+.main-div-profile-page{
+    position: absolute;
+    top:94px;
+    width: 100%;
+    height: 100%;
+}
+
+.white-div-for-profile-page{
+    width: 100%;
+    height: 140px;
+    background-color: white;
+}
+
+.profile-table{
+    width: 80%;
+    height: 90%;
+    margin:0 auto;
+    margin-top: 150px;
+}
+
+.image-profile-profile-page{
+
+    width:200px;
+    height:200px;
+    border-radius: 4%;
+    image-rendering: auto;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: -webkit-optimize-contrast;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
+}
+
+.profile-table-upper{
+    width:100%;
+    position: relative;
+    padding: 30px;
+    height: auto;
+    display: flex;
+}
+
+.user-username{
+    display: inline-block;
+    margin:0 0 0 32px;
+    margin-top:6px;
+    color:#222222;
+    font-size: 26px;
+
+}
+
+.bookings-reviews-spots{
+    margin-top: 50px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.bookings-reviews-spots > div{
+    height: auto;
+    border-top: #222222 solid 1px;
+}
+
+.wanna-talk-to-him{
+    height: auto;
+    border-top: #222222 solid 1px;
+}
+
+.dataItema{
+    color:#222222;
+    margin-top: 7px;
+}

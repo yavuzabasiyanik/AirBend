@@ -115,7 +115,7 @@ const BookingForm = () => {
         history.push(`/bookings/${sessionUser.id}`)
     }
 
-
+ 
 
     return (
         <div className="bigBookingFormDiv">

@@ -234,7 +234,7 @@ router.delete('/bookings/:id', asyncHandler(async (req, res) => {
 router.get('/reviews', asyncHandler(async(req,res)=>{
 
     const reviews = await Review.findAll({
-        include: [User]
+        include: [User,Spot]
     });
 
     res.json({reviews});

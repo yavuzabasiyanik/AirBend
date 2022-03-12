@@ -28,8 +28,14 @@ function App() {
 
   }, [dispatch]);
 
+
+
+
   return (
+
     <>
+
+
       <Navigation isLoaded={isLoaded} />
       <Switch>
         <Route exact path='/login'>

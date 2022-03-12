@@ -83,7 +83,7 @@ function Navigation({ isLoaded }) {
 
     setSearch(search)
 
-    if(search ===''){
+    if(search === ''){
       setFilter([]);
     }else{
       setFilter(newFilter);
@@ -109,7 +109,7 @@ function Navigation({ isLoaded }) {
         <p>AirBenD</p>
       </div>)
       }
-      <div className='search-div'>
+      <div className='search-div' onMouseLeave={(e)=> setFilter([])}>
 
 
         <input className={filterData?.length ==0 ? "search" : 'search-clickled'}
