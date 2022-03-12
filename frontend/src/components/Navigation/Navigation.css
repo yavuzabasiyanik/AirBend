@@ -217,7 +217,7 @@ p{
     border: 1px solid rgba(0,0,0,.1);
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
     z-index: 100;
-    transition: all .5s;
+    transition: all .3s;
 }
 
 .search-clickled{
@@ -227,7 +227,7 @@ p{
     border-bottom-left-radius: 0;
     border-bottom-right-radius:0;
 
-    transition: all .5s;
+    transition: all .3s;
 
     border: none;
     padding: 10px;
@@ -247,24 +247,55 @@ p{
 }
 
 .search-name-container{
-    height:200px;
+    height:130px;
     width:100%;
     background-color: white;
     position: absolute;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius:20px;
     opacity: 0;
-    transition: all .5s;
+    transition: all .4s;
+    box-sizing: border-box;
+    overflow: hidden;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
+    overflow-y: auto;
+    border: 1px solid rgba(0,0,0,.1);
+    z-index: -1;
+    transform: translateY(-40px);
 
 }
 
 .search-name-container-clickled{
-    height:200px;
+    height: 130px ;
+    border: 1px solid rgba(0,0,0,.1);
+
+    box-sizing: border-box;
     width:100%;
     background-color: white;
     position: absolute;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
+    padding: 14px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius:20px;
+    overflow: hidden;
+    overflow-y: auto;
     transition: all .5s;
+    z-index: -1;
+}
+
+.search-name-container-clickled::-webkit-scrollbar{
+    display: none;
+}
+
+.dataItem{
+    color: black;
+    font-size: 15px;
+    margin-bottom: 6px;
 
 }
+
+.dataItem:hover{
+    background-color: lightgrey;
+
+}
+

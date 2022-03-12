@@ -1,18 +1,36 @@
 // frontend/src/components/Navigation/index.js
 import React, { useEffect, useState } from 'react';
 import { NavLink, Redirect, useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
+import * as spotActions from "../../store/spots";
 import LoginSignUpButton from './LoginSignUpButton';
 
 function Navigation({ isLoaded }) {
   const [scroll, setScroll] = useState()
   const history = useHistory();
-  const [search, setSearch] = useState('');
+  const [filterData, setFilter] = useState([]);
   const [clicked, setClicked] = useState(false);
 
   const sessionUser = useSelector(state => state.session.user);
+  const dispatch = useDispatch();
+
+
+  useEffect(() => {
+    dispatch(spotActions.getSpots())
+  }, [dispatch])
+
+
+  const spotsObj = useSelector((state) => state.spotReducer.spots);
+
+  const spots = Object.values(spotsObj);
+
+
+
+
+
+
 
 
   let sessionLinks;
@@ -46,11 +64,6 @@ function Navigation({ isLoaded }) {
 
   });
 
-
-
-
-
-
   const handleClicking = (e) => {
     e.preventDefault();
 
@@ -58,6 +71,32 @@ function Navigation({ isLoaded }) {
 
   }
 
+  // const filter = spots.filter(e => {
+
+  //   if (e.name.toLowerCase().includes(search.toLocaleLowerCase())) {
+  //     console.log(e);
+  //     return e.name;
+  //   }
+  // })
+
+  const handleFilter =(e) =>{
+    const search = e.target.value
+
+
+    const newFilter = spots.filter((val)=>{
+        return val?.name.toLowerCase().includes(search?.toLowerCase());
+    })
+
+
+
+    if(search ===''){
+      setFilter([]);
+    }else{
+      setFilter(newFilter);
+    }
+
+
+  }
 
   return (
     <div className={scroll ? 'headerWhite' : 'header'}>
@@ -72,16 +111,17 @@ function Navigation({ isLoaded }) {
       <div className='search-div'>
 
 
-        <input className={!clicked ? "search": 'search-clickled'}
+        <input className={filterData?.length ==0 ? "search" : 'search-clickled'}
           type="search"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={handleFilter}
           placeholder="Start your search"
         />
         <img className='search-img' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaO-KtMrTzRRPDbYRZu8dIs5Gl6cfYCEZ4kA&usqp=CAU"></img>
-        <div className={!clicked? 'search-name-container':'search-name-container-clickled'}>
-
-        </div>
+          <div className={filterData?.length ==0?'search-name-container':'search-name-container-clickled'}>
+            {filterData?.slice(0,10).map((value, key) => {
+              return <NavLink key={key} exact to={`/spots/${value.id}`}><div className='dataItem' key={key}>{value.name}</div></NavLink>
+            })}
+          </div>
       </div>
       {sessionUser && (<NavLink exact to={'/spots/create'}>
         <button className="link-become-a-host">Become a Host</button>
