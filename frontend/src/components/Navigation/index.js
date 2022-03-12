@@ -11,7 +11,7 @@ function Navigation({ isLoaded }) {
   const [scroll, setScroll] = useState()
   const history = useHistory();
   const [filterData, setFilter] = useState([]);
-  const [clicked, setClicked] = useState(false);
+  const [search, setSearch] = useState('');
 
   const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
@@ -61,7 +61,6 @@ function Navigation({ isLoaded }) {
       }
     });
 
-
   });
 
   const handleClicking = (e) => {
@@ -71,13 +70,7 @@ function Navigation({ isLoaded }) {
 
   }
 
-  // const filter = spots.filter(e => {
 
-  //   if (e.name.toLowerCase().includes(search.toLocaleLowerCase())) {
-  //     console.log(e);
-  //     return e.name;
-  //   }
-  // })
 
   const handleFilter =(e) =>{
     const search = e.target.value
@@ -88,7 +81,7 @@ function Navigation({ isLoaded }) {
     })
 
 
-
+    setSearch(search)
     if(search ===''){
       setFilter([]);
     }else{
@@ -115,11 +108,12 @@ function Navigation({ isLoaded }) {
           type="search"
           onChange={handleFilter}
           placeholder="Start your search"
+          value={search}
         />
         <img className='search-img' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaO-KtMrTzRRPDbYRZu8dIs5Gl6cfYCEZ4kA&usqp=CAU"></img>
           <div className={filterData?.length ==0?'search-name-container':'search-name-container-clickled'}>
             {filterData?.slice(0,10).map((value, key) => {
-              return <NavLink key={key} exact to={`/spots/${value.id}`}><div className='dataItem' key={key}>{value.name}</div></NavLink>
+              return <NavLink key={key} exact to={`/spots/${value.id}`}><div className='dataItem' onClick={(e)=> setSearch(value.name)} key={key}>{value.name}</div></NavLink>
             })}
           </div>
       </div>

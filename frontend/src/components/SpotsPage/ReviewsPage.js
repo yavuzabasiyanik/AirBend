@@ -28,7 +28,9 @@ function Reviews({ spotId }) {
         dispatch(reviewActions.getReviews())
     }, [dispatch])
 
+    const spotsObj = useSelector((state) => state?.spotReducer?.spots);
 
+    const spot = spotsObj[+spotId]
     const sessionUser = useSelector((state) => state.session.user);
 
     const bookingObj = useSelector((state) => state?.bookingReducer?.bookings);
@@ -66,11 +68,11 @@ function Reviews({ spotId }) {
     }
     return (
 
-        <div className="reviews-daddy-div">
+        <div className="reviews-daddy-div" id="review-dady-div">
             <div className='reviews-medium-div'>
                 <div className='reviews-small-div'>
 
-                    {sessionUser?.id&& (<button onClick={(e)=> handleReviewCreate(e)} className="review-button-comment">Add a Comment</button>)}
+                    {sessionUser?.id&& spot.User.id!=sessionUser.id && (<button onClick={(e)=> handleReviewCreate(e)} className="review-button-comment">Add a Comment</button>)}
                     <div className='grid-div-reviews'>
 
                         {reviews?.map((ele) => {
