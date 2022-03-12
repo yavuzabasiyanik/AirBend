@@ -65,6 +65,13 @@ const IndividualSpotPage = () => {
         history.push(`/spots`);
     }
 
+
+    const handleScrollReview = (e)=>{
+        const anchor = document.querySelector('#review-dady-div')
+        anchor.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    }
+
+
     return (
         <>
             <div className='booking-page-white-div'>
@@ -83,7 +90,7 @@ const IndividualSpotPage = () => {
                                 <img className="star-img" src='https://pngimg.com/uploads/red_star/red_star_PNG35.png'></img>
                                 <p>{reviewNum ? Math.round(reviewNum * 100) / 100 : '0.00'}</p>
                                 <pre> &middot; </pre>
-                                <NavLink exact to='/spots/reviews'><p className="ozelP">{spots?.Reviews.length} reviews</p></NavLink>
+                                <p onClick={handleScrollReview} className="ozelP">{spots?.Reviews.length} reviews</p>
                                 <pre> &middot; </pre>
                                 <a target="_blank" href="https://www.airbnb.com/help/article/828/about-superhosts"> <p style={{ fontWeight: "normal", textDecoration: "underline", color: "rgba(0,0,0,0.7)", fontSize: "14px" }}>Superhost</p></a>
                                 <pre> &middot; </pre>
@@ -103,9 +110,6 @@ const IndividualSpotPage = () => {
                     {spots && <img className="bigImg" src={spots?.img1}></img>}
                     {spots && <img className="smallImgs2" src={spots?.img2}></img>}
                     {spots && <img className="smallImgs3" src={spots?.img3}></img>}
-                    {/* <img className="bigImg" src={spots?.img1}></img>
-                    <img className="smallImgs2" src={spots?.img2}></img>
-                    <img className="smallImgs3" src={spots?.img3}></img> */}
                 </div>
                 <BookingForm />
                 <Reviews spotId={+spotId} />

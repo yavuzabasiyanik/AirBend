@@ -41,6 +41,7 @@ header.login{
 }
 .ozelP{
     text-decoration: underline;
+    cursor: pointer;
 }
 .reviews-kindastuff{
     display: flex;
@@ -98,7 +99,6 @@ header.login{
 } */
 
 .greyclasscountrystatecity{
-    text-decoration: underline;
     font-size: 14px;
     color: rgba(0,0,0, 0.3);
 }

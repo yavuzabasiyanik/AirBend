@@ -32,17 +32,17 @@ const ReviewForm = () => {
 
         setErrors([]);
 
-        if(rate&&(rate>5||rate<0)){
+        if (rate && (rate > 5 || rate < 0)) {
             setErrors(['Rate should be between 0-5']);
             return;
         }
 
-        if(review?.length>200||review?.length===0){
+        if (review?.length > 200 || review?.length === 0) {
             setErrors(['Review length should be between 0-200']);
             return;
         }
 
-        const payload={
+        const payload = {
 
             userId: sessionUser.id,
             spotId: +spotId,
@@ -54,12 +54,18 @@ const ReviewForm = () => {
 
 
         history.push(`/spots/${spotId}`);
-        
+
     };
 
 
     return (
         <div id="modalLogIn">
+
+            <div className='booking-page-white-div'>
+                <NavLink exact to={`/spots/${spotId}`}>
+                    <button className="return-to-home">Return to the Listing</button>
+                </NavLink>
+            </div>
             <div id="modal-content">
                 <header className="login">Your review</header>
 
