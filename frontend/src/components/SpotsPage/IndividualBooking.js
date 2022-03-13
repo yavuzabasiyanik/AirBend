@@ -5,7 +5,7 @@ import { Link, NavLink, useHistory, useParams } from "react-router-dom";
 import * as bookingActions from "../../store/bookings";
 import * as spotActions from "../../store/spots";
 import './IndividualBookingPage.css';
-
+import Footer from "../Footer";
 const IndividualBookingPage = () => {
     const { userId } = useParams();
 
@@ -62,13 +62,15 @@ const IndividualBookingPage = () => {
 
         <div className="bookings-inv-main-div">
 
-            <div className='spots-container'>
+            <div className='booking-page-white-div'>
 
-                <div className='booking-page-white-div'>
-                    <NavLink exact to={'/'}>
-                        <button className="return-to-home">Return to Home page</button>
-                    </NavLink>
-                </div>
+                <NavLink exact to={'/'}>
+                    <button className="return-to-home">Return to Home page</button>
+                </NavLink>
+            </div>
+
+            <div className='spots-container'>
+            <h1 className='spots-h1'>Your Bookings</h1>
 
                 <div className='spots-alt-container'>
 
@@ -90,8 +92,8 @@ const IndividualBookingPage = () => {
                                             </p>
                                         </div>
                                     </Link>
-                                    <button id={e.id}  onClick={(e3) => handleBookingDelete(e3)} className="booking-button-delete" >Delete</button>
-                                    <button id={e.spotId}  onClick={(e3) => handleReviewForm(e3)} className="booking-button-rate" >Rate</button>
+                                    <button id={e.id} onClick={(e3) => handleBookingDelete(e3)} className="booking-button-delete" >Delete</button>
+                                    <button id={e.spotId} onClick={(e3) => handleReviewForm(e3)} className="booking-button-rate" >Rate</button>
                                 </div>
 
                             )
@@ -100,7 +102,9 @@ const IndividualBookingPage = () => {
                     })}
                 </div>
 
+                <Footer />
             </div>
+
         </div>
     )
 

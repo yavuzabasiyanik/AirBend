@@ -61,7 +61,7 @@ const ReviewForm = () => {
     return (
         <div id="modalLogIn">
 
-            <div className='booking-page-white-div'>
+            <div className='booking-page-white-div-2'>
                 <NavLink exact to={`/spots/${spotId}`}>
                     <button className="return-to-home">Return to the Listing</button>
                 </NavLink>

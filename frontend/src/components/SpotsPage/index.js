@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink, Route } from 'react-router-dom';
 import * as spotActions from "../../store/spots";
 import './SpotPage.css';
-
+import Footer from '../Footer';
 
 function Spots() {
 
@@ -26,18 +26,20 @@ function Spots() {
     return (
         <div className='spots-container'>
             <div className='booking-page-white-div'>
-                <NavLink exact to={'/'}>
-                    <button className="return-to-home">Return to Home page</button>
-                </NavLink>
+                <div className='div-between-nav-and-spots'>
+                    <NavLink exact to={'/'}>
+                        <button className="return-to-home">Return to Home page</button>
+                    </NavLink>
+                </div>
+
             </div>
-
+            <h1 className='spots-h1'>Discover AirBenD Experiences</h1>
             <div className='spots-alt-container'>
-
                 {spots && spots.map(e => {
-                    
+
                     return (
                         <Link key={e.id} to={`/spots/${+
-                        e.id}`}>
+                            e.id}`}>
                             <img className='spotsImage' src={e?.img1}></img>
                             <div className='spotsDiv'>
                                 <p className='plink2'>
@@ -52,6 +54,8 @@ function Spots() {
                         </Link>)
                 })}
             </div>
+            <Footer />
+
 
         </div>
 

@@ -6,6 +6,7 @@ import * as bookingActions from "../../store/bookings";
 import * as spotActions from "../../store/spots";
 import * as reviewActions from '../../store/reviews';
 import './Profile.css';
+import Footer from '../Footer';
 
 const Profile = () => {
 
@@ -113,6 +114,8 @@ const Profile = () => {
             <div className='white-div-for-profile-page'>
 
             </div>
+          <Footer />
+
         </div>
     )
 }

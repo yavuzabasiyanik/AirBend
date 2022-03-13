@@ -6,7 +6,7 @@ import * as bookingActions from "../../store/bookings";
 import * as spotActions from "../../store/spots";
 import * as reviewActions from '../../store/reviews';
 import './Reviews.css'
-
+import Footer from "../Footer";
 
 
 function Reviews({ spotId }) {
@@ -107,6 +107,7 @@ function Reviews({ spotId }) {
                     </div>
                 </div>
             </div>
+            <Footer />
 
         </div>
     )

@@ -42,7 +42,6 @@ function LoginForm() {
 
 
   return (
-    <div className="somethingidk">
       <div id="modalLogIn">
         <div id="modal-content">
           <header className="login">Log in</header>
@@ -95,8 +94,6 @@ function LoginForm() {
         </div>
 
       </div>
-      <Footer />
-    </div>
 
 
   );

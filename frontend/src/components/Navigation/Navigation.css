@@ -11,6 +11,9 @@
     z-index: 1000;
 
 }
+.logo-stuff{
+    cursor: pointer;
+}
 .headerWhite{
     display: flex;
     padding: 7px;

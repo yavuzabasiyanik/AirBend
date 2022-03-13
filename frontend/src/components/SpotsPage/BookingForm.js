@@ -182,7 +182,7 @@ const BookingForm = () => {
                                     </div>
                                     <div className="form-button">
 
-                                        <button className="" type="submit">Book</button>
+                                        <button className="" type="submit">Reserve</button>
                                     </div>
 
                                 </div>

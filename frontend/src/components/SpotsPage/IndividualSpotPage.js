@@ -5,7 +5,7 @@ import * as spotActions from "../../store/spots";
 import BookingForm from "./BookingForm";
 import Reviews from "./ReviewsPage";
 import './individual.css';
-
+import Footer from "../Footer";
 const IndividualSpotPage = () => {
 
 

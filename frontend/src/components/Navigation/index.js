@@ -103,11 +103,11 @@ function Navigation({ isLoaded }) {
   return (
     <div className={scroll ? 'headerWhite' : 'header'}>
       {scroll && (<div className='logoiconRed' onClick={(e) => handleClicking(e)} >
-        <p>AirBenD</p>
+        <p className='logo-stuff'>AirBenD</p>
       </div>)
       }
       {!scroll && (<div onClick={(e) => handleClicking(e)} className='logoiconWhite'>
-        <p>AirBenD</p>
+        <p className='logo-stuff'>AirBenD</p>
       </div>)
       }
       <div className='search-div' onMouseLeave={(e)=> setFilter([])}>

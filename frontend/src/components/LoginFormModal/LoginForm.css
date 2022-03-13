@@ -20,7 +20,9 @@ header.login{
 }
 
 
-
+.demo-cookie{
+    cursor: pointer;
+}
 input.login{
     width: 486px;
     border-radius: 6px;
