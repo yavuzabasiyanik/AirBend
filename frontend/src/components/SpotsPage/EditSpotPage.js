@@ -110,7 +110,7 @@ const EditSpot = () => {
 
     return (
         <div id="modalBecomeAHost">
-                <div className='booking-page-white-div'>
+                <div className='booking-page-white-div-create'>
                     <NavLink exact to={`/spots/${+spotId}`}>
                         <button className="return-to-home">Return to your listing</button>
                     </NavLink>
@@ -265,7 +265,7 @@ const EditSpot = () => {
                             Learn more.
                         </a>
                     </span>
-                    
+
                 </div>
             </div>
         </div>
