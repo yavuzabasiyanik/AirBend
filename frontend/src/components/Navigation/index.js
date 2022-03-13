@@ -13,7 +13,6 @@ function Navigation({ isLoaded }) {
   const [filterData, setFilter] = useState([]);
   const [search, setSearch] = useState('');
 
-  const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
 
@@ -27,6 +26,7 @@ function Navigation({ isLoaded }) {
   const spots = Object.values(spotsObj);
 
 
+  const sessionUser = useSelector(state => state.session.user);
 
 
 
@@ -34,6 +34,7 @@ function Navigation({ isLoaded }) {
 
 
   let sessionLinks;
+
   if (sessionUser) {
     sessionLinks = (
       <ProfileButton user={sessionUser} />

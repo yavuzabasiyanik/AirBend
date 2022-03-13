@@ -41,7 +41,7 @@ export const restoreUser = () => async dispatch => {
 export const signup = (user) => async (dispatch) => {
   const { username, email, password,profileImg } = user;
 
-  console.log(profileImg);
+  
 
   const response = await csrfFetch("/api/users", {
     method: "POST",

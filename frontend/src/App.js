@@ -19,6 +19,7 @@ import * as userAction from './store/user';
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+  
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
@@ -34,8 +35,6 @@ function App() {
   return (
 
     <>
-
-
       <Navigation isLoaded={isLoaded} />
       <Switch>
         <Route exact path='/login'>
