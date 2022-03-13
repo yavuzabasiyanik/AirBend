@@ -15,11 +15,12 @@ import IndividualBookingPage from "./components/SpotsPage/IndividualBooking";
 import ReviewForm from "./components/SpotsPage/ReviewForm";
 import Profile from "./components/ProfilePage";
 import * as userAction from './store/user';
+import Footer from "./components/Footer";
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
-  
+
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
@@ -33,9 +34,9 @@ function App() {
 
 
   return (
-
     <>
       <Navigation isLoaded={isLoaded} />
+
       <Switch>
         <Route exact path='/login'>
           <LoginForm />

@@ -118,6 +118,7 @@ function Navigation({ isLoaded }) {
           onChange={handleFilter}
           placeholder="Start your search"
           value={search}
+          onClick={(e)=> setSearch('')}
         />
         <img className='search-img' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaO-KtMrTzRRPDbYRZu8dIs5Gl6cfYCEZ4kA&usqp=CAU"></img>
           <div className={filterData?.length ==0?'search-name-container':'search-name-container-clickled'}>
