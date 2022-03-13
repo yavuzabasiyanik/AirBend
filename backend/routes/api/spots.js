@@ -134,7 +134,6 @@ const validateSpotsEdit = [
         .custom((value,{req}) => {
             return Spot.findOne({ where: { name: value } })
                 .then((spot) => {
-                    console.log(spot,'spotbakjnsaksjndakjdnakjnakjnda', req.body,'asjnkkajndakjdkladsajndakljdajklnd');
                     if (spot&& spot.id!=req.body.id) {
                         return Promise.reject('The provided Name already in use by another account');
                     }
