@@ -16,7 +16,7 @@ This is an airbnb clone. It's a place where you can find your dream vacation hou
  2. Install dependencies from the roo directory.
   * `npm install`
  3. Create a POSTGRESQL user.
-  * `CRAETE USER <username> WITH CREATEDB PASSWORD <'userpassword'>
+  * `CRAETE USER <username> WITH CREATEDB PASSWORD <'userpassword'>`
  4. Create a .env file in the backend directory based on the .env.example file.
  
  5. Enter your username and password info into the .env file along with the database name that you chose. Add compination of characters for your JWT_SECRET and desirec PORT.
