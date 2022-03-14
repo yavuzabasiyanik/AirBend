@@ -19,7 +19,7 @@ function Home() {
                     <div className="stuff">
                         <h1>Let your curiosity do the booking</h1>
                         <div className="imflexible"><NavLink exact to={'/spots'}>
-                            <button className="imflexible">I'm flexible</button>
+                            <button className="imflexible">Listings</button>
                         </NavLink>
                         </div>
                     </div>
