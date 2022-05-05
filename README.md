@@ -43,7 +43,7 @@ PostgreSQL was the database of choice because it is simple to work with, and is 
 
 ![image](https://user-images.githubusercontent.com/61038486/166872957-245dc295-21d5-4521-94d0-70c9522458eb.png)
 
-### Indiidual Spot Page
+### Individual Spot Page
  In this page users may see all the information about a particular spot. They can book their stay by using booking menu on the right side of the page. They can share their review with others from within this page. If the user is the owner of the spot, they will see the page differntly. They can update the description and all the other info about the spot, they can also delete the spot, if they do that, all the bookings and the reviews that the spot has will be deleted as well. 
  
 ![image](https://user-images.githubusercontent.com/61038486/166873054-54eba4b5-3109-4ff0-be2a-9e0f0ef6bb21.png)
