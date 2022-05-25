@@ -70,7 +70,11 @@ const IndividualSpotPage = () => {
         const anchor = document.querySelector('#review-dady-div')
         anchor.scrollIntoView({ behavior: 'smooth', block: 'center' })
     }
+    
+    useEffect(() => {
 
+        window.scrollTo(0, 0)
+    }, [])
 
     return (
         <>

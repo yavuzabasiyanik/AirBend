@@ -24,7 +24,6 @@
 
 .grid-div-reviews {
     width: auto;
-
     height: auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -85,8 +84,8 @@
     border-bottom-right-radius: 30px;
 
     word-wrap: break-word;
-    max-width: 545.6px;
-    min-width: 545.6px;
+    min-width: 323px;
+
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
 
 
@@ -103,14 +102,23 @@
     border-bottom: 2px solid rgba(0, 0, 0, .1);
     border-left: 2px solid rgba(0, 0, 0, .1);
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+    height: 45px;
+    transition: all 100ms ease-in;
+    width: 54px;
 }
+
+.review-button-delete:hover {
+    width: 58px;
+    height: 46px;
+}
+
 
 .review-button-comment {
     border: none;
     background: none;
     text-decoration: underline;
     color: black;
-    width: auto;
+    width: 119px;
     height: 60px;
     font-weight: bold;
     cursor: pointer;
@@ -124,5 +132,13 @@
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
 
+    transition: all 100ms ease-in;
+
+}
+
+.review-button-comment:hover {
+    width: 124px;
+    height: 62px;
+    top: -62px;
 
 }

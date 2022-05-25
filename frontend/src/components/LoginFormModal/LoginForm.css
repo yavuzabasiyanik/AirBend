@@ -44,6 +44,11 @@ button.login{
     font-size: 16px;
     transition: opacity 1.25s ease 0s;
     background-image: radial-gradient(circle at center center, #ff385c 0%, #e61e4d 27.5%, #e31c5f 40%, #d70466 57.5%, #bd1e59 75%, #bd1e59 100%);
+    cursor: pointer;
+}
+button.login:hover{
+    background-image: radial-gradient(circle at center center, #ff385c 0%, #ff385c 27.5%, #ff385c 40%, #ff385c 57.5%, #ff385c 75%, #ff385c 100%);
+
 }
 
 #altbar{

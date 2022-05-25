@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink, useHistory, useParams } from "react-router-dom";
 import * as bookingActions from "../../store/bookings";
@@ -9,7 +9,7 @@ import Footer from "../Footer";
 const IndividualBookingPage = () => {
     const { userId } = useParams();
 
-
+    const [bookingDeleteModal, setBookingDeleteModal] = useState([false,-1]);
 
     const history = useHistory();
 
@@ -26,6 +26,10 @@ const IndividualBookingPage = () => {
 
     }, [dispatch]);
 
+    useEffect(() => {
+
+        window.scrollTo(0, 0)
+    }, [])
 
     const sessionUser = useSelector((state) => state.session.user);
     const bookingObj = useSelector((state) => state?.bookingReducer?.bookings);
@@ -35,18 +39,33 @@ const IndividualBookingPage = () => {
     const bookings = Object.values(bookingObj)
 
 
+    let menuRef = useRef()
 
+    useEffect(() => {
+        const handler = (event) => {
+            if (!menuRef?.current?.contains(event.target)) {
 
-    const handleBookingDelete = (elemetn) => {
+                setBookingDeleteModal([false, -1]);
+            }
+        }
+        document.addEventListener('mousedown', handler);
+
+        return () => {
+            document.removeEventListener('mousedown', handler)
+        }
+    });
+
+    const handleBookingDelete = (elemetn,id) => {
         elemetn.preventDefault();
 
-        const id = elemetn?.target?.id;
+        // const id = elemetn?.target?.id;
 
 
         if (id) {
 
             dispatch(bookingActions.deleteBooking({ id }));
         }
+        setBookingDeleteModal([false,-1])
     }
 
 
@@ -70,7 +89,7 @@ const IndividualBookingPage = () => {
             </div>
 
             <div className='spots-container'>
-            <h1 className='spots-h1'>Your Bookings</h1>
+                <h1 className='spots-h1'>Your Bookings</h1>
 
                 <div className='spots-alt-container'>
 
@@ -81,7 +100,7 @@ const IndividualBookingPage = () => {
                                 <div key={e.id} className="positionrelative">
                                     <Link key={e.id} to={`/spots/${+e?.spotId}`}>
                                         <p className="name-username">{e?.Spot?.name}</p>
-                                        <img className='spotsImage' alt="" src={e.Spot?.img1}></img>
+                                        <img className='spotsImage2' alt="" src={e.Spot?.img1}></img>
                                         <div className='spotsDiv'>
                                             <p className='plink2'>
                                                 {new Date(e?.startDate).toLocaleDateString('en-US')}<span className="to"> to </span>{new Date(e.endDate).toLocaleDateString('en-US')}
@@ -92,7 +111,7 @@ const IndividualBookingPage = () => {
                                             </p>
                                         </div>
                                     </Link>
-                                    <button id={e.id} onClick={(e3) => handleBookingDelete(e3)} className="booking-button-delete" >Delete</button>
+                                    <button id={e.id} onClick={() => setBookingDeleteModal([true,e?.id])} className="booking-button-delete" >Delete</button>
                                     <button id={e.spotId} onClick={(e3) => handleReviewForm(e3)} className="booking-button-rate" >Rate</button>
                                 </div>
 
@@ -104,6 +123,27 @@ const IndividualBookingPage = () => {
 
                 <Footer />
             </div>
+            {bookingDeleteModal[0] &&
+            (
+                <div className='background-modal'>
+                <div ref={menuRef} className="modal-container-edit-delete-post-modal">
+                    <div className="areYouSureYouwannaDelete" >
+                        <div className='pareyousure'>
+                            <p className='deletePostA'>Delete Booking?</p>
+                            <p className='areyousuredeletepost'>Are you sure you want to delete this booking?</p>
+                        </div>
+                        <div onClick={(e) => handleBookingDelete(e, bookingDeleteModal[1])} className="yes">
+                            {/* edit-delete-post-modal-divs navlink-delete */}
+                            <button  className="navlink-delete">Yes</button>
+                        </div>
+                        <div className="edit-delete-post-modal-divs" onClick={() => setBookingDeleteModal([false,-1])}>
+                            Cancel
+                        </div>
+                    </div>
+                </div>
+            </div>
+            )
+            }
 
         </div>
     )

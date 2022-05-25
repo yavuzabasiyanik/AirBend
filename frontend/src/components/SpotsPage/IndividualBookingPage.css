@@ -1,42 +1,59 @@
-.bookings-inv-main-div{
+.bookings-inv-main-div {
     position: absolute;
     width: 100%;
-    top:94px;
+    top: 94px;
     height: 100%;
     background-color: white;
 }
 
-.to{
-    color: rgba(0,0,0,.7);
+.to {
+    color: rgba(0, 0, 0, .7);
     font-size: 13px;
 }
 
-.name-username{
+.name-username {
     color: #222;
     font-size: 16px;
     text-align: center;
 }
 
-.username{
+.username {
     font-weight: bold;
 }
-.positionrelative{
+
+.positionrelative {
     position: relative;
 }
 
-.booking-button-delete{
-    position: absolute;
-    top:23px;
-    right:0px;
-    width:40px;
-    height:40px;
-    font-size:10px;
-    padding:0;
+.spotsImage2 {
+    width: 100%;
+    height: 321px;
+    border-radius: 20px;
     border: none;
-    background: rgba(255,255,255,1);
+    image-rendering: auto;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: -webkit-optimize-contrast;
+    transition: all 100ms ease-in;
+
+}
+
+.spotsImage2:hover {
+    height: 329px;
+}
+
+.booking-button-delete {
+    position: absolute;
+    top: 23px;
+    right: 0px;
+    width: 40px;
+    height: 40px;
+    font-size: 10px;
+    padding: 0;
+    border: none;
+    background: rgba(255, 255, 255, 1);
 
     z-index: 100;
-    text-decoration: underline;
     color: rgb(0, 0, 0);
     font-weight: bold;
     cursor: pointer;
@@ -44,22 +61,27 @@
 
     border-top-right-radius: 50%;
     border-bottom-left-radius: 50%;
-    border: 1px solid rgba(0,0,0,.1);
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
+    border: 1px solid rgba(0, 0, 0, .1);
+    transition: all 100ms ease-in;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
 }
 
-.booking-button-rate{
+.booking-button-delete:hover {
+    background-color: red;
+    color: white;
+}
+
+.booking-button-rate {
     position: absolute;
-    top:23px;
-    left:0px;
-    width:40px;
-    height:40px;
-    font-size:10px;
-    padding:0;
+    top: 23px;
+    left: 0px;
+    width: 40px;
+    height: 40px;
+    font-size: 10px;
+    padding: 0;
     border: none;
-    background: rgba(255,255,255,1);
+    background: rgba(255, 255, 255, 1);
     z-index: 100;
-    text-decoration: underline;
     color: rgb(0, 0, 0);
     font-weight: bold;
     cursor: pointer;
@@ -68,31 +90,143 @@
     border-top-left-radius: 50%;
     border-bottom-right-radius: 50%;
 
-    border: 1px solid rgba(0,0,0,.1);
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
+    border: 1px solid rgba(0, 0, 0, .1);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+}
+
+.booking-button-rate:hover {
+    background-color: rgb(0, 119, 255);
+    color: white;
 }
 
 
-
-.booking-page-white-div{
+.booking-page-white-div {
     width: 100%;
-    height:94px;
-    background-color: black;
+    height: 94px;
 }
-.booking-page-white-div-2{
+
+.booking-page-white-div-2 {
     width: 100%;
-    height:100px;
+    height: 100px;
     background-color: white;
 }
 
-.booking-page-white-div button{
+.booking-page-white-div button {
     z-index: 1000;
-}
-.booking-page-white-div-create{
-    width: 100%;
-    height:125px;
 }
 
-.booking-page-white-div-create button{
+.booking-page-white-div-create {
+    width: 100%;
+    height: 125px;
+}
+
+.booking-page-white-div-create button {
     z-index: 1000;
+}
+
+
+.background-modal{
+    top: 0;
+    bottom:0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .7);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100222;
+}
+
+
+.modal-container-edit-delete-post-modal {
+    width: 400px;
+    height: auto;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: -1000px;
+    animation: dropDeleteUpdatePost .4s ease forwards;
+    border-radius: 8px;
+}
+.areYouSureYouwannaDelete {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.pareyousure {
+    display: flex;
+    height: 100px;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid rgba(var(--b6a, 219, 219, 219), .8);
+    width: 379px;
+
+}
+
+.deletePostA {
+    color: #262626;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 2px;
+
+
+}
+
+.areyousuredeletepost {
+    color: #262626;
+    opacity: .6;
+    font-size: 14px;
+}
+
+.yes{
+    min-height: 48px;
+    border-bottom: 1px solid rgba(var(--b6a, 219, 219, 219), .8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.navlink-delete {
+    background: none;
+    border: none;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #ed4956;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.edit-delete-post-modal-divs {
+    width: 100%;
+    min-height: 48px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #262626;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+@keyframes dropDeleteUpdatePost {
+    0% {
+        opacity: 0;
+    }
+
+    70% {
+        transform: translateY(1500px);
+    }
+
+    100% {
+        transform: translateY(1310px);
+        opacity: 1;
+    }
 }

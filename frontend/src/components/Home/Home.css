@@ -70,7 +70,7 @@
 }
 
 .imflexible{
-    width: 161.43px;;
+    width: 161.43px;
     background-color: whitesmoke;
     height: 56px;
     border:none;
@@ -81,6 +81,14 @@
     color:#6F019C;
     font-weight: 600;
     font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+    transition: all 100ms ease-out
+}
+
+
+.imflexible:hover{
+    width: 170.43px;
+    height: 60px;
+
 }
 
 .spots-home-page-four{

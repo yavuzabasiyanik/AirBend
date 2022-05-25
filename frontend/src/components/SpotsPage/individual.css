@@ -73,6 +73,11 @@ header.login{
         border-radius: 6px;
         border: 1px solid rgba(0,0,0,.1);
         box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
+        transition: all 100ms ease-in;
+}
+
+.spot-button-edit:hover{
+    width: 53px;
 }
 
 
@@ -86,7 +91,13 @@ header.login{
     border-radius: 6px;
     border: 1px solid rgba(0,0,0,.1);
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
+    transition: all 400ms ease-in;
+
 }
+.spot-button-delete:hover{
+    width: 57px;
+}
+
 
 .greyclasscountrystatecity{
     font-size: 14px;

@@ -53,10 +53,12 @@
     justify-content: space-around;
     border: 1px solid rgba(0,0,0,.1);
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
+    transition: all 100ms ease-in;
+}
 
-
-
-
+.link:hover{
+    width: 75px;
+    height: 43px;
 }
 
 
@@ -75,12 +77,20 @@
     border-radius: 30px;
     border: 1px solid rgba(0,0,0,.1);
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
+    transition: all 100ms ease-in;
+}
+
+.link-become-a-host:hover{
+    width: 109px;
+    color:#6F019C;
+    height: 44px;
 }
 
 .spots-page-white-div{
     padding: 30px 78px;
     display: flex;
 }
+
 .return-to-home{
     background: white;
     border: none;
@@ -96,6 +106,12 @@
 
     border: 1px solid rgba(0,0,0,.1);
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
+    transition: all 100ms ease-in;
+}
+
+.return-to-home:hover{
+    width: 104px;
+    height: 45px;
 }
 
 
@@ -112,18 +128,19 @@
 
 .dropdown-menu{
     position: absolute;
-    left:0;
+    right:25px;
     top: calc(100% + .25rem);
     background-color:  white;
     padding: .75rem;
     border-radius: .25rem;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
     opacity: 1;
+    transition: all 100ms ease-in;
 }
 
-/* .dropdown-menu.active{
-    opacity: 1;
-} */
+
+
+
 .hamburger-container{
     display: flex;
     flex-direction: column;
@@ -197,11 +214,12 @@ p{
     color:black;
     transition-property: font-size;
     transition-duration: .3s;
+    cursor: pointer;
 
 }
 
 .hlsLinks:hover{
-    font-size: 15px;
+    font-size: 14px;
     font-weight: bold;
 }
 

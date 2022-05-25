@@ -36,7 +36,10 @@ const Profile = () => {
         dispatch(reviewActions.getReviews())
     }, [dispatch])
 
+    useEffect(() => {
 
+        window.scrollTo(0, 0)
+    }, [])
 
     const spotsObj = useSelector((state) => state?.spotReducer?.spots);
 

@@ -115,7 +115,7 @@ const BookingForm = () => {
         history.push(`/bookings/${sessionUser.id}`)
     }
 
-
+    // You are either not logged in or you are the owner of this spot. Thus you cannot book this place right now.
 
     return (
         <div className="bigBookingFormDiv">
@@ -131,9 +131,14 @@ const BookingForm = () => {
                         {spot && <img src={`${spot?.User?.profileUrl}`}></img>}
 
                     </div>
-                    {sessionUser && (sessionUser?.id !== spot?.User?.id) && (
+                    {true && (
                         <div className="form-individual-page">
+                            {!sessionUser || !(sessionUser?.id !== spot?.User?.id) && (
+                                <div className="kapatma">
+                                    <p className="kapatmap">You are either not logged in or you are the owner of this spot. Thus you cannot book this place right now.</p>
+                                </div>
 
+                            )}
 
                             <form onSubmit={handleSubmit}>
                                 <div className="inside-of-the-form">

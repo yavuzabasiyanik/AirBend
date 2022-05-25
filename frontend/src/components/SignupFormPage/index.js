@@ -1,5 +1,5 @@
 // frontend/src/components/SignupFormPage/index.js
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
@@ -42,12 +42,16 @@ function Signup() {
     return setErrors(['Confirm Password field must be the same as the Password field']);
   };
 
+
+
   const cookieFunctionDemo = (e) => {
     e.preventDefault();
 
     dispatch(sessionActions.login({ credential: 'sifuhotman', password: 'password' }))
 
   }
+
+
 
   return (
     <div id="modalSignUp">
