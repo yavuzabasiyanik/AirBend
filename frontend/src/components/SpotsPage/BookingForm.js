@@ -124,7 +124,7 @@ const BookingForm = () => {
                     <div className="info-about-the-house">
 
                         <div className="child-info-about-the-house">
-                            <h2>Hosted by <NavLink className={'profile-navlink'} exact to={`/profile/${spot?.User?.id}`}><span className="hosted-by-username">{spot?.User?.username}</span></NavLink></h2>
+                            <h2>Hosted by <span className="hosted-by-username">{spot?.User?.username}</span></h2>
                             <p>{spot?.bedNum} guests.</p>
                             <p>{spot?.description}</p>
                         </div>

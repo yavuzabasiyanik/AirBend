@@ -141,7 +141,7 @@
 }
 
 .hosted-by-username {
-    text-decoration: underline;
+    font-weight: bold;
 }
 
 .plink2 {

@@ -24,9 +24,17 @@ const Footer = () => {
                         <h3>
                             Projects
                         </h3>
-                        <a href='https://the-best-stuck-overflow.herokuapp.com/' target='_blank' >
+                        <a className='bilgiseyar' href='https://genzon.herokuapp.com/' target='_blank' >
+                            GenZon
+                        </a>
+                        <a className='bilgiseyar' href='https://memestagram-group-project.herokuapp.com/login' target='_blank' >
+                            Memestagram
+                        </a>
+                        <a className='bilgiseyar' href='https://the-best-stuck-overflow.herokuapp.com/' target='_blank' >
                             Stuckoverflow
                         </a>
+                        {/* https://genzon.herokuapp.com/ */}
+                        {/* https://memestagram-group-project.herokuapp.com/login */}
                     </div>
                     <div className='same-4-div'>
                         <h3>
@@ -51,8 +59,8 @@ const Footer = () => {
                             About Me
                         </h3>
 
-                        <a target='_blank' href='https://github.com/yavuzabasiyanik'><i class="fa-brands fa-github fa-2xl"></i></a>
-                        <a target='_blank' href='https://www.linkedin.com/in/yavuz-abasiyanik-a4a86720a/'><i class="fa-brands fa-linkedin fa-2xl"></i></a>
+                        <a style={{marginTop:"-19px"}} target='_blank' href='https://github.com/yavuzabasiyanik'><i class="fa-brands fa-github fa-2xl"></i></a>
+                        <a style={{marginTop:"-1px"}} target='_blank' href='https://www.linkedin.com/in/yavuz-abasiyanik-a4a86720a/'><i class="fa-brands fa-linkedin fa-2xl"></i></a>
 
                     </div>
 

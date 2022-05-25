@@ -1,65 +1,71 @@
-.footer{
-    width:100%;
+.footer {
+    width: 100%;
     background-color: whitesmoke;
     margin-top: 100px;
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .3);
     bottom: 0;
     position: relative;
 }
 
-.inside-footer{
-    height:100%;
+.inside-footer {
+    height: 100%;
     width: 90%;
     margin: 0 auto;
 }
 
-.grid-div-footer{
-    height:100%;
+.grid-div-footer {
+    height: 100%;
     padding: 48px 0;
     box-sizing: border-box;
-    width:100%;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows:  1fr;
+    grid-template-rows: 1fr;
 
 }
 
-.same-4-div{
+.same-4-div {
     padding: 0 12px;
     text-align: center;
-
+    display: flex;
+    flex-direction: column;
 }
 
-.same-4-div h3{
-    font-size:14.5px;
+.same-4-div h3 {
+    font-size: 14.5px;
     color: #222222;
-    margin: 0 0 30px;
+    margin: 0 0 5px;
     text-align: center;
 
 }
-
-.same-4-div a{
-    font-size:14px;
+.same-4-div a {
+    font-size: 14px;
     margin: 12px auto 0;
 
     color: #484848;
 }
 
-.bunch-of-ps{
-    font-size:14px;
+.bilgiseyar:hover{
+
+    font-weight: 700;
+}
+
+.bunch-of-ps {
+    font-size: 14px;
     text-align: center;
 
     margin: 12px 0 0;
 }
 
 
-.fa-github{
-    color:black;
+.fa-github {
+    color: black;
     display: block;
     margin-top: 50px;
 
 }
-.fa-linkedin{
-    color:#0E76A8;
+
+.fa-linkedin {
+    color: #0E76A8;
     margin-top: 40px;
 }

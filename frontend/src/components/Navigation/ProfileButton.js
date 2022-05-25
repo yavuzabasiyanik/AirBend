@@ -52,7 +52,7 @@ function ProfileButton({ user }) {
       {showMenu && (<div className="dropdown-menu dropdown-inside" >
         <div>
           <div className="dropdown-links">
-            <NavLink exact to={`/profile/${sessionUser.id}`}><p className="hlsLinks">{user?.username}</p></NavLink>
+            {/* <NavLink exact to={`/profile/${sessionUser.id}`}><p className="hlsLinks">{user?.username}</p></NavLink> */}
             <NavLink exact to={`/bookings/${user?.id}`}><p className="hlsLinks">Bookings</p></NavLink>
             <p className="hlsLinks" onClick={logout}>Log Out</p>
           </div>
