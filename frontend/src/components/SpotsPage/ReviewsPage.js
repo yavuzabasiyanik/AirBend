@@ -62,7 +62,7 @@ function Reviews({ spotId }) {
 
         }else{
 
-            alert('Haha nice try, you need to create a booking first to add a comment. Please fill out the form above.');
+            alert('You need to create a booking first to add a comment. Please fill out the form above.');
         }
 
     }

@@ -88,17 +88,6 @@ header.login{
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
 }
 
-/* .edit-delete-spot-buttons:last-child{
-    background: white;
-    border: none;
-    color: black;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 30px;
-    border: 1px solid rgba(0,0,0,.1);
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
-} */
-
 .greyclasscountrystatecity{
     font-size: 14px;
     color: rgba(0,0,0, 0.3);

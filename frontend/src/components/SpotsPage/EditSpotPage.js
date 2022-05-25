@@ -185,7 +185,7 @@ const EditSpot = () => {
                                 value={address}
                                 onChange={(e) => setAddress(e.target.value)}
                                 required
-                                placeholder="Address pls, dw I won't come after u."
+                                placeholder="Address."
                             />
                         </label>
                         <label>

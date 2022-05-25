@@ -1,84 +1,89 @@
-.bigBookingFormDiv{
-    height:652px;
+.bigBookingFormDiv {
+    height: fit-content;
     width: 100%;
     background-color: white;
     position: relative;
 }
 
-.medium-div-form-div{
-    height:652px;
+.medium-div-form-div {
+    height: fit-content;
     width: 70%;
     margin: 0 auto;
 
 }
 
-.dady-info-about-the-house{
+.dady-info-about-the-house {
     width: 823px;
-    margin:  0 auto;
-    height:100%;
+    margin: 0 auto;
+    height: fit-content;
     padding: 28px 0 24px;
 }
-.info-about-the-house{
+
+.info-about-the-house {
     width: 552px;
-    height:300px;
+    height: 300px;
     display: inline-grid;
     grid-template-columns: 9fr 1fr;
 }
-.child-info-about-the-house{
-    width:552px;
-    height:100%;
+
+.child-info-about-the-house {
+    width: 552px;
+    height: 100%;
 }
-.child-info-about-the-house h2{
+
+.child-info-about-the-house h2 {
     color: #222222;
     margin-bottom: 2px;
     font-weight: 500;
 }
 
-.child-info-about-the-house p{
-    color: rgba(0,0,0,.9);
+.child-info-about-the-house p {
+    color: rgba(0, 0, 0, .9);
     margin-bottom: 30px;
     word-wrap: break-word;
 }
 
-.info-about-the-house img{
+.info-about-the-house img {
     width: 56px;
-    height:56px;
+    height: 56px;
     border-radius: 30px;
 }
 
-.form-individual-page{
+.form-individual-page {
     width: 373px;
-    height:330px;
+    height: 330px;
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 12px;
     padding: 24px;
     position: absolute;
-    right:30px;
+    right: 30px;
     display: inline-block;
     box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
 }
-.form-individual-page form{
-    height:100%;
+
+.form-individual-page form {
+    height: 100%;
 }
 
-.inside-of-the-form{
-    width:100%;
-    height:100%;
+.inside-of-the-form {
+    width: 100%;
+    height: 100%;
     display: grid;
     grid-template-rows: 48px 1fr 48px;
 }
 
-.form-button{
-    grid-row:3/4;
+.form-button {
+    grid-row: 3/4;
 }
 
-.form-button button{
-    width: 330px;
-    height:100%;
+.form-button button {
+    width: 87%;
+    height: 100%;
+    cursor: pointer;
     border-radius: 6px;
-    margin:0 auto;
-    color:white;
+    margin: 0 auto;
+    color: white;
     border: 0px;
     display: block;
     min-width: 200px;
@@ -90,77 +95,92 @@
     font-weight: 600;
 }
 
-.something-i-guess-i-forogt-lol{
+.form-button button:hover{
+    background-image: radial-gradient(circle at center center, #ff385c 0%, #ff385c 27.5%, #ff385c 40%, #ff385c 57.5%, #ff385c 75%, #ff385c 100%);
+
+}
+
+.something-i-guess-i-forogt-lol {
     position: relative;
 }
-.guest-number-div{
-    width:100%;
-    height:50px;
+
+.guest-number-div {
+    width: 100%;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-position: absolute;
-bottom: 41px;
+    position: absolute;
+    bottom: 41px;
+    margin-left: -6px;
+
 
 }
 
-.profile-navlink{
+.profile-navlink {
     color: #222;
     font-weight: bold;
 }
 
-.guest-number-div input{
-    width:100%;
-    height:38px;
+.guest-number-div input {
+    width: 100%;
+    height: 38px;
     border-radius: 10px;
     border: none;
-    border: 1px solid rgba(0,0,0,.3);
+    border: 1px solid rgba(0, 0, 0, .3);
     box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+    padding-left: 7px;
 
 }
-.guest-number-div label{
-    width:317px;
-    height:40px;
+
+.guest-number-div label {
+    width: 317px;
+    height: 40px;
     margin: 0 auto;
     font-weight: 500;
 }
 
-.hosted-by-username{
+.hosted-by-username {
     text-decoration: underline;
 }
 
-.plink2{
+.plink2 {
     color: #222;
     font-weight: bold;
     font-size: 15px;
 }
-.checkincheckout input{
-      width:318px;
-    height:40px;
+
+.checkincheckout input {
+    width: 318px;
+    height: 40px;
+    padding-left: 7px;
     border-radius: 10px;
     border: none;
-    border: 1px solid rgba(0,0,0,.3);
+    border: 1px solid rgba(0, 0, 0, .3);
     box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
 
 }
-.checkincheckout{
-    width:100%;
-    height:110px;
+
+.checkincheckout {
+    width: 100%;
+    height: 110px;
+    margin-left: -5px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
 }
-.checkincheckout label{
-    width:322px;
-    height:40px;
+
+.checkincheckout label {
+    width: 322px;
+    height: 40px;
     margin: 0 auto;
     font-weight: 500;
 }
 
-.errors-cotainer{
-    height:40px;
+.errors-cotainer {
+    height: 40px;
     width: 322px;
     margin: 0 auto;
 }
@@ -176,8 +196,33 @@ bottom: 41px;
 
 
 
-@media screen and (max-width:1216px){
-    .form-individual-page{
-        position: static;
+@media screen and (max-width:1345px) {
+    .form-individual-page {
+        width: 300px;
+        padding: 19px;
     }
+
+    .checkincheckout input {
+        width: 278px;
+    }
+
+    .checkincheckout {
+        width: 280px;
+        margin: 0 9px;
+
+    }
+
+    .guest-number-div {
+        margin: 0 9px;
+    }
+
+    .guest-number-div input {
+        width: 273px;
+
+    }
+
+    .form-button button {
+        margin-right: 30px
+    }
+
 }
